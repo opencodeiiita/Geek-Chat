@@ -23,8 +23,8 @@
 ### How to Setup?
 
 * Fork the repo.
-* Clone it to your local setup
-* Run the following command `npm install`
-* Run the command `node app.js`
+* Clone it to your local setup by using the command `git clone <repo link>`
+* Run the following command in the root directory of the project `npm install`
+* After the process is completed run the command `node app.js`
 * The website will be live on [localhost:3000](https://localhost:3000)
 
