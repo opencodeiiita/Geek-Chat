@@ -40,8 +40,8 @@ GeekChat is a simple bi-directional communication app where users can join rooms
     |-- main.html      #Main chatting page of the website
 |    
 |-- utils/
-    |-- message.js/    #Contains all functions and variables concerning Chat Messages.
-    |-- users.js/      #Contains all functions and variables concerning Users
+    |-- message.js     #Contains all functions and variables concerning Chat Messages.
+    |-- users.js       #Contains all functions and variables concerning Users
 |    
 |-- app.js             #Main Server file that setups and runs the node server.
 
@@ -55,7 +55,7 @@ GeekChat is a simple bi-directional communication app where users can join rooms
 
 * Reference the issue numbers in the commit message if it resolves an open issue.**Follow the PR template strictly.**
 
-* In case you want to change the styling of the website do not change the .css files instead change the .scss files and then compile them.(More details)[https://ritwickdey.github.io/vscode-live-sass-compiler/docs/faqs.html]
+* In case you want to change the styling of the website do not change the .css files instead change the .scss files and then compile them.[More details](https://ritwickdey.github.io/vscode-live-sass-compiler/docs/faqs.html)
 
 * Do not use unneccesary variables or functions and follow a easy and understandable code struture with proper comments.
 
