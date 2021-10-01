@@ -57,7 +57,7 @@ GeekChat is a simple bi-directional communication app where users can join rooms
 
 * In case you want to change the styling of the website do not change the .css files instead change the .scss files and then compile them.[More details](https://ritwickdey.github.io/vscode-live-sass-compiler/docs/faqs.html)
 
-* Do not use unneccesary variables or functions and follow a easy and understandable code struture with proper comments.
+* Do not use unneccesary variables or functions and follow a easy and understandable code structure with proper comments.
 
 * Provide the link to live heroku pages from your forked repository or relevant screenshot for easier review.
 
