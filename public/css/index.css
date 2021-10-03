@@ -89,19 +89,4 @@ body .main-div form select:focus {
   font-size: 20px;
   border: 3px solid black;
 }
-
-body .main-div form button {
-  background: none;
-  padding: 5px;
-  font-size: 25px;
-  border: 3px solid #000;
-  border-radius: 10px;
-  -webkit-transition: ease-in-out;
-  transition: ease-in-out;
-}
-
-body .main-div form button:hover {
-  -webkit-box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
-          box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
-}
 /*# sourceMappingURL=index.css.map */
