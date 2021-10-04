@@ -4,6 +4,7 @@
 
 GeekChat is a simple bi-directional communication app where users can join rooms and have live text messaging with other users present in the room. It works on the functionalities of Web Sockets and simple HTTPS requests.[Visit here](https://oc-geekchat.herokuapp.com/)
 
+And don't forget to star ⭐ the repo, it helps ^^.
 ### Tech Stack
 * Nodejs
 * Express
