@@ -41,4 +41,5 @@
 - [Saloni Doshi](https://github.com/saloni33)
 - [Pranavi Tadivalasa](https://github.com/Ms-Error)
 - [Tanushree](https://github.com/Tanushree-coder)
+- [Aaryan Gupta](https://github.com/Aaryan0424)
 <!-- Add yourself above this line! -->
