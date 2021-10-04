@@ -42,4 +42,6 @@
 - [Pranavi Tadivalasa](https://github.com/Ms-Error)
 - [Tanushree](https://github.com/Tanushree-coder)
 - [Aaryan Gupta](https://github.com/Aaryan0424)
+- [Janhavi Bawaskar](https://github.com/janhaviiii)
+
 <!-- Add yourself above this line! -->
