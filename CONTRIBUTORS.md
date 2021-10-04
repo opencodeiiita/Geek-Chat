@@ -15,10 +15,8 @@
 - [Agrim Verma](https://github.com/AgrimVerma)
 - [Kirti Singla](https://github.com/codesanta142)
 - [sai suman kumar](https://github.com/saisumanthkumar)
-- [Rohit Yadav](https://github.com/yadav-rohit)
 - [Prasanta Barman](https://github.com/prasanta352)
 - [Vijay Karanjkar](https://github.com/Vijay-K-2003)
 - [Revathi Ari](https://github.com/Revathi2306)
-
+- [Rohit Yadav](https://github.com/yadav-rohit)
 <!-- Add yourself above this line! -->
-![Screenshot 2021-10-04 121700](https://user-images.githubusercontent.com/49914319/135807653-b9e9593f-7f0a-43b5-9c87-cfb09c3dda06.jpg)
