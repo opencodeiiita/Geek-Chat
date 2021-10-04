@@ -27,4 +27,5 @@
 - [Puja Saraf](https://github.com/Puja-Saraf)
 - [Sauahrd Srivastava](https://github.com/sauhard22)
 - [Ramanpreet Singh](https://github.com/raman5911)
+- [Aditya Singh Machhaiya](https://github.com/asingh1601)
 <!-- Add yourself above this line! -->
