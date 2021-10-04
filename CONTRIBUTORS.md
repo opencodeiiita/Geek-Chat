@@ -21,4 +21,5 @@
 - [Rohit Yadav](https://github.com/yadav-rohit)
 - [Anjali Sahu](https://github.com/99anjali)
 - [Danish Ahmed Mirza](https://github.com/try-catch-stack)
+- [Raghav Goel](https://github.com/raghavgoel25)
 <!-- Add yourself above this line! -->
