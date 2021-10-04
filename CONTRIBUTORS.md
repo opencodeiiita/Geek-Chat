@@ -17,4 +17,7 @@
 - [sai suman kumar](https://github.com/saisumanthkumar)
 - [Prasanta Barman](https://github.com/prasanta352)
 - [Anjali Sahu](https://github.com/99anjali)
+- [Vijay Karanjkar](https://github.com/Vijay-K-2003)
+- [Revathi Ari](https://github.com/Revathi2306)
+- [Rohit Yadav](https://github.com/yadav-rohit)
 <!-- Add yourself above this line! -->
