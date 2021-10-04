@@ -12,6 +12,7 @@ function outputMessage(msg) {
         ${msg.text}
     </p>`;
     document.querySelector(".chat-messages").appendChild(div);
+    scrollToBottom();
 }
 
 const form=document.getElementById("chat-form");
@@ -21,5 +22,9 @@ form.addEventListener("submit",e=>{
     socket.emit("chatMessage",msg);
     e.target.elements.msg.value='';
     e.target.elements.msg.focus();
-
+    scrollToBottom();
 })
+
+function scrollToBottom() {
+    document.querySelector(".chat-messages").scrollTop = document.querySelector(".chat-messages").scrollHeight
+}
