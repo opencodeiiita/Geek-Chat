@@ -30,4 +30,7 @@
 - [Srishti Dhir](https://github.com/srishtayy)
 - [Divyansh Gupta](https://github.com/The-Divyansh)
 - [Gude Lakshmi](https://github.com/gudelakshmi)
+- [Prakhar jalan](https://github.com/jalanprakhar)
+- [Aashita Chouhan](https://github.com/aashitachouhan)
+- [Palak Ahuja](https://github.com/Palak-2109)
 <!-- Add yourself above this line! -->
