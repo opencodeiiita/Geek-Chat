@@ -2,6 +2,7 @@
 
 <!-- Format for adding contributor is as follows-
 - [Aditya Verma](https://github.com/homewardgamer) -->
+
 - [Aditi Yadav](https://github.com/adtoria)
 - [Prakhar Awasthi](https://github.com/prakhar011)
 - [Mallik Prabhanjan](https://github.com/vemulapandu)
@@ -41,4 +42,5 @@
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
+- [Mayank Kumar](https://github.com/mayank-kr)
 <!-- Add yourself above this line! -->
