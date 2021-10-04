@@ -35,5 +35,12 @@
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 - [Palak Ahuja](https://github.com/Palak-2109)
 - [Shadaan Hussain](https://github.com/shadaanhussain)
+- [Saloni Doshi](https://github.com/saloni33)
+- [Pranavi Tadivalasa](https://github.com/Ms-Error)
+- [Tanushree](https://github.com/Tanushree-coder)
+- [Aaryan Gupta](https://github.com/Aaryan0424)
+- [Janhavi Bawaskar](https://github.com/janhaviiii)
 - [Botte Shreya](https://github.com/shreya-0508)
+
+
 <!-- Add yourself above this line! -->
