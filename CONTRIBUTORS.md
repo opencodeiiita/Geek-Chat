@@ -12,5 +12,6 @@
 - [HariPrasath R](https://github.com/HariPrasath-3)
 - [Amitvikram Dwivedi](https://github.com/batflarrow)
 - [Shailesh Tiwari](https://github.com/shlesh)
+- [Agrim Verma](https://github.com/AgrimVerma)
 
 <!-- Add yourself above this line! -->
