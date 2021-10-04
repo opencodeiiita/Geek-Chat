@@ -39,5 +39,11 @@
 - [Palak Ahuja](https://github.com/Palak-2109)
 - [Janhavi Bawaskar](https://github.com/janhaviiii)
 - [Shadaan Hussain](https://github.com/shadaanhussain)
+- [Saloni Doshi](https://github.com/saloni33)
+- [Pranavi Tadivalasa](https://github.com/Ms-Error)
+- [Tanushree](https://github.com/Tanushree-coder)
+- [Aaryan Gupta](https://github.com/Aaryan0424)
+- [Janhavi Bawaskar](https://github.com/janhaviiii)
+
 
 <!-- Add yourself above this line! -->
