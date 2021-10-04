@@ -11,5 +11,6 @@
 - [Aman Utkarsh](https://github.com/mitrya)
 - [HariPrasath R](https://github.com/HariPrasath-3)
 - [Amitvikram Dwivedi](https://github.com/batflarrow)
+- [Shailesh Tiwari](https://github.com/shlesh)
 
 <!-- Add yourself above this line! -->
