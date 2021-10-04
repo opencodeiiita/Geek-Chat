@@ -22,28 +22,6 @@
 - [Danish Ahmed Mirza](https://github.com/try-catch-stack)
 - [Raghav Goel](https://github.com/raghavgoel25)
 - [Akanksha Gupta](https://github.com/Akanksha2391)
-<<<<<<< HEAD
 -[Pranjal Katiyar](https://github.com/pranjalkatiyar)
 
-=======
-- [Gautam Misra](https://github.com/Darkknight131714)
-- [Shantanu](https://github.com/underoot-iota)
-- [Puja Saraf](https://github.com/Puja-Saraf)
-- [Sauahrd Srivastava](https://github.com/sauhard22)
-- [Ramanpreet Singh](https://github.com/raman5911)
-- [Srishti Dhir](https://github.com/srishtayy)
-- [Divyansh Gupta](https://github.com/The-Divyansh)
-- [Prakhar jalan](https://github.com/jalanprakhar)
-- [Aashita Chouhan](https://github.com/aashitachouhan)
-- [Palak Ahuja](https://github.com/Palak-2109)
-- [Janhavi Bawaskar](https://github.com/janhaviiii)
-- [Shadaan Hussain](https://github.com/shadaanhussain)
-- [Saloni Doshi](https://github.com/saloni33)
-- [Pranavi Tadivalasa](https://github.com/Ms-Error)
-- [Tanushree](https://github.com/Tanushree-coder)
-- [Aaryan Gupta](https://github.com/Aaryan0424)
-- [Sathwik Kuppam](https://github.com/Ksathwik03)
-- [Harsh Gupta](https://github.com/Harshgupta5901)
-- [Sarthak](https://github.com/daniel-aracquine)
->>>>>>> 8389a66e504bc4b01f2c3dcdfdd11c246c4dd156
 <!-- Add yourself above this line! -->
