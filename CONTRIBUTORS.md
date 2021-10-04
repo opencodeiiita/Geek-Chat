@@ -2,7 +2,6 @@
 
 <!-- Format for adding contributor is as follows-
 - [Aditya Verma](https://github.com/homewardgamer) -->
-
 - [Aditi Yadav](https://github.com/adtoria)
 - [Prakhar Awasthi](https://github.com/prakhar011)
 - [Mallik Prabhanjan](https://github.com/vemulapandu)
@@ -15,10 +14,6 @@
 - [Agrim Verma](https://github.com/AgrimVerma)
 - [Kirti Singla](https://github.com/codesanta142)
 - [sai suman kumar](https://github.com/saisumanthkumar)
-
-
-
-
 - [Prasanta Barman](https://github.com/prasanta352)
 - [Vijay Karanjkar](https://github.com/Vijay-K-2003)
 - [Revathi Ari](https://github.com/Revathi2306)
@@ -38,9 +33,13 @@
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 - [Palak Ahuja](https://github.com/Palak-2109)
 - [Karan Chhabra](https://github.com/karankc23)
+- [Janhavi Bawaskar](https://github.com/janhaviiii)
 - [Shadaan Hussain](https://github.com/shadaanhussain)
 - [Saloni Doshi](https://github.com/saloni33)
 - [Pranavi Tadivalasa](https://github.com/Ms-Error)
 - [Tanushree](https://github.com/Tanushree-coder)
 - [Aaryan Gupta](https://github.com/Aaryan0424)
+- [Sathwik Kuppam](https://github.com/Ksathwik03)
+- [Harsh Gupta](https://github.com/Harshgupta5901)
+- [Sarthak](https://github.com/daniel-aracquine)
 <!-- Add yourself above this line! -->
