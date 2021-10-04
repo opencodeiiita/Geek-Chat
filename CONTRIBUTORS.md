@@ -26,5 +26,6 @@
 - [Shantanu](https://github.com/underoot-iota)
 - [Puja Saraf](https://github.com/Puja-Saraf)
 - [Sauahrd Srivastava](https://github.com/sauhard22)
+- [Divyansh Gupta](https://github.com/The-Divyansh)
 
 <!-- Add yourself above this line! -->
