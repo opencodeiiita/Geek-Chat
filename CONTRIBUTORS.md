@@ -23,4 +23,5 @@
 - [Danish Ahmed Mirza](https://github.com/try-catch-stack)
 - [Raghav Goel](https://github.com/raghavgoel25)
 - [Palak Ahuja](https://github.com/Palak-2109)
+- [Akanksha Gupta](https://github.com/Akanksha2391)
 <!-- Add yourself above this line! -->
