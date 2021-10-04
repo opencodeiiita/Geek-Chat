@@ -16,6 +16,9 @@
 - [Kirti Singla](https://github.com/codesanta142)
 - [sai suman kumar](https://github.com/saisumanthkumar)
 
+
+
+
 - [Prasanta Barman](https://github.com/prasanta352)
 - [Vijay Karanjkar](https://github.com/Vijay-K-2003)
 - [Revathi Ari](https://github.com/Revathi2306)
@@ -35,5 +38,4 @@
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 - [Palak Ahuja](https://github.com/Palak-2109)
 - [Shadaan Hussain](https://github.com/shadaanhussain)
-- [Siddharth S](https://github.com/Siddharth1002)
 <!-- Add yourself above this line! -->
