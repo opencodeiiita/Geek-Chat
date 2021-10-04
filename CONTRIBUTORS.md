@@ -23,6 +23,7 @@
 - [Danish Ahmed Mirza](https://github.com/try-catch-stack)
 - [Raghav Goel](https://github.com/raghavgoel25)
 - [Akanksha Gupta](https://github.com/Akanksha2391)
+- [Shantanu](https://github.com/underoot-iota)
+- [Puja Saraf](https://github.com/Puja-Saraf)
 - [Divyansh Gupta](https://github.com/The-Divyansh)
-
 <!-- Add yourself above this line! -->
