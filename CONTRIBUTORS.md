@@ -39,5 +39,7 @@
 - [Palak Ahuja](https://github.com/Palak-2109)
 - [Shadaan Hussain](https://github.com/shadaanhussain)
 - [Saloni Doshi](https://github.com/saloni33)
+- [Pranavi Tadivalasa](https://github.com/Ms-Error)
 - [Janhavi Bawaskar](https://github.com/janhaviiii)
+
 <!-- Add yourself above this line! -->
