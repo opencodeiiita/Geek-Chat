@@ -38,6 +38,7 @@
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 - [Palak Ahuja](https://github.com/Palak-2109)
 - [Shadaan Hussain](https://github.com/shadaanhussain)
+- [Saloni Doshi](https://github.com/saloni33)
+- [Pranavi Tadivalasa](https://github.com/Ms-Error)
 - [Tanushree](https://github.com/Tanushree-coder)
-
 <!-- Add yourself above this line! -->
