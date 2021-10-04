@@ -24,4 +24,9 @@
 - [Raghav Goel](https://github.com/raghavgoel25)
 - [Palak Ahuja](https://github.com/Palak-2109)
 - [Akanksha Gupta](https://github.com/Akanksha2391)
+- [Shantanu](https://github.com/underoot-iota)
+- [Puja Saraf](https://github.com/Puja-Saraf)
+- [Sauahrd Srivastava](https://github.com/sauhard22)
+- [Ramanpreet Singh](https://github.com/raman5911)
+- [Srishti Dhir](https://github.com/srishtayy)
 <!-- Add yourself above this line! -->
