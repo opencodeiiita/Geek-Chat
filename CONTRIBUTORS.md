@@ -15,5 +15,6 @@
 - [Agrim Verma](https://github.com/AgrimVerma)
 - [Kirti Singla](https://github.com/codesanta142)
 - [sai suman kumar](https://github.com/saisumanthkumar)
+- [Aditya Singh Machhaiya](https://github.com/asingh1601/)
 
 <!-- Add yourself above this line! -->
