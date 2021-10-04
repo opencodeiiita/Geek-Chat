@@ -9,6 +9,7 @@
 - [Mallik Prabhanjan](https://github.com/vemulapandu)
 - [Varun Tiwari](https://github.com/varunKT001)
 -   [Vineeth Kumar Munigyala](https://github.com/VineethKumarM)
+-    [Kirti Singla](https://github.com/codesanta142)
 
 
 <!-- Add yourself above this line! -->
