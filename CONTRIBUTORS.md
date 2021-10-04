@@ -16,7 +16,7 @@
 - [Kirti Singla](https://github.com/codesanta142)
 - [sai suman kumar](https://github.com/saisumanthkumar)
 
-- [Shadaan Hussain](https://github.com/shadaanhussain)
+
 
 
 - [Prasanta Barman](https://github.com/prasanta352)
@@ -36,5 +36,5 @@
 - [Prakhar jalan](https://github.com/jalanprakhar)
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 - [Palak Ahuja](https://github.com/Palak-2109)
-
+- [Shadaan Hussain](https://github.com/shadaanhussain)
 <!-- Add yourself above this line! -->
