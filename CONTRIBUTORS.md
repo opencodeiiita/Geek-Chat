@@ -18,7 +18,5 @@
 - [Prasanta Barman](https://github.com/prasanta352)
 - [Vijay Karanjkar](https://github.com/Vijay-K-2003)
 - [Revathi Ari](https://github.com/Revathi2306)
-- [Danish Ahmed Mirza](https://github.com/try-catch-stack)
-
 
 <!-- Add yourself above this line! -->
