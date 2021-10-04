@@ -15,7 +15,6 @@
 - [Agrim Verma](https://github.com/AgrimVerma)
 - [Kirti Singla](https://github.com/codesanta142)
 - [sai suman kumar](https://github.com/saisumanthkumar)
-- [Akanksha Gupta](https://github.com/Akanksha2391)
 - [Prasanta Barman](https://github.com/prasanta352)
 - [Vijay Karanjkar](https://github.com/Vijay-K-2003)
 - [Revathi Ari](https://github.com/Revathi2306)
@@ -23,5 +22,6 @@
 - [Anjali Sahu](https://github.com/99anjali)
 - [Danish Ahmed Mirza](https://github.com/try-catch-stack)
 - [Raghav Goel](https://github.com/raghavgoel25)
+- [Akanksha Gupta](https://github.com/Akanksha2391)
 
 <!-- Add yourself above this line! -->
