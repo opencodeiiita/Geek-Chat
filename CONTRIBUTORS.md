@@ -23,6 +23,7 @@
 - [Danish Ahmed Mirza](https://github.com/try-catch-stack)
 - [Raghav Goel](https://github.com/raghavgoel25)
 - [Akanksha Gupta](https://github.com/Akanksha2391)
+- [Gautam Misra](https://github.com/Darkknight131714)
 - [Shantanu](https://github.com/underoot-iota)
 - [Puja Saraf](https://github.com/Puja-Saraf)
 - [Sauahrd Srivastava](https://github.com/sauhard22)
@@ -32,5 +33,7 @@
 - [Prakhar jalan](https://github.com/jalanprakhar)
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 - [Palak Ahuja](https://github.com/Palak-2109)
+- [Shadaan Hussain](https://github.com/shadaanhussain)
 - [Anushtha Bageria](https://github.com/anu-phoenix)
+
 <!-- Add yourself above this line! -->
