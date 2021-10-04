@@ -38,4 +38,5 @@
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 - [Palak Ahuja](https://github.com/Palak-2109)
 - [Shadaan Hussain](https://github.com/shadaanhussain)
+- [Siddharth S](https://github.com/Siddharth1002)
 <!-- Add yourself above this line! -->
