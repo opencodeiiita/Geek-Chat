@@ -41,4 +41,5 @@
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
-<!-- Add yourself above this line! -->
+- [Sravya Kaviti](https://github.com/sravyakaviti)
+
