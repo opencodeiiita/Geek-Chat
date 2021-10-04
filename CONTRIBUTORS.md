@@ -44,5 +44,6 @@
 - [Aaryan Gupta](https://github.com/Aaryan0424)
 - [Janhavi Bawaskar](https://github.com/janhaviiii)
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
+- [Harsh Gupta](https://github.com/Harshgupta5901)
 
 <!-- Add yourself above this line! -->
