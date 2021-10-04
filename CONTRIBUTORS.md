@@ -31,6 +31,7 @@
 
 
 - [Divyansh Gupta](https://github.com/The-Divyansh)
+- [Prakhar jalan](https://github.com/jalanprakhar)
 
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 <!-- Add yourself above this line! -->
