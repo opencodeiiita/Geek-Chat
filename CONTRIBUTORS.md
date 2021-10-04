@@ -23,5 +23,6 @@
 - [Danish Ahmed Mirza](https://github.com/try-catch-stack)
 - [Raghav Goel](https://github.com/raghavgoel25)
 - [Akanksha Gupta](https://github.com/Akanksha2391)
+- [Ramanpreet Singh](https://github.com/raman5911)
 
 <!-- Add yourself above this line! -->
