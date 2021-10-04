@@ -32,4 +32,5 @@
 - [Prakhar jalan](https://github.com/jalanprakhar)
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 - [Palak Ahuja](https://github.com/Palak-2109)
+- [Harsh Gupta](https://github.com/Harshgupta5901)
 <!-- Add yourself above this line! -->
