@@ -25,4 +25,6 @@
 - [Akanksha Gupta](https://github.com/Akanksha2391)
 - [Shantanu](https://github.com/underoot-iota)
 - [Puja Saraf](https://github.com/Puja-Saraf)
+- [Sauahrd Srivastava](https://github.com/sauhard22)
+
 <!-- Add yourself above this line! -->
