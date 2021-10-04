@@ -29,8 +29,8 @@
 - [Ramanpreet Singh](https://github.com/raman5911)
 - [Srishti Dhir](https://github.com/srishtayy)
 - [Divyansh Gupta](https://github.com/The-Divyansh)
-- [Pranavi Tadivalasa](https://github.com/Ms-Error)
 - [Prakhar jalan](https://github.com/jalanprakhar)
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 - [Palak Ahuja](https://github.com/Palak-2109)
+- [Pranavi Tadivalasa](https://github.com/Ms-Error)
 <!-- Add yourself above this line! -->
