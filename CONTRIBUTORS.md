@@ -43,5 +43,6 @@
 - [Tanushree](https://github.com/Tanushree-coder)
 - [Aaryan Gupta](https://github.com/Aaryan0424)
 - [Janhavi Bawaskar](https://github.com/janhaviiii)
+- [Sathwik Kuppam](https://github.com/Ksathwik03)
 
 <!-- Add yourself above this line! -->
