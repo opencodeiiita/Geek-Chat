@@ -24,5 +24,13 @@
 - [Raghav Goel](https://github.com/raghavgoel25)
 - [Akanksha Gupta](https://github.com/Akanksha2391)
 - [Gautam Misra](https://github.com/Darkknight131714)
-
+- [Shantanu](https://github.com/underoot-iota)
+- [Puja Saraf](https://github.com/Puja-Saraf)
+- [Sauahrd Srivastava](https://github.com/sauhard22)
+- [Ramanpreet Singh](https://github.com/raman5911)
+- [Srishti Dhir](https://github.com/srishtayy)
+- [Divyansh Gupta](https://github.com/The-Divyansh)
+- [Prakhar jalan](https://github.com/jalanprakhar)
+- [Aashita Chouhan](https://github.com/aashitachouhan)
+- [Palak Ahuja](https://github.com/Palak-2109)
 <!-- Add yourself above this line! -->
