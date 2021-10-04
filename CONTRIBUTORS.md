@@ -16,5 +16,6 @@
 - [Kirti Singla](https://github.com/codesanta142)
 - [sai suman kumar](https://github.com/saisumanthkumar)
 - [Prasanta Barman](https://github.com/prasanta352)
+- [Raghav Goel](https://github.com/raghavgoel25)
 
 <!-- Add yourself above this line! -->
