@@ -15,5 +15,6 @@
 - [Agrim Verma](https://github.com/AgrimVerma)
 - [Kirti Singla](https://github.com/codesanta142)
 - [sai suman kumar](https://github.com/saisumanthkumar)
+- [Vijay Karanjkar](https://github.com/Vijay-K-2003)
 
 <!-- Add yourself above this line! -->
