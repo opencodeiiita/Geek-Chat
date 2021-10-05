@@ -59,7 +59,7 @@
 - [Aditya Singh Machhaiya](https://github.com/asingh1601)
 - [Shubhi Pandey](https://github.com/Shubhi2002)
 - [Anushtha Bageria](https://github.com/anu-phoenix)
-- [Pranjay Vats](https://github.com/PranjayVats)
+- [BOTTE SHREYA](https://github.com/shreya-0508)
 <!-- Add yourself above this line! -->
 
 
