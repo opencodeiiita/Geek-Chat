@@ -42,7 +42,7 @@
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
-- [Mayank Kumar](https://github.com/mayank-kr)
 - [Pranav Raj](https://github.com/rajpranav63)
 - [Gude Lakshmi](https://github.com/gudelakshmi)
+- [Mayank Kumar](https://github.com/mayank-kr)
 <!-- Add yourself above this line! -->
