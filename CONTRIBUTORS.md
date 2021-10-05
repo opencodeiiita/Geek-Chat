@@ -61,7 +61,7 @@
 - [Manthan Jain](https://github.com/Manthanjain)
 - [Anushtha Bageria](https://github.com/anu-phoenix)
 - [BOTTE SHREYA](https://github.com/shreya-0508)
-- [Manthan Jain](https://github.com/Manthanjain)
+- [Swapnil Manke](https://github.com/mankeswapnil0)
 <!-- Add yourself above this line! -->
 
 
