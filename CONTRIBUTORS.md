@@ -57,7 +57,6 @@
 - [Kajal Kaushal](https://github.com/Kajal-7)
 - [Botte Shreya](https://github.com/shreya-0508)
 - [Aditya Singh Machhaiya](https://github.com/asingh1601)
-- [Shashwat Mittal](https://github.com/shashwat-mittal)
 - [Shubhi Pandey](https://github.com/Shubhi2002)
 - [Manthan Jain](https://github.com/Manthanjain)
 - [Anushtha Bageria](https://github.com/anu-phoenix)
@@ -66,6 +65,7 @@
 - [Sneh Shah](https://github.com/Sneh16Shah)
 - [Neha Singh](https://github.com/neha3001-singh)
 - [Karan Chhabra](https://github.com/karankc23)
+- [Shashwat Mittal](https://github.com/shashwat-mittal)
 <!-- Add yourself above this line! -->
 
 
