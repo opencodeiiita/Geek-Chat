@@ -2,7 +2,6 @@
 
 <!-- Format for adding contributor is as follows-
 - [Aditya Verma](https://github.com/homewardgamer) -->
-
 - [Aditi Yadav](https://github.com/adtoria)
 - [Prakhar Awasthi](https://github.com/prakhar011)
 - [Mallik Prabhanjan](https://github.com/vemulapandu)
@@ -22,4 +21,7 @@
 - [Anjali Sahu](https://github.com/99anjali)
 - [Danish Ahmed Mirza](https://github.com/try-catch-stack)
 - [Raghav Goel](https://github.com/raghavgoel25)
+- [Akanksha Gupta](https://github.com/Akanksha2391)
+-[Pranjal Katiyar](https://github.com/pranjalkatiyar)
+
 <!-- Add yourself above this line! -->
