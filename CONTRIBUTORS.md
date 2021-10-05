@@ -41,7 +41,6 @@
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
-- [Monikinderjit Singh](https://github.com/Monik09)
 - [Pranav Raj](https://github.com/rajpranav63)
 - [Gude Lakshmi](https://github.com/gudelakshmi)
 - [Nitheesh](https://github.com/nitheesh96)
@@ -51,6 +50,7 @@
 - [Neeraj Gupta](https://github.com/codelord09)
 - [Sravya Kaviti](https://github.com/sravyakaviti)
 - [Md Atif](https://github.com/Atif0604)
+- [Monikinderjit Singh](https://github.com/Monik09)
 <!-- Add yourself above this line! -->
 
 
