@@ -50,6 +50,7 @@
 - [Neeraj Gupta](https://github.com/codelord09)
 - [Sravya Kaviti](https://github.com/sravyakaviti)
 - [Md Atif](https://github.com/Atif0604)
+- [Akshitha D](https://github.com/AKI35429)
 <!-- Add yourself above this line! -->
 
 
