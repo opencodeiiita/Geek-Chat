@@ -32,7 +32,6 @@
 - [Prakhar jalan](https://github.com/jalanprakhar)
 - [Aashita Chouhan](https://github.com/aashitachouhan)
 - [Palak Ahuja](https://github.com/Palak-2109)
-
 - [Janhavi Bawaskar](https://github.com/janhaviiii)
 - [Shadaan Hussain](https://github.com/shadaanhussain)
 - [Saloni Doshi](https://github.com/saloni33)
@@ -42,6 +41,8 @@
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
-
 - [Pranav Raj](https://github.com/rajpranav63)
+- [Gude Lakshmi](https://github.com/gudelakshmi)
+- [Nitheesh](https://github.com/nitheesh96)
+- [Rankit](https://github.com/rankit2001)
 <!-- Add yourself above this line! -->
