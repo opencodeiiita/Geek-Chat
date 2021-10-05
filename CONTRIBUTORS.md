@@ -58,6 +58,7 @@
 - [Botte Shreya](https://github.com/shreya-0508)
 - [Aditya Singh Machhaiya](https://github.com/asingh1601)
 - [Shubhi Pandey](https://github.com/Shubhi2002)
+- [Manthan Jain](https://github.com/Manthanjain)
 - [Anushtha Bageria](https://github.com/anu-phoenix)
 - [BOTTE SHREYA](https://github.com/shreya-0508)
 - [Swapnil Manke](https://github.com/mankeswapnil0)
