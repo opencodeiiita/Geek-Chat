@@ -44,4 +44,5 @@
 - [Pranav Raj](https://github.com/rajpranav63)
 - [Gude Lakshmi](https://github.com/gudelakshmi)
 - [Nitheesh](https://github.com/nitheesh96)
+- [Rankit](https://github.com/rankit2001)
 <!-- Add yourself above this line! -->
