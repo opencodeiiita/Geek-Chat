@@ -46,4 +46,6 @@
 - [Nitheesh](https://github.com/nitheesh96)
 - [Rankit](https://github.com/rankit2001)
 - [Shubhi Pandey](https://github.com/Shubhi2002)
+- [Siddhant](https://github.com/siddhantsingh186)
+- [Pratik Raghuvanshi](https://github.com/prxtikk-18)
 <!-- Add yourself above this line! -->
