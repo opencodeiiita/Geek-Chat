@@ -56,8 +56,5 @@
 - [Kajal Kaushal](https://github.com/Kajal-7)
 - [Aditya Singh Machhaiya](https://github.com/asingh1601)
 - [Shubhi Pandey](https://github.com/Shubhi2002)
+- [Shivanshu Singh](https://github.com/Shivanshu97i)
 <!-- Add yourself above this line! -->
-
-
-
-
