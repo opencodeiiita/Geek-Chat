@@ -50,7 +50,10 @@
 - [Neeraj Gupta](https://github.com/codelord09)
 - [Sravya Kaviti](https://github.com/sravyakaviti)
 - [Md Atif](https://github.com/Atif0604)
+- [Diya Waghmare](https://github.com/diyawaghmare)
+- [Monikinderjit Singh](https://github.com/Monik09)
 - [Akshitha D](https://github.com/AKI35429)
 <!-- Add yourself above this line! -->
+
 
 
