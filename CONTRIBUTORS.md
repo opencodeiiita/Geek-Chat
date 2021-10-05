@@ -51,5 +51,6 @@
 - [Neeraj Gupta](https://github.com/codelord09)
 - [Sravya Kaviti](https://github.com/sravyakaviti)
 - [Md Atif](https://github.com/Atif0604)
+- [Diya Waghmare](https://github.com/diyawaghmare)
 - [Mayank Kumar](https://github.com/mayank-kr)
 <!-- Add yourself above this line! -->
