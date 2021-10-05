@@ -43,4 +43,5 @@
 - [Sarthak](https://github.com/daniel-aracquine)
 - [Pranav Raj](https://github.com/rajpranav63)
 - [Gude Lakshmi](https://github.com/gudelakshmi)
+- [Isha Rawat](https://github.com/isharawat)
 <!-- Add yourself above this line! -->
