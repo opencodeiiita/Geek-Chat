@@ -52,6 +52,7 @@
 - [Md Atif](https://github.com/Atif0604)
 - [Diya Waghmare](https://github.com/diyawaghmare)
 - [Monikinderjit Singh](https://github.com/Monik09)
+- [Pranjay Vats](https://github.com/PranjayVats)
 <!-- Add yourself above this line! -->
 
 
