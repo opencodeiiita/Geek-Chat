@@ -45,4 +45,5 @@
 - [Gude Lakshmi](https://github.com/gudelakshmi)
 - [Nitheesh](https://github.com/nitheesh96)
 - [Rankit](https://github.com/rankit2001)
+- [Shubhi Pandey](https://github.com/Shubhi2002)
 <!-- Add yourself above this line! -->
