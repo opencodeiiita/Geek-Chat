@@ -60,7 +60,6 @@
 - [Shubhi Pandey](https://github.com/Shubhi2002)
 - [Anushtha Bageria](https://github.com/anu-phoenix)
 - [BOTTE SHREYA](https://github.com/shreya-0508)
-
 <!-- Add yourself above this line! -->
 
 
