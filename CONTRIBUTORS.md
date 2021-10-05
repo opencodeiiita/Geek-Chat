@@ -54,6 +54,7 @@
 - [Monikinderjit Singh](https://github.com/Monik09)
 - [Akshitha Dasa](https://github.com/AKI35429)
 - [Kajal Kaushal](https://github.com/Kajal-7)
+- [Aditya Singh Machhaiya](https://github.com/asingh1601)
 <!-- Add yourself above this line! -->
 
 
