@@ -53,7 +53,6 @@
 - [Md Atif](https://github.com/Atif0604)
 - [Diya Waghmare](https://github.com/diyawaghmare)
 - [Monikinderjit Singh](https://github.com/Monik09)
-- [Abhay Parihar](https://github.com/A-Spiral-Forge)
 - [Akshitha Dasa](https://github.com/AKI35429)
 - [Kajal Kaushal](https://github.com/Kajal-7)
 - [Botte Shreya](https://github.com/shreya-0508)
@@ -66,6 +65,7 @@
 - [Sneh Shah](https://github.com/Sneh16Shah)
 - [Neha Singh](https://github.com/neha3001-singh)
 - [Karan Chhabra](https://github.com/karankc23)
+- [Abhay Parihar](https://github.com/A-Spiral-Forge)
 <!-- Add yourself above this line! -->
 
 
