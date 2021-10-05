@@ -89,4 +89,28 @@ body .main-div form select:focus {
   font-size: 20px;
   border: 3px solid black;
 }
+
+/* For  small screen devices (640px and below) */
+@media only screen and (max-width: 640px) {
+  body .heading h1 {
+    font-size: 2rem;
+  }
+  body .main-div {
+    min-width: 400px;
+  }
+}
+
+/* Medium screen devices (641px and less than 1007) */
+@media only screen and (min-width: 641px) and (max-width: 1007px) {
+  body .heading h1 {
+    font-size: 3rem;
+  }
+}
+
+/*Larger screen devices (1008px and above) */
+@media only screen and (min-width: 1008px) {
+  body .heading h1 {
+    font-size: 5rem;
+  }
+}
 /*# sourceMappingURL=index.css.map */
