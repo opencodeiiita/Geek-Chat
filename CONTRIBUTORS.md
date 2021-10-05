@@ -38,6 +38,7 @@
 - [Pranavi Tadivalasa](https://github.com/Ms-Error)
 - [Tanushree](https://github.com/Tanushree-coder)
 - [Aaryan Gupta](https://github.com/Aaryan0424)
+- [Janhavi Bawaskar](https://github.com/janhaviiii)
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
@@ -55,6 +56,11 @@
 - [Akshitha Dasa](https://github.com/AKI35429)
 - [Kajal Kaushal](https://github.com/Kajal-7)
 - [Swapnil Manke](https://github.com/mankeswapnil0)
+- [Botte Shreya](https://github.com/shreya-0508)
+- [Aditya Singh Machhaiya](https://github.com/asingh1601)
+- [Shubhi Pandey](https://github.com/Shubhi2002)
+- [Anushtha Bageria](https://github.com/anu-phoenix)
+- [BOTTE SHREYA](https://github.com/shreya-0508)
 <!-- Add yourself above this line! -->
 
 
