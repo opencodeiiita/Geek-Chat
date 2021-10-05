@@ -65,6 +65,7 @@
 - [Sneh Shah](https://github.com/Sneh16Shah)
 - [Neha Singh](https://github.com/neha3001-singh)
 - [Karan Chhabra](https://github.com/karankc23)
+- [Vimal Vinayak](https://github.com/BlaZe-001)
 <!-- Add yourself above this line! -->
 
 
