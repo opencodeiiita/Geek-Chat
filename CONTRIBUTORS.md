@@ -65,6 +65,7 @@
 - [Sneh Shah](https://github.com/Sneh16Shah)
 - [Neha Singh](https://github.com/neha3001-singh)
 - [Karan Chhabra](https://github.com/karankc23)
+- [Himanshu Yadav](https://github.com/SeriousConjurer)
 <!-- Add yourself above this line! -->
 
 
