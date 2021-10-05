@@ -55,7 +55,6 @@
 - [Monikinderjit Singh](https://github.com/Monik09)
 - [Akshitha Dasa](https://github.com/AKI35429)
 - [Kajal Kaushal](https://github.com/Kajal-7)
-- [Neha Singh](https://github.com/neha3001-singh)
 - [Botte Shreya](https://github.com/shreya-0508)
 - [Aditya Singh Machhaiya](https://github.com/asingh1601)
 - [Shubhi Pandey](https://github.com/Shubhi2002)
@@ -63,6 +62,7 @@
 - [BOTTE SHREYA](https://github.com/shreya-0508)
 - [Swapnil Manke](https://github.com/mankeswapnil0)
 - [Sneh Shah](https://github.com/Sneh16Shah)
+- [Neha Singh](https://github.com/neha3001-singh)
 <!-- Add yourself above this line! -->
 
 
