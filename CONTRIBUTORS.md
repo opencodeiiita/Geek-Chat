@@ -43,4 +43,6 @@
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
 - [Mayank Kumar](https://github.com/mayank-kr)
+- [Pranav Raj](https://github.com/rajpranav63)
+- [Gude Lakshmi](https://github.com/gudelakshmi)
 <!-- Add yourself above this line! -->

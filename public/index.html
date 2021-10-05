@@ -22,7 +22,7 @@
 
     <div class="row">
         <div class="col-lg-10 main-div">
-            <form action="/" method="post">
+            <form id="joinChatForm" action="/" method="post">
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" name="usrnm" id="exampleFormControlInput1" spellcheck="false" autocomplete="off" required>
@@ -39,12 +39,13 @@
                         <option name="room" value="Artificial Intelligence">Artificial Intelligence</option>
                     </select>
                 </div>
-                <button type="submit">
+                <button id="joinChat" type="submit">
                     Join Chat!
                 </button>
             </form>
         </div>
     </div>
+<script src="./js/lastEncounter.js"></script>
 </body>
 
 </html>
