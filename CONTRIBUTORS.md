@@ -63,6 +63,7 @@
 - [Swapnil Manke](https://github.com/mankeswapnil0)
 - [Sneh Shah](https://github.com/Sneh16Shah)
 - [Neha Singh](https://github.com/neha3001-singh)
+- [Karan Chhabra](https://github.com/karankc23)
 <!-- Add yourself above this line! -->
 
 
