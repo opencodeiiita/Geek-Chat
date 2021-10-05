@@ -28,7 +28,6 @@
 - [Puja Saraf](https://github.com/Puja-Saraf)
 - [Sauahrd Srivastava](https://github.com/sauhard22)
 - [Ramanpreet Singh](https://github.com/raman5911)
-- [Aditya Singh Machhaiya](https://github.com/asingh1601)
 - [Srishti Dhir](https://github.com/srishtayy)
 - [Divyansh Gupta](https://github.com/The-Divyansh)
 - [Prakhar jalan](https://github.com/jalanprakhar)
@@ -43,4 +42,5 @@
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
+- [Aditya Singh Machhaiya](https://github.com/asingh1601)
 <!-- Add yourself above this line! -->
