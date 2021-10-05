@@ -55,14 +55,13 @@
 - [Monikinderjit Singh](https://github.com/Monik09)
 - [Akshitha Dasa](https://github.com/AKI35429)
 - [Kajal Kaushal](https://github.com/Kajal-7)
-- [Sneh Shah](https://github.com/Sneh16Shah)
 - [Botte Shreya](https://github.com/shreya-0508)
 - [Aditya Singh Machhaiya](https://github.com/asingh1601)
 - [Shubhi Pandey](https://github.com/Shubhi2002)
 - [Anushtha Bageria](https://github.com/anu-phoenix)
 - [BOTTE SHREYA](https://github.com/shreya-0508)
 - [Swapnil Manke](https://github.com/mankeswapnil0)
-
+- [Sneh Shah](https://github.com/Sneh16Shah)
 <!-- Add yourself above this line! -->
 
 
