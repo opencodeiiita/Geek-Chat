@@ -53,7 +53,9 @@
 - [Diya Waghmare](https://github.com/diyawaghmare)
 - [Monikinderjit Singh](https://github.com/Monik09)
 - [Akshitha Dasa](https://github.com/AKI35429)
+- [Kajal Kaushal](https://github.com/Kajal-7)
 <!-- Add yourself above this line! -->
+
 
 
 
