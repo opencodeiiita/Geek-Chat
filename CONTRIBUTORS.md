@@ -41,7 +41,6 @@
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
-- [Neha Singh](https://github.com/neha3001-singh)
 - [Pranav Raj](https://github.com/rajpranav63)
 - [Gude Lakshmi](https://github.com/gudelakshmi)
 - [Nitheesh](https://github.com/nitheesh96)
@@ -55,6 +54,7 @@
 - [Monikinderjit Singh](https://github.com/Monik09)
 - [Akshitha Dasa](https://github.com/AKI35429)
 - [Kajal Kaushal](https://github.com/Kajal-7)
+- [Neha Singh](https://github.com/neha3001-singh)
 <!-- Add yourself above this line! -->
 
 
