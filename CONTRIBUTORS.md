@@ -41,4 +41,6 @@
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
+- [Pranav Raj](https://github.com/rajpranav63)
+- [Gude Lakshmi](https://github.com/gudelakshmi)
 <!-- Add yourself above this line! -->
