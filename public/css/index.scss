@@ -88,10 +88,27 @@ body {
   body{
     .heading{
       h1{font-size: 2rem;}
+      height: 15vh;
+      
     }
     .main-div{
-      min-width: 400px;
+      width: 100%;
+      height: 80vh;
+      border-radius: 0;
+      font-size: 0.5rem;
+      margin-top: 10%;
+      box-shadow: none;
     }
+   
+    
+  }
+  #joinChat{
+    margin-top: 20px;
+      min-width: 80px;
+      min-height: 20px;
+      border-radius: 0.2rem;
+
+
   }
 }
 
@@ -101,6 +118,12 @@ body {
     .heading{
       h1{font-size: 3rem;}
     }
+    .main-div{
+
+      font-size: 1.5rem;
+      min-width: 400px;
+      padding-top: 12%;
+    }
   }
 }
 /*Larger screen devices (1008px and above) */
@@ -108,6 +131,10 @@ body {
   body{
     .heading{
       h1{font-size: 5rem;}
+    }
+    .main-div{
+      
+      font-size: 2rem;
     }
     
   }

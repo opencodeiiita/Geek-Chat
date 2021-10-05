@@ -92,11 +92,26 @@ body .main-div form select:focus {
 
 /* For  small screen devices (640px and below) */
 @media only screen and (max-width: 640px) {
+  body .heading {
+    height: 15vh;
+  }
   body .heading h1 {
     font-size: 2rem;
   }
   body .main-div {
-    min-width: 400px;
+    width: 100%;
+    height: 80vh;
+    border-radius: 0;
+    font-size: 0.5rem;
+    margin-top: 10%;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  #joinChat {
+    margin-top: 20px;
+    min-width: 80px;
+    min-height: 20px;
+    border-radius: 0.2rem;
   }
 }
 
@@ -105,12 +120,20 @@ body .main-div form select:focus {
   body .heading h1 {
     font-size: 3rem;
   }
+  body .main-div {
+    font-size: 1.5rem;
+    min-width: 400px;
+    padding-top: 12%;
+  }
 }
 
 /*Larger screen devices (1008px and above) */
 @media only screen and (min-width: 1008px) {
   body .heading h1 {
     font-size: 5rem;
+  }
+  body .main-div {
+    font-size: 2rem;
   }
 }
 /*# sourceMappingURL=index.css.map */
