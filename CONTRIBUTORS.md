@@ -41,7 +41,6 @@
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
-- [Vimal Vinayak](https://github.com/BlaZe-001)
 - [Pranav Raj](https://github.com/rajpranav63)
 - [Gude Lakshmi](https://github.com/gudelakshmi)
 - [Nitheesh](https://github.com/nitheesh96)
@@ -57,6 +56,7 @@
 - [Kajal Kaushal](https://github.com/Kajal-7)
 - [Aditya Singh Machhaiya](https://github.com/asingh1601)
 - [Shubhi Pandey](https://github.com/Shubhi2002)
+- [Vimal Vinayak](https://github.com/BlaZe-001)
 <!-- Add yourself above this line! -->
 
 
