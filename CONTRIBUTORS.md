@@ -41,5 +41,9 @@
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
-- [Sravya Kaviti](https://github.com/sravyakaviti)
+- [Pranav Raj](https://github.com/rajpranav63)
+- [Gude Lakshmi](https://github.com/gudelakshmi)
+- [Nitheesh](https://github.com/nitheesh96)
+- [Rankit](https://github.com/rankit2001)
+<!-- Add yourself above this line! -->
 
