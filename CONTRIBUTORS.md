@@ -57,6 +57,7 @@
 - [Kajal Kaushal](https://github.com/Kajal-7)
 - [Aditya Singh Machhaiya](https://github.com/asingh1601)
 - [Shubhi Pandey](https://github.com/Shubhi2002)
+- [Anushka Kalwale](https://github.com/anu-1989)
 <!-- Add yourself above this line! -->
 
 
