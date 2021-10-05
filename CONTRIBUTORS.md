@@ -42,4 +42,9 @@
 - [Harsh Gupta](https://github.com/Harshgupta5901)
 - [Sarthak](https://github.com/daniel-aracquine)
 - [Neeraj Gupta](https://github.com/codelord09)
+- [Pranav Raj](https://github.com/rajpranav63)
+- [Gude Lakshmi](https://github.com/gudelakshmi)
+- [Nitheesh](https://github.com/nitheesh96)
+- [Rankit](https://github.com/rankit2001)
+- [Siddhant](https://github.com/siddhantsingh186)
 <!-- Add yourself above this line! -->
