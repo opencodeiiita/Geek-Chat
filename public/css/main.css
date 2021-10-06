@@ -243,6 +243,10 @@ a {
   background-image: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
 }
 
+.dark-mode .chat-main {
+  background: rgba(0, 0, 0, 0.849);
+}
+
 .dark-mode .chat-header {
   background: #002846;
 }
@@ -259,16 +263,38 @@ a {
   color: #002846;
 }
 
-.dark-mode .chat-messages {
-  background: rgba(0, 0, 0, 0.849);
+.dark-mode .chat-messages .message {
+  background-color: rgba(0, 0, 0, 0.934);
+  color: white;
+}
+
+.dark-mode .chat-messages .message .meta {
+  color: white;
 }
 
 @media (max-width: 700px) {
+  body {
+    overflow-y: auto;
+  }
   .chat-main {
     display: block;
   }
+  .chat-messages {
+    height: 100vh;
+  }
+  .message {
+    font-size: 1rem;
+  }
   .chat-sidebar {
     display: none;
+  }
+  .chat-form-container input[type='text'] {
+    width: 45%;
+    min-width: 125px;
+  }
+  #leave {
+    font-size: 0.75rem;
+    padding: 10px;
   }
 }
 
@@ -327,3 +353,4 @@ a {
     opacity: 1;
   }
 }
+/*# sourceMappingURL=main.css.map */
