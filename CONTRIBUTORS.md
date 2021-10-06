@@ -86,5 +86,6 @@
 - [Karus Manisha](https://github.com/sanjay395)
 - [Mayank Kumar](https://github.com/mayank-kr)
 - [Abhinav Singh](https://github.com/Abhisin90)
+- [Abhi Singh](https://github.com/Abhijeet452)
 <!-- Add yourself above this line! -->
 
