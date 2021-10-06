@@ -74,6 +74,7 @@
 - [Vimal Vinayak](https://github.com/BlaZe-001)
 - [Medha Tiwari](https://github.com/medhatiwari)
 - [Anushka Kalwale](https://github.com/anu-1989)
+- [Pranjal Katiyar](https://github.com/pranjalkatiyar)
 <!-- Add yourself above this line! -->
 
 
