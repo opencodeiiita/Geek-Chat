@@ -42,6 +42,7 @@ body {
     height: 30vh;
     padding: 3%;
     iframe {
+      
       height: 100%;
       pointer-events: none;
       width: 10%;
@@ -175,9 +176,11 @@ body {
   body{
     .heading{
       height: 20vh;
-    
-      h1{font-size: 3rem;
-     
+      margin-right: 5%;
+    iframe{
+      width: 18%;
+    }
+      h1{font-size: 2.2rem;
      // height: 15vh;
     }
      
@@ -188,7 +191,10 @@ body {
       min-width: 300px;
       max-width: 530px;
       padding-top: 75px;
-      min-height: 55vh;
+      padding-bottom: 10px;
+      min-height: 500px;
+      
+      
     }
    
     

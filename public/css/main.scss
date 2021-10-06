@@ -26,6 +26,8 @@ body {
   overflow: hidden;
   // background: $light-color;
   margin: 20px ;
+  padding-top: 6%;
+ 
 }
 #toggle {
   width: 60px;
@@ -151,7 +153,7 @@ a {
 }
 
 .chat-messages .message .meta {
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: bold;
   color: $dark-color-b;
   opacity: 0.7;
@@ -267,9 +269,6 @@ body{
 }
 	.chat-main {
 		display: block;
-    
-		
-	
 	}
   .chat-messages{
     height: 100vh;
@@ -283,14 +282,12 @@ body{
 	}
 
 	.chat-form-container input[type='text'] {
-    
-		width: 45%;
+    width: 45%;
 		min-width: 125px;
 	}
 	#leave{
 		font-size: 0.75rem;
 		padding: 10px;
-
 	}
 	
 	

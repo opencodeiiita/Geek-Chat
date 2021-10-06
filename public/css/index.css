@@ -189,16 +189,21 @@ body .main-div form button:hover, body .main-div form button:focus, body .main-d
   }
   body .heading {
     height: 20vh;
+    margin-right: 5%;
+  }
+  body .heading iframe {
+    width: 18%;
   }
   body .heading h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
   body .main-div {
     width: 80%;
     min-width: 300px;
     max-width: 530px;
     padding-top: 75px;
-    min-height: 55vh;
+    padding-bottom: 10px;
+    min-height: 500px;
   }
   #joinChat {
     margin-top: 20px;

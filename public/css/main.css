@@ -18,6 +18,7 @@ body {
   height: 100vh;
   overflow: hidden;
   margin: 20px;
+  padding-top: 6%;
 }
 
 #toggle {
@@ -155,7 +156,7 @@ a {
 }
 
 .chat-messages .message .meta {
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: bold;
   color: #393e46;
   opacity: 0.7;
