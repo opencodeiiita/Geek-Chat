@@ -72,6 +72,7 @@
 - [Pradumn Kumar](https://github.com/kumarpradumn)
 - [Vimal Vinayak](https://github.com/BlaZe-001)
 - [Medha Tiwari](https://github.com/medhatiwari)
+- [Aalok Bhuyar](https://github.com/aalok-b)
 
 <!-- Add yourself above this line! -->
 
