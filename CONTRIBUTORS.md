@@ -71,6 +71,8 @@
 - [Naman Kaushal](https://github.com/naman-c)
 - [Pradumn Kumar](https://github.com/kumarpradumn)
 - [Vimal Vinayak](https://github.com/BlaZe-001)
+- [Medha Tiwari](https://github.com/medhatiwari)
+
 <!-- Add yourself above this line! -->
 
 
