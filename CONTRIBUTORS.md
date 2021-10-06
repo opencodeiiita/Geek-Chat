@@ -67,7 +67,7 @@
 - [Karan Chhabra](https://github.com/karankc23)
 - [Shivansh Dwivedi](https://github.com/shivansh2741)
 - [Abhay Parihar](https://github.com/A-Spiral-Forge)
-
+- [Medha Tiwari](https://github.com/medhatiwari)
 <!-- Add yourself above this line! -->
 
 
