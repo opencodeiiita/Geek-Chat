@@ -1,4 +1,11 @@
 const socket = io();
+const $roomName = document.querySelector('#room-name');
+var room;
+socket.on('roomJoined', (connectionObj) => {
+  console.log(connectionObj);
+  room = connectionObj.room;
+  $roomName.innerHTML = connectionObj.room;
+});
 socket.on("message", (message) => {
   outputMessage(message);
 });
