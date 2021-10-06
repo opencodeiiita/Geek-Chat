@@ -72,6 +72,7 @@
 - [Abhay Parihar](https://github.com/A-Spiral-Forge)
 - [Naman Kaushal](https://github.com/naman-c)
 - [Pradumn Kumar](https://github.com/kumarpradumn)
+- [Himanshu Yadav](https://github.com/SeriousConjurer)
 - [Vimal Vinayak](https://github.com/BlaZe-001)
 - [Medha Tiwari](https://github.com/medhatiwari)
 - [Anushka Kalwale](https://github.com/anu-1989)
