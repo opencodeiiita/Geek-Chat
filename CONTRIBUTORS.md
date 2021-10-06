@@ -67,6 +67,8 @@
 - [Karan Chhabra](https://github.com/karankc23)
 - [Shivansh Dwivedi](https://github.com/shivansh2741)
 - [Mohammad Tabish Malik](https://github.com/Dark-Hope-tech)
+- [Abhay Parihar](https://github.com/A-Spiral-Forge)
+
 
 <!-- Add yourself above this line! -->
 
