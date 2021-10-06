@@ -77,6 +77,7 @@
 - [Anuj Jain](https://github.com/anuj046)
 - [Mukilan S](https://github.com/MUKILAN-2003)
 - [Isha Rawat](https://github.com/isharawat)
+- [Shashwat Mittal](https://github.com/shashwat-mittal)
 <!-- Add yourself above this line! -->
 
 
