@@ -66,8 +66,13 @@
 - [Neha Singh](https://github.com/neha3001-singh)
 - [Karan Chhabra](https://github.com/karankc23)
 - [Shivansh Dwivedi](https://github.com/shivansh2741)
+- [Mohammad Tabish Malik](https://github.com/Dark-Hope-tech)
 - [Abhay Parihar](https://github.com/A-Spiral-Forge)
+- [Naman Kaushal](https://github.com/naman-c)
+- [Pradumn Kumar](https://github.com/kumarpradumn)
+- [Vimal Vinayak](https://github.com/BlaZe-001)
 - [Medha Tiwari](https://github.com/medhatiwari)
+
 <!-- Add yourself above this line! -->
 
 
