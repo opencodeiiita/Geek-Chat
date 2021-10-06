@@ -45,7 +45,7 @@ io.on('connection', socket => {
     }
 
     socket.emit("message", formatMessages("GeekChat Bot", "Welcome to GeekChat!"));
-    socket.to(room).emit("message", formatMessages("GeekChat Bot", `A User entered the chat!`));
+    socket.to(room).emit("message", formatMessages("GeekChat Bot", `${usrnm} entered the chat!`));
 
     socket.on("disconnect", () => {
         let user = usersArr.find(ob => ob.session_id === socket.id);
