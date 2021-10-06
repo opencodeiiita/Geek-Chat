@@ -70,8 +70,11 @@
 - [Abhay Parihar](https://github.com/A-Spiral-Forge)
 - [Naman Kaushal](https://github.com/naman-c)
 - [Pradumn Kumar](https://github.com/kumarpradumn)
+- [Vimal Vinayak](https://github.com/BlaZe-001)
+- [Medha Tiwari](https://github.com/medhatiwari)
 - [Mukilan S](https://github.com/MUKILAN-2003)
 
+<!-- Add yourself above this line! -->
 
 
 
