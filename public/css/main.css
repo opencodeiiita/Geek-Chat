@@ -64,13 +64,18 @@ a {
   text-decoration: none;
 }
 
-.btn {
-  cursor: pointer;
-  padding: 5px 15px;
-  background: #eeeeee;
-  color: #00adb5;
-  border: 0;
-  font-size: 17px;
+.kc_fab_main_btn {
+  background-color: rgb(48, 44, 44);
+  margin-left: 5px;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  border: none;
+  outline: none;
+  color: #FFF;
+  align-items: center;
+  font-size: 25px;
+  box-shadow: 0 4px 8px 0 rgba(82, 78, 78, 0.2), 0 6px 20px 0 rgba(51, 49, 49, 0.19);
 }
 
 /* Chat Page */
@@ -167,7 +172,7 @@ a {
 }
 
 .chat-form-container {
-  padding: 20px 30px;
+  padding: 20px 20px;
   background: #00adb5;
 }
 
@@ -175,6 +180,10 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+#msg{
+  border-radius: 15px;
+  border: 1px solid black;
 }
 
 .chat-form-container input[type="text"] {
