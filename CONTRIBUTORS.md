@@ -65,7 +65,9 @@
 - [Sneh Shah](https://github.com/Sneh16Shah)
 - [Neha Singh](https://github.com/neha3001-singh)
 - [Karan Chhabra](https://github.com/karankc23)
+- [Shivansh Dwivedi](https://github.com/shivansh2741)
 - [Abhay Parihar](https://github.com/A-Spiral-Forge)
+
 <!-- Add yourself above this line! -->
 
 
