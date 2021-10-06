@@ -69,6 +69,7 @@
 - [Mohammad Tabish Malik](https://github.com/Dark-Hope-tech)
 - [Abhay Parihar](https://github.com/A-Spiral-Forge)
 - [Naman Kaushal](https://github.com/naman-c)
+- [Pradumn Kumar](https://github.com/kumarpradumn)
 <!-- Add yourself above this line! -->
 
 
