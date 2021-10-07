@@ -64,15 +64,40 @@ a {
   text-decoration: none;
 }
 
-.btn {
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  background-color:#fff;
+  box-shadow: -1px -4px 90px -12px rgba(0,0,0,0.0);
+  transition: box-shadow 0.2s;
+}
+
+.btn{
   cursor: pointer;
   padding: 5px 15px;
-  background: #eeeeee;
   color: #00adb5;
   border: 0;
   font-size: 17px;
 }
 
+.icon:hover {
+  box-shadow: -1px -4px 90px -12px rgba(0,0,0,0.5);
+  background-color: #dbdbdb
+}
+
+.send-icon{
+  width: 20px;
+}
+#msg{
+  border-radius: 25px;
+  border: none;
+}
 /* Chat Page */
 
 .chat-container {
