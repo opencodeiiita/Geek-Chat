@@ -1,8 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap");
 body {
-  background: -webkit-gradient(linear, left top, right top, from(#00c9ff), to(#92fe9e));
-  background: linear-gradient(90deg, #00c9ff, #92fe9e);
+  background: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
   text-align: center;
+}
+
+body * {
+  transition: color 0.5s linear;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #00c9ff, #92fe9e);
+  opacity: 1;
+  z-index:  -1;
+  transition: all 0.5s linear;
 }
 
 body #toggle {
@@ -159,6 +172,9 @@ body .main-div form button:hover, body .main-div form button:focus, body .main-d
   background: -webkit-gradient(linear, left top, right top, from(#002846), color-stop(#ff7373), to(#ffaf7b));
   background: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
   color: white;
+}
+.dark-mode::before {
+  opacity: 0;
 }
 
 .dark-mode h1 {

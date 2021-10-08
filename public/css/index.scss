@@ -2,7 +2,7 @@ $primary-color: #63b4b8;
 @import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap");
 
 body {
-  background: linear-gradient(90deg, #00c9ff, #92fe9e);
+  background: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
   text-align: center;
   #toggle {
     width: 60px;
@@ -137,6 +137,18 @@ body {
     }
   }
 }
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #00c9ff, #92fe9e);
+  opacity: 1;
+  z-index:  -1;
+  transition: all 0.5s linear;
+}
+body * {
+  transition: all 0.5s linear;
+}
 .dark-mode {
   background: linear-gradient(
     90deg,
@@ -160,4 +172,7 @@ body {
   select:focus {
     border: 3px solid white;
   }
+}
+.dark-mode::before {
+  opacity: 0;
 }
