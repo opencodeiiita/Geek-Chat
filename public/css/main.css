@@ -78,12 +78,16 @@ a {
 
 .btn {
   cursor: pointer;
-  padding: 5px 15px;
   background: #eeeeee;
   color: #00adb5;
   border: 0;
-  font-size: 17px;
+  height: 46px;
+  width: 46px;
+  font-size: 22px;
+  border-radius: 23px;
+  text-align: center;
 }
+
 
 /* Chat Page */
 
@@ -431,6 +435,86 @@ a {
   100% {
     opacity: 0;
   }
+}
+
+.msg-box{
+  border-radius: 20px;
+  margin-right: 5px;
+  border-color: #60ecbf;
+}
+
+.fab-container {
+  /* position: fixed;
+  bottom: 50px;
+  right: 50px; */
+  z-index: 999;
+  cursor: pointer;
+}
+
+.fab-icon-holder {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #016fb9;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fab-icon-holder:hover {
+  opacity: 0.8;
+}
+
+.fab-icon-holder i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 25px;
+  color: #ffffff;
+}
+
+.fab {
+  width: 46px;
+  height: 46px;
+  /* background: #ffffff; */
+  color: #00adb5;
+  margin-right: 5px;
+}
+
+.fab-options {
+  list-style-type: none;
+  margin: 0;
+  position: absolute;
+  bottom: 200px; 
+  margin-left: -30px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: scale(0);
+  transform-origin: 85% top;
+}
+
+.fab:hover+.fab-options,
+.fab-options:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fab-options li {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.fab-label {
+  padding: 2px 5px;
+  align-self: center;
+  user-select: none;
+  white-space: nowrap;
+  border-radius: 3px;
+  font-size: 16px;
+  background: #666666;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */
