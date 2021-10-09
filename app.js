@@ -68,7 +68,7 @@ io.on('connection', socket => {
 
     socket.on("chatMessage", (msg) => {
         let user = usersArr.find(ob => ob.session_id === socket.id);
-        console.log(usersArr);
+        // console.log(usersArr);
         if (user)
             io.in(user.room).emit("message", formatMessages(user.name, msg));
     });

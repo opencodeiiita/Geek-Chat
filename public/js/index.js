@@ -17,7 +17,7 @@ socket.on("message", (message) => {
 function outputMessage(msg) {
   const div = document.createElement("div");
   div.classList.add("message");
-  div.innerHTML = `<p class="meta">${msg.username} <span>${msg.time}</span></p>
+  div.innerHTML = `<p class="meta">${msg.username} <span>${moment(msg.time).format('h:mm a')}</span></p>
     <p class="text">
         ${msg.text}
     </p>`;
