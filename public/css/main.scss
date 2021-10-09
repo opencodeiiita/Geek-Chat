@@ -123,6 +123,8 @@ a {
 
 .chat-main {
   display: grid;
+  min-height: 52vh;
+  // margin-bottom: 5vh;
   grid-template-columns: 1fr 3fr;
 }
 
@@ -153,7 +155,7 @@ a {
 
 .chat-messages {
   padding: 30px;
-  max-height: 400px;
+  max-height: 52vh;
   overflow-y: scroll;
 }
 
@@ -267,18 +269,26 @@ a {
   .btn {
     color: rgb(0, 40, 70);
   }
-  .chat-messages {
+  .chat-main {
     background: rgba(0, 0, 0, 0.849);
   }
 }
 .dark-mode::before{
   opacity: 0;
 }
+@media (max-width: 1200px) {
+  .chat-container {
+  margin: 60px auto;
+  }
+}
 @media (max-width: 700px) {
   .chat-main {
     display: block;
+    max-height: 52vh;
   }
-
+  .chat-messages{
+ height: 52vh;
+  }
   .chat-sidebar {
     display: none;
   }

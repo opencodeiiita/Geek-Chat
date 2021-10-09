@@ -1,84 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
 
-    <link rel="stylesheet" href="/css/index.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/dark-mode.js"></script>
-    <title>GeekChat</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
 
-  <body>
-    <div id="toggle">
-      <i class="indicator"> </i>
-    </div>
-    <div class="heading">
-      <h1 class="main-heading">GeekChat!</h1>
-      <iframe src="https://embed.lottiefiles.com/animation/26439"></iframe>
-    </div>
+  <link rel="stylesheet" href="/css/index.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./js/dark-mode.js"></script>
+  <title>GeekChat</title>
+</head>
 
-    <div class="row">
-      <div class="col-lg-10 main-div">
-        <form id="joinChatForm" action="/" method="post">
-          <div class="form-group">
-            <label>Username</label>
-            <input
-              type="text"
-              name="usrnm"
-              id="exampleFormControlInput1"
-              spellcheck="false"
-              autocomplete="off"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Select Room</label>
-            <select
-              class="form-control"
-              name="room"
-              id="exampleFormControlSelect1"
-              required
-            >
-              <option name="room" value="Web Development">
-                Web Development
-              </option>
-              <option name="room" value="App Development">
-                App Development
-              </option>
-              <option name="room" value="FOSS">FOSS</option>
-              <option name="room" value="Design">Design</option>
-              <option name="room" value="Competitive Programming">
-                Competitive Programming
-              </option>
-              <option name="room" value="Cyber Security">Cyber Security</option>
-              <option name="room" value="Artificial Intelligence">
-                Artificial Intelligence
-              </option>
-            </select>
-          </div>
-          <br />
-          <button id="joinChat"  type="submit">Join Chat!</button>
-        </form>
-      </div>
+<body>
+  <div id="toggle">
+    <i class="indicator"> </i>
+  </div>
+  <div class="heading">
+    <h1 class="main-heading">GeekChat!</h1>
+    <iframe src="https://embed.lottiefiles.com/animation/26439"></iframe>
+  </div>
+
+  <div class="container-fluid">
+    <div class="col-lg-6 col-md-6 col-sm-10 col-10 main-div">
+      <form id="joinChatForm" action="/" method="post">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" name="usrnm" id="exampleFormControlInput1" spellcheck="false" autocomplete="off"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Select Room</label>
+          <select class="form-control" name="room" id="exampleFormControlSelect1" required>
+            <option name="room" value="Web Development">
+              Web Development
+            </option>
+            <option name="room" value="App Development">
+              App Development
+            </option>
+            <option name="room" value="FOSS">FOSS</option>
+            <option name="room" value="Design">Design</option>
+            <option name="room" value="Competitive Programming">
+              Competitive Programming
+            </option>
+            <option name="room" value="Cyber Security">Cyber Security</option>
+            <option name="room" value="Artificial Intelligence">
+              Artificial Intelligence
+            </option>
+          </select>
+        </div>
+        <br />
+        <button id="joinChat" type="submit">Join Chat!</button>
+      </form>
     </div>
-    <script src="./js/lastEncounter.js"></script>
-  </body>
+  </div>
+  <script src="./js/lastEncounter.js"></script>
+</body>
+
 </html>
