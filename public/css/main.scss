@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap");
+// @use "../../node_modules/@material/fab";
+// @include fab.core-styles;
+
+.fab {
+  margin: 0px;
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: fixed;
+};
+
 
 $dark-color-a: #00adb5;
 $dark-color-b: #393e46;
@@ -84,16 +96,20 @@ a {
   text-decoration: none;
 }
 
-.btn {
-  cursor: pointer;
-  padding: 5px 15px;
-  background: $light-color;
-  color: $dark-color-a;
-  border: 0;
-  font-size: 17px;
-}
 
 /* Chat Page */
+
+#msg{
+  border-radius: 40px;
+  margin-right: 10px;
+  height: 50px;
+  margin-top: -3px;
+}
+#btn{
+  height: 46px;
+  width: 46px;
+  border-radius: 23px;
+}
 
 .chat-container {
   border-radius: 20px;

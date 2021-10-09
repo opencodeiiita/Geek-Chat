@@ -9,10 +9,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.1/moment.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="./js/dark-mode.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script type = "module" src="./js/dark-mode.js"></script>
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
   <title>GeekChat!</title>
 </head>
 
+
+  
 <body>
   <div id="toggle">
     <i class="indicator"> </i>
@@ -20,7 +26,16 @@
   <div class="chat-container">
     <header class="chat-header">
       <h1 class="main-heading"><i class="fas fa-smile"></i>GeekChat</h1>
-      <a href="index.html" class="btn">Leave Room</a>
+      <div class="mdc-touch-target-wrapper">
+        <a href="index.html" class="btn" id="exit-bttn" >
+        <button class="mdc-fab mdc-fab--mini mdc-fab--touch" id = "btn">
+          <div class="mdc-fab__ripple"></div>
+            <i class="fas fa-sign-out-alt" style="font-size: 18px; margin-left: 5px;"></i>
+          <div class="mdc-fab__touch"></div>
+        </button>
+        </a>
+      </div>
+      
     </header>
     <main class="chat-main">
       <div class="chat-sidebar">
@@ -52,11 +67,20 @@
     <div class="chat-form-container">
       <form id="chat-form">
         <input id="msg" type="text" placeholder="Enter Message" required autocomplete="off" />
-        <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+        <div class="mdc-touch-target-wrapper">
+          <button class="mdc-fab mdc-fab--mini mdc-fab--touch" id="btn" style="margin-top: -2px;">
+            <div class="mdc-fab__ripple"></div>
+            <span class="material-icons mdc-fab__icon">send</span>
+            <div class="mdc-fab__touch"></div>
+          </button>
+        </div>
       </form>
     </div>
   </div>
-
+  
+  <script>
+    mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-fab'));
+  </script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/index.js"></script>
 </body>
