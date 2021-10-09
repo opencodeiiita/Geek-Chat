@@ -86,11 +86,13 @@ a {
 
 .btn {
   cursor: pointer;
-  padding: 5px 15px;
   background: $light-color;
   color: $dark-color-a;
   border: 0;
-  font-size: 17px;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  border-radius: 20px;
 }
 
 /* Chat Page */
@@ -464,4 +466,71 @@ a {
   100% {
     opacity: 0;
   }
+}
+
+.fab-container {
+  z-index: 999;
+  cursor: pointer;
+}
+
+.fab-icon-holder {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.fab-icon-holder:hover {
+  opacity: 0.8;
+  .fab-label{
+    display: flex;
+  }
+}
+
+.fab-icon-holder i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 25px;
+}
+
+.fab-options {
+  list-style-type: none;
+  margin: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: scale(0);
+  transform-origin: 85% bottom;
+}
+
+.fab:hover+.fab-options,
+.fab-options:hover {
+  opacity: 1;
+  transform: scale(1); 
+}
+
+.fab-options li {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.fab-label {
+  position: absolute;
+  
+  padding: 2px 5px;
+  align-self: center;
+  user-select: none;
+  white-space: nowrap;
+  border-radius: 3px;
+  font-size: 16px;
+  background: #666666;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+}
+
+.msg-box{
+  border-radius: 40px;
+  margin-right: 10px;
 }

@@ -23,7 +23,16 @@
   <div class="chat-container">
     <header class="chat-header">
       <h1 class="main-heading"><i class="fas fa-smile"></i>GeekChat</h1>
-      <a href="index.html" class="btn" id="exit-bttn"><button class="btn"><i class="fas fa-sign-out-alt" style="margin-left: 5px; margin-top: 5px;"></i></button></a>
+      <div class="fab-container" >
+        <div class="fab fab-icon-holder" style="position: relative; left: -20px; margin-top: 5px;">
+          <a href="index.html" class="btn" id="exit-bttn" ><button class="btn" style="height: 50px; width: 50px; border-radius: 25px;"><i class="fas fa-sign-out-alt" style="margin-left: 5px;"></i></button></a>
+        </div>
+        <ul class="fab-options">
+          <li>
+            <span class="fab-label">exit</span>
+          </li>
+        </ul>
+      </div>
     </header>
     <main class="chat-main">
       <div class="chat-sidebar">
@@ -53,29 +62,19 @@
       </div>
     </main>
     <div class="chat-form-container">
-      <form id="chat-form">
+      <form id="chat-form">          
+        <input id="msg" class="msg-box" type="text" placeholder="  Enter Message" required autocomplete="off" />
         <div class="fab-container">
           <div class="fab fab-icon-holder">
-            <i class="fas fa-plus"></i>
+          <button class="btn"><i class="fas fa-paper-plane" style="margin-right: 5px;"></i></button>     
           </div>
           <ul class="fab-options">
             <li>
-            <span class="fab-label">Upload</span>
-            <div class="fab-icon-holder">
-              <i class="fas fa-file-alt"></i>
-            </div>
-            </li>
-            <li>
-            <span class="fab-label">Feedback</span>
-            <div class="fab-icon-holder">
-              <i class="fas fa-comment-alt"></i>
-            </div>
+              <span class="fab-label" >Send message</span>
             </li>
           </ul>
-          </div>
-            
-        <input id="msg" class="msg-box" type="text" placeholder="  Enter Message" required autocomplete="off" />
-        <button class="btn"><i class="fas fa-paper-plane"></i></button>     
+        </div>
+
       </form>
     </div>
   </div>
