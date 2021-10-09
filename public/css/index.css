@@ -1,21 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap");
 body {
-  background: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
-  text-align: center;
-}
-
-body * {
-  transition: color 0.5s linear;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+  background: -webkit-gradient(linear, left top, right top, from(#00c9ff), to(#92fe9e));
   background: linear-gradient(90deg, #00c9ff, #92fe9e);
-  opacity: 1;
-  z-index:  -1;
-  transition: all 0.5s linear;
+  text-align: center;
 }
 
 body #toggle {
@@ -82,9 +69,8 @@ body .heading h1 {
 }
 
 body .main-div {
+  min-height: 60vh;
   margin: auto;
-  height: 50vh;
-  width: 50vw;
   border-radius: 20px;
   -webkit-box-shadow: 11px 10px 25px 2px rgba(0, 0, 0, 0.75);
           box-shadow: 11px 10px 25px 2px rgba(0, 0, 0, 0.75);
@@ -93,6 +79,7 @@ body .main-div {
 
 body .main-div form .form-group {
   padding: 3%;
+  margin-bottom: 20px;
 }
 
 body .main-div form label {
@@ -102,7 +89,7 @@ body .main-div form label {
 
 body .main-div form input:focus {
   display: inline;
-  width: 40%;
+  width: 45%;
   background: none;
   border: none;
   border-bottom: 3px solid black;
@@ -114,7 +101,7 @@ body .main-div form input:focus {
 
 body .main-div form input {
   display: inline;
-  width: 40%;
+  width: 45%;
   background: none;
   border: none;
   border-bottom: 3px solid black;
@@ -126,7 +113,7 @@ body .main-div form input {
 
 body .main-div form select {
   display: inline;
-  width: 40%;
+  width: 45%;
   background: none;
   font-size: 20px;
   border: 3px solid black;
@@ -134,7 +121,7 @@ body .main-div form select {
 
 body .main-div form select:focus {
   display: inline;
-  width: 40%;
+  width: 45%;
   background: none;
   font-size: 20px;
   border: 3px solid black;
@@ -168,13 +155,27 @@ body .main-div form button:hover, body .main-div form button:focus, body .main-d
   transform: scale(1.1);
 }
 
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: -webkit-gradient(linear, left top, right top, from(#00c9ff), to(#92fe9e));
+  background: linear-gradient(90deg, #00c9ff, #92fe9e);
+  opacity: 1;
+  z-index: -1;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+body * {
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
 .dark-mode {
   background: -webkit-gradient(linear, left top, right top, from(#002846), color-stop(#ff7373), to(#ffaf7b));
   background: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
   color: white;
-}
-.dark-mode::before {
-  opacity: 0;
 }
 
 .dark-mode h1 {
@@ -192,5 +193,62 @@ body .main-div form button:hover, body .main-div form button:focus, body .main-d
 
 .dark-mode select:focus {
   border: 3px solid white;
+}
+
+.dark-mode::before {
+  opacity: 0;
+}
+
+@media (max-height: 768px) {
+  body .main-div {
+    min-height: 55vh;
+  }
+}
+
+@media (max-width: 768px) {
+  body .main-div {
+    padding: 5% 5% 7% 5%;
+  }
+  body .heading h1 {
+    font-size: 3rem;
+  }
+  body .main-div form .form-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body .main-div form input:focus {
+    width: 85%;
+  }
+  body .main-div form input {
+    width: 85%;
+  }
+  body .main-div form select {
+    width: 85%;
+    text-align: center;
+  }
+  body .main-div form select:focus {
+    text-align: center;
+    width: 85%;
+  }
+}
+
+@media (max-width: 576px) {
+  body .heading h1 {
+    font-size: 2.75rem;
+  }
+  body .heading iframe {
+    width: 15%;
+  }
 }
 /*# sourceMappingURL=index.css.map */
