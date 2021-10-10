@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap');
 
 $dark-color-a: #00adb5;
 $dark-color-b: #393e46;
@@ -9,315 +9,363 @@ $success-color: #222831;
 $error-color: #d9534f;
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    // background-color: #FFDEE9;
-    // background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
-    background-image: linear-gradient(
-        90deg,
-        rgb(0, 40, 70),
-        rgb(255, 115, 115),
-        rgb(255, 175, 123)
-    );
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    overflow: hidden;
-    // background: $light-color;
-    margin: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  // background-color: #FFDEE9;
+  // background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+  background-image: linear-gradient(90deg, rgb(0, 40, 70), rgb(255, 115, 115), rgb(255, 175, 123));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  // background: $light-color;
+  margin: 20px;
 }
 body * {
-    transition: all 0.5s linear;
+  transition: all 0.5s linear;
 }
 body::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: linear-gradient(90deg, #01cafe 0%, #60ecbf 100%);
-    opacity: 1;
-    z-index: -1;
-    transition: all 0.5s linear;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, #01cafe 0%, #60ecbf 100%);
+  opacity: 1;
+  z-index: -1;
+  transition: all 0.5s linear;
 }
 #toggle {
-    width: 60px;
-    height: 30px;
-    display: block;
+  width: 60px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 160px;
+  background: white;
+  transition: 0.5s;
+  cursor: pointer;
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+  .indicator {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    border-radius: 160px;
-    background: white;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background: black;
+    transform: scale(0.9);
+    border-radius: 50%;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2),
+      inset 0 -4px 4px rgba(255, 255, 255, 0.2);
     transition: 0.5s;
-    cursor: pointer;
-    box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
-        inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
-    .indicator {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 30px;
-        width: 30px;
-        background: black;
-        transform: scale(0.9);
-        border-radius: 50%;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
-            inset 0 4px 4px rgba(255, 255, 255, 0.2),
-            inset 0 -4px 4px rgba(255, 255, 255, 0.2);
-        transition: 0.5s;
-    }
+  }
 }
 #toggle.active .indicator {
-    left: 30px;
+  left: 30px;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .btn {
-    cursor: pointer;
-    padding: 5px 15px;
-    background: $light-color;
-    color: $dark-color-a;
-    border: 0;
-    font-size: 17px;
+  cursor: pointer;
+  padding: 5px 15px;
+  background: $light-color;
+  color: $dark-color-a;
+  border: 0;
+  font-size: 17px;
 }
 
 /* Chat Page */
 
 .chat-container {
-    border-radius: 20px;
-    max-width: 1100px;
-    background: #fff;
-    margin: 40px auto;
-    overflow: hidden;
-    opacity: 1;
-    box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
-    border: 1px solid #393e46;
+  border-radius: 20px;
+  max-width: 1100px;
+  background: #fff;
+  margin: 40px auto;
+  overflow: hidden;
+  opacity: 1;
+  box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
+  border: 1px solid #393e46;
 }
 
 .chat-header {
-    background: #00adb5;
-    color: #fff;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
+  background: #00adb5;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
 
-    justify-content: space-between;
-    .main-heading {
-        font-family: "Gluten", cursive;
-    }
+  justify-content: space-between;
+  .main-heading {
+    font-family: 'Gluten', cursive;
+  }
 }
 
 .chat-main {
-    display: grid;
-    min-height: 52vh;
-    // margin-bottom: 5vh;
-    grid-template-columns: 1fr 3fr;
+  display: grid;
+  min-height: 52vh;
+  // margin-bottom: 5vh;
+  grid-template-columns: 1fr 3fr;
 }
 
 .chat-sidebar {
-    background: $dark-color-b;
-    color: #fff;
-    padding: 20px 20px 60px;
-    overflow-y: scroll;
-    min-height: 400px;
+  background: $dark-color-b;
+  color: #fff;
+  padding: 20px 20px 60px;
+  overflow-y: scroll;
+  min-height: 400px;
 }
 
 .chat-sidebar h2 {
-    font-size: 20px;
-    padding: 10px;
+  font-size: 20px;
+  padding: 10px;
 }
 .room-name-container {
-    height: 45px;
-    margin-bottom: 25px;
-    background: rgba(0, 0, 0, 0.1);
+  height: 45px;
+  margin-bottom: 25px;
+  background: rgba(0, 0, 0, 0.1);
 }
 .chat-sidebar h3 {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .chat-sidebar ul li {
-    padding: 10px 0;
+  padding: 10px 0;
 }
 
 .chat-messages {
-    padding: 30px;
-    max-height: 52vh;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
+  padding: 30px;
+  max-height: 52vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
 }
 
 .chat-messages .message {
-    position: relative;
-    padding: 10px 20px;
-    background: #e5e5ea;
-    border-radius: 25px;
-    color: black;
-    float: left;
-    margin-right: auto;
-    margin-bottom: 10px;
+  position: relative;
+  padding: 10px 20px;
+  background: #e5e5ea;
+  border-radius: 25px;
+  color: black;
+  float: left;
+  margin-right: auto;
+  margin-bottom: 10px;
 }
 
 .chat-messages .author {
-    position: relative;
-    padding: 10px 20px;
-    color: white;
-    background: #0b93f6;
-    border-radius: 25px;
-    margin-left: auto;
-    margin-bottom: 10px;
+  position: relative;
+  padding: 10px 20px;
+  color: white;
+  background: #0b93f6;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-bottom: 10px;
 }
 
 .chat-messages .message .meta {
-    font-size: 15px;
-    font-weight: bold;
-    color: $dark-color-b;
-    opacity: 0.7;
-    margin-bottom: 7px;
+  font-size: 15px;
+  font-weight: bold;
+  color: $dark-color-b;
+  opacity: 0.7;
+  margin-bottom: 7px;
 }
 
 .chat-messages .message .meta span {
-    color: #777;
-    padding-left: 0.6em;
+  color: #777;
+  padding-left: 0.6em;
 }
 
 .chat-messages .author .meta {
-    font-size: 15px;
-    font-weight: bold;
-    color: $light-color;
-    opacity: 0.7;
-    margin-bottom: 7px;
+  font-size: 15px;
+  font-weight: bold;
+  color: $light-color;
+  opacity: 0.7;
+  margin-bottom: 7px;
 }
 
 .chat-messages .author .meta span {
-    color: $light-color-b;
-    padding-left: 0.6em;
+  color: $light-color-b;
+  padding-left: 0.6em;
+}
+
+#announcement + .message {
+  margin-top: 40px;
+}
+#announcement + .author {
+  margin-top: 20px;
+}
+.message + #announcement {
+  margin-top: 40px;
+}
+.author + #announcement {
+  margin-top: 20px;
+}
+
+#announcement {
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  background-color: #4fd7b5c4;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 1px 5px #4fd7b53a;
+  p {
+    display: inline;
+  }
+  span {
+    display: inline;
+    padding-left: 0.5em;
+  }
+}
+
+#announcement > p > span {
+  color: #000000a2;
+  font-size: smaller;
+  padding-left: 1em;
+}
+
+#announcement {
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#announcement:hover {
+  opacity: 0.8;
 }
 
 .chat-form-container {
-    padding: 20px 30px;
-    background: #00adb5;
+  padding: 20px 30px;
+  background: #00adb5;
 }
 
 .chat-form-container form {
-    display: flex;
+  display: flex;
 }
 
-.chat-form-container input[type="text"] {
-    font-size: 16px;
-    padding: 5px;
-    height: 40px;
-    flex: 1;
+.chat-form-container input[type='text'] {
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  flex: 1;
 }
 
 /* Join Page */
 .join-container {
-    max-width: 500px;
-    margin: 80px auto;
-    color: #fff;
+  max-width: 500px;
+  margin: 80px auto;
+  color: #fff;
 }
 
 .join-header {
-    text-align: center;
-    padding: 20px;
-    background: $dark-color-a;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  text-align: center;
+  padding: 20px;
+  background: $dark-color-a;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .join-main {
-    padding: 30px 40px;
-    background: $dark-color-b;
+  padding: 30px 40px;
+  background: $dark-color-b;
 }
 
 .join-main p {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .join-main .form-control {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .join-main label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.join-main input[type="text"] {
-    font-size: 16px;
-    padding: 5px;
-    height: 40px;
-    width: 100%;
+.join-main input[type='text'] {
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  width: 100%;
 }
 
 .join-main select {
-    font-size: 16px;
-    padding: 5px;
-    height: 40px;
-    width: 100%;
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  width: 100%;
 }
 
 .join-main .btn {
-    margin-top: 20px;
-    width: 100%;
+  margin-top: 20px;
+  width: 100%;
 }
 .dark-mode {
-    background-image: linear-gradient(
-        90deg,
-        rgb(0, 40, 70),
-        rgb(255, 115, 115),
-        rgb(255, 175, 123)
-    );
-    .chat-header {
-        background: rgb(0, 40, 70);
+  background-image: linear-gradient(90deg, rgb(0, 40, 70), rgb(255, 115, 115), rgb(255, 175, 123));
+  .chat-header {
+    background: rgb(0, 40, 70);
+  }
+  .chat-sidebar {
+    background: rgb(255, 115, 115);
+  }
+  .chat-form-container {
+    background: rgb(0, 40, 70);
+  }
+  .btn {
+    color: rgb(0, 40, 70);
+  }
+  .chat-main {
+    background: rgba(0, 0, 0, 0.849);
+  }
+  #announcement {
+    background-color: #ff7373ab;
+    box-shadow: 1px 5px #ff73733d;
+    color: #eeeeeee5;
+  }
+  #announcement {
+    span {
+      color: #eeeeee9d;
     }
-    .chat-sidebar {
-        background: rgb(255, 115, 115);
-    }
-    .chat-form-container {
-        background: rgb(0, 40, 70);
-    }
-    .btn {
-        color: rgb(0, 40, 70);
-    }
-    .chat-main {
-        background: rgba(0, 0, 0, 0.849);
-    }
+  }
 }
 .dark-mode::before {
-    opacity: 0;
+  opacity: 0;
 }
 @media (max-width: 1200px) {
-    .chat-container {
-        margin: 60px auto;
-    }
+  .chat-container {
+    margin: 60px auto;
+  }
 }
 @media (max-width: 700px) {
-    .chat-main {
-        display: block;
-        max-height: 52vh;
-    }
-    .chat-messages {
-        height: 52vh;
-    }
-    .chat-sidebar {
-        display: none;
-    }
+  .chat-main {
+    display: block;
+    max-height: 52vh;
+  }
+  .chat-messages {
+    height: 52vh;
+  }
+  .chat-sidebar {
+    display: none;
+  }
 }
 /* ----------------------------------------------
  * Generated by Animista on 2021-9-30 12:47:32
@@ -344,160 +392,160 @@ a {
  * ----------------------------------------
  */
 @-webkit-keyframes swing-in-left-bck {
-    0% {
-        -webkit-transform: rotateY(-70deg);
-        transform: rotateY(-70deg);
-        -webkit-transform-origin: left;
-        transform-origin: left;
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: rotateY(0);
-        transform: rotateY(0);
-        -webkit-transform-origin: left;
-        transform-origin: left;
-        opacity: 1;
-    }
+  0% {
+    -webkit-transform: rotateY(-70deg);
+    transform: rotateY(-70deg);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 1;
+  }
 }
 @keyframes swing-in-left-bck {
-    0% {
-        -webkit-transform: rotateY(-70deg);
-        transform: rotateY(-70deg);
-        -webkit-transform-origin: left;
-        transform-origin: left;
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: rotateY(0);
-        transform: rotateY(0);
-        -webkit-transform-origin: left;
-        transform-origin: left;
-        opacity: 1;
-    }
+  0% {
+    -webkit-transform: rotateY(-70deg);
+    transform: rotateY(-70deg);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 1;
+  }
 }
 
 .animate {
-    animation: shimmer 15s infinite linear;
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.05) 4%,
-        rgba(0, 0, 0, 0.01) 35%,
-        rgba(0, 0, 0, 0.1) 55%
-    );
-    background-size: 1000px 100%;
+  animation: shimmer 15s infinite linear;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.05) 4%,
+    rgba(0, 0, 0, 0.01) 35%,
+    rgba(0, 0, 0, 0.1) 55%
+  );
+  background-size: 1000px 100%;
 }
 
 .fade-in {
-    animation: fadeIn linear 1s;
-    -webkit-animation: fadeIn linear 1s;
-    -moz-animation: fadeIn linear 1s;
-    -o-animation: fadeIn linear 1s;
-    -ms-animation: fadeIn linear 1s;
+  animation: fadeIn linear 1s;
+  -webkit-animation: fadeIn linear 1s;
+  -moz-animation: fadeIn linear 1s;
+  -o-animation: fadeIn linear 1s;
+  -ms-animation: fadeIn linear 1s;
 }
 
 @keyframes shimmer {
-    0% {
-        background-position: -1000px 0;
-    }
-    100% {
-        background-position: 1000px 0;
-    }
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-moz-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-o-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-ms-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .fade-out {
-    animation: fadeOut ease 1.5s;
-    -webkit-animation: fadeOut ease 1.5s;
-    -moz-animation: fadeOut ease 1.5s;
-    -o-animation: fadeOut ease 1.5s;
-    -ms-animation: fadeOut ease 1.5s;
+  animation: fadeOut ease 1.5s;
+  -webkit-animation: fadeOut ease 1.5s;
+  -moz-animation: fadeOut ease 1.5s;
+  -o-animation: fadeOut ease 1.5s;
+  -ms-animation: fadeOut ease 1.5s;
 }
 
 @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-moz-keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-webkit-keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-o-keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-ms-keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

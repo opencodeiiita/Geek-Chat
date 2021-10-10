@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   background-image: -webkit-gradient(linear, left top, right top, from(#002846), color-stop(#ff7373), to(#ffaf7b));
   background-image: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
@@ -26,7 +26,7 @@ body * {
 }
 
 body::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background-image: -webkit-gradient(linear, left top, right top, from(#01cafe), to(#60ecbf));
@@ -121,7 +121,7 @@ a {
 }
 
 .chat-header .main-heading {
-  font-family: "Gluten", cursive;
+  font-family: 'Gluten', cursive;
 }
 
 .chat-main {
@@ -219,6 +219,61 @@ a {
   padding-left: 0.6em;
 }
 
+#announcement + .message {
+  margin-top: 40px;
+}
+
+#announcement + .author {
+  margin-top: 20px;
+}
+
+.message + #announcement {
+  margin-top: 40px;
+}
+
+.author + #announcement {
+  margin-top: 20px;
+}
+
+#announcement {
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  background-color: #4fd7b5c4;
+  border-radius: 15px;
+  text-align: center;
+  -webkit-box-shadow: 1px 5px #4fd7b53a;
+          box-shadow: 1px 5px #4fd7b53a;
+}
+
+#announcement p {
+  display: inline;
+}
+
+#announcement span {
+  display: inline;
+  padding-left: 0.5em;
+}
+
+#announcement > p > span {
+  color: #000000a2;
+  font-size: smaller;
+  padding-left: 1em;
+}
+
+#announcement {
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#announcement:hover {
+  opacity: 0.8;
+}
+
 .chat-form-container {
   padding: 20px 30px;
   background: #00adb5;
@@ -230,7 +285,7 @@ a {
   display: flex;
 }
 
-.chat-form-container input[type="text"] {
+.chat-form-container input[type='text'] {
   font-size: 16px;
   padding: 5px;
   height: 40px;
@@ -272,7 +327,7 @@ a {
   margin-bottom: 5px;
 }
 
-.join-main input[type="text"] {
+.join-main input[type='text'] {
   font-size: 16px;
   padding: 5px;
   height: 40px;
@@ -314,6 +369,17 @@ a {
 
 .dark-mode .chat-main {
   background: rgba(0, 0, 0, 0.849);
+}
+
+.dark-mode #announcement {
+  background-color: #ff7373ab;
+  -webkit-box-shadow: 1px 5px #ff73733d;
+          box-shadow: 1px 5px #ff73733d;
+  color: #eeeeeee5;
+}
+
+.dark-mode #announcement span {
+  color: #eeeeee9d;
 }
 
 .dark-mode::before {
