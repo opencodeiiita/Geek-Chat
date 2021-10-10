@@ -1,11 +1,12 @@
-const marked=require("marked");
-const encode=require("html-entities")['encode'];
+const marked = require("marked");
+const encode = require("html-entities")["encode"];
 const moment = require("moment");
-function formatMessages(username,text){
-    return{
+function formatMessages(username, text, userID) {
+    return {
         username,
         text: marked(encode(text)),
-        time: moment().valueOf()
+        userID,
+        time: moment().valueOf(),
     };
 }
 module.exports = formatMessages;
