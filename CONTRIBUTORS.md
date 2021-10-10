@@ -59,6 +59,12 @@
 - [Botte Shreya](https://github.com/shreya-0508)
 - [Aditya Singh Machhaiya](https://github.com/asingh1601)
 - [Shubhi Pandey](https://github.com/Shubhi2002)
+
+- [Naman Yadav](https://github.com/Naman-11)
+- [Anushtha Bageria](https://github.com/anu-phoenix)
+- [BOTTE SHREYA](https://github.com/shreya-0508)
+
+
 - [Shivanshu Singh](https://github.com/Shivanshu97i)
 - [Anushtha Bageria](https://github.com/anu-phoenix)
 - [BOTTE SHREYA](https://github.com/shreya-0508)
@@ -87,5 +93,6 @@
 - [Mayank Kumar](https://github.com/mayank-kr)
 - [Abhinav Singh](https://github.com/Abhisin90)
 - [Abhi Singh](https://github.com/Abhijeet452)
+
 <!-- Add yourself above this line! -->
 
