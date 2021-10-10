@@ -40,20 +40,37 @@ app.post("/", (req, res) => {
 io.on('connection', socket => {
     if (usrnm != undefined && room != undefined) {
         newUser(usrnm, room, socket.id);
+        socket.join(room);
+        socket.emit('roomJoined', ({ room, username: usrnm }));
     }
 
     socket.emit("message", formatMessages("GeekChat Bot", "Welcome to GeekChat!"));
-    socket.broadcast.emit("message", formatMessages("GeekChat Bot", `A User entered the chat!`));
+    socket.to(room).emit("message", formatMessages("GeekChat Bot", `${usrnm} entered the chat!`));
+    let userList = usersArr.filter(ob => ob.room === room);
+    socket.emit("userList", (userList));
+    socket.to(room).emit("userJoined", ({ id: socket.id, username: usrnm }));
 
     socket.on("disconnect", () => {
-        let user = usersArr.find(ob => ob.session_id === socket.id);
-        io.emit("message", formatMessages("GeekChat Bot", `${user.name} disconnected.`));
+        io.in(room).emit("userLeft", ({ id: socket.id, username: usrnm }));
+        let userIndex = -1, user;
+        for (const [index, userObj] of usersArr.entries()) {
+            if (userObj.session_id === socket.id) {
+                userIndex = index;
+                user = userObj;
+                break;
+            }
+        }
+        if (userIndex !== -1) {
+            usersArr.splice(userIndex, 1);
+            io.in(user.room).emit("message", formatMessages("GeekChat Bot", `${user.name} disconnected.`));
+        }
     });
 
     socket.on("chatMessage", (msg) => {
         let user = usersArr.find(ob => ob.session_id === socket.id);
-        console.log(usersArr);
-        io.emit("message", formatMessages(user.name, msg));
+        // console.log(usersArr);
+        if (user)
+            io.in(user.room).emit("message", formatMessages(user.name, msg));
     });
 });
 
