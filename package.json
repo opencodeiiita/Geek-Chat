@@ -12,6 +12,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "html-entities": "^2.3.2",
+    "marked": "^3.0.7",
     "moment": "^2.29.1",
     "socket.io": "^4.2.0"
   }
