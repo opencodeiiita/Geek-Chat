@@ -16,9 +16,6 @@
 - [Kirti Singla](https://github.com/codesanta142)
 - [sai suman kumar](https://github.com/saisumanthkumar)
 
-
-
-
 - [Prasanta Barman](https://github.com/prasanta352)
 - [Vijay Karanjkar](https://github.com/Vijay-K-2003)
 - [Revathi Ari](https://github.com/Revathi2306)
@@ -45,6 +42,7 @@
 - [Janhavi Bawaskar](https://github.com/janhaviiii)
 - [Sathwik Kuppam](https://github.com/Ksathwik03)
 - [Harsh Gupta](https://github.com/Harshgupta5901)
-- [Sarthak](https://github.com/daniel-aracquine)
 - [Siddharth S](https://github.com/Siddharth1002)
+- [Sarthak](https://github.com/daniel-aracquine)
+
 <!-- Add yourself above this line! -->
