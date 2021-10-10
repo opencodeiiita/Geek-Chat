@@ -191,17 +191,6 @@ a {
     border-radius: 15px;
 }
 
-.chat-messages .message.author {
-    padding: 15px;
-    margin-bottom: 15px;
-    background-color: #3aee49;
-    border-radius: 15px;
-    /* align-items: flex-end; */
-}
-.chat-messages .message.author {
-    text-align: right;
-}
-
 .message {
     -webkit-animation: swing-in-left-bck 0.8s
         cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
