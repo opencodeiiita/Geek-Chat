@@ -30,6 +30,7 @@ function outputMessage(msg) {
         div.classList.add("message");
     }
     if (values[0].username === "GeekChat Bot") {
+        div.classList.add("bot");
         div.innerHTML = `<p class="meta">${values[0].username} <span>${moment(
             values[0].time
         ).format("h:mm a")}</span></p>
