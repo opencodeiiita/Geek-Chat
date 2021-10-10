@@ -25,7 +25,7 @@ function outputMessage(msg) {
     console.log(values[0]);
     const div = document.createElement("div");
     if (values[0].userID === values[1]) {
-        div.classList.add("message", "author");
+        div.classList.add("author");
     } else {
         div.classList.add("message");
     }
