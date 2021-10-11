@@ -30,6 +30,13 @@ app.post("/", (req, res) => {
     usrnm = req.body.usrnm;
     room = req.body.room;
 
+    //Each user should have a unique username in a particular room
+    if (usersArr.find(user => {
+        if (user.name === usrnm && user.room === room) return true;
+    })) {
+        return res.sendFile(__dirname + "/public/index.html");
+    }
+
     res.sendFile(__dirname + "/public/main.html");
 });
 
@@ -42,13 +49,13 @@ io.on("connection", (socket) => {
 
     socket.emit(
         "message",
-        formatMessages("GeekChat Bot", "Welcome to GeekChat!")
+        formatMessages("", "GeekChat Bot", "Welcome to GeekChat!", "")
     );
     socket
         .to(room)
         .emit(
             "message",
-            formatMessages("GeekChat Bot", `${usrnm} entered the chat!`)
+            formatMessages("", "GeekChat Bot", `${usrnm} entered the chat!`, "")
         );
     let userList = usersArr.filter((ob) => ob.room === room);
     // console.log(userList);
@@ -70,7 +77,7 @@ io.on("connection", (socket) => {
             usersArr.splice(userIndex, 1);
             io.in(user.room).emit(
                 "message",
-                formatMessages("GeekChat Bot", `${user.name} disconnected.`)
+                formatMessages("", "GeekChat Bot", `${user.name} disconnected.`, "")
             );
         }
     });
@@ -80,16 +87,27 @@ io.on("connection", (socket) => {
         console.log(messageObject, messageObject.msg);
         // console.log(formatMessages(user.name, msg));
 
+        let messageID = user.name+'_'+ (new Date()).getTime();
         if (user) {
             // console.log(user.name, messageObject["text"], messageObject.userID);
             io.in(user.room).emit(
                 "message",
                 formatMessages(
+                    messageID,
                     user.name,
                     messageObject.msg,
                     messageObject.userID
                 )
             );
+        }
+    });
+    socket.on("deleteChatMsg", (msgId) => {
+        if (msgId == null || msgId == undefined){
+            return;
+        }
+        let user = usersArr.find(ob => ob.session_id === socket.id);
+        if (user) {
+            io.in(user.room).emit("deleteMsgFromChat", msgId);
         }
     });
 });
