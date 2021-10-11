@@ -193,10 +193,11 @@ a {
   margin-bottom: 10px;
 }
 
-.chat-messages .author:hover{
+.chat-messages .author:hover {
   background: #f3201380;
 }
-.chat-messages .author:hover .btn-danger{
+
+.chat-messages .author:hover .btn-danger {
   opacity: 1;
 }
 
@@ -331,18 +332,21 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   padding: 0.5rem;
-  outline:none;
+  outline: none;
   border: none;
   border-radius: 0.5rem;
-  color:#FFFFFF;
+  color: #FFFFFF;
   background-color: #F32013;
   opacity: 0;
 }
-.btn-danger:hover{
+
+.btn-danger:hover {
   background: #a20900;
 }
+
 @media (max-width: 1200px) {
   .chat-container {
     margin: 60px auto;
