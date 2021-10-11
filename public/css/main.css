@@ -8,16 +8,69 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
-  background-image: -webkit-gradient(linear, left top, right top, from(#01cafe), to(#60ecbf));
-  background-image: linear-gradient(90deg, #01cafe 0%, #60ecbf 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#002846), color-stop(#ff7373), to(#ffaf7b));
+  background-image: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   overflow: hidden;
   margin: 20px;
+}
+
+body * {
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#01cafe), to(#60ecbf));
+  background-image: linear-gradient(90deg, #01cafe 0%, #60ecbf 100%);
+  opacity: 1;
+  z-index: -1;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+#toggle {
+  width: 60px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 160px;
+  background: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+}
+
+#toggle .indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background: black;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  border-radius: 50%;
+  -webkit-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#toggle.active .indicator {
+  left: 30px;
 }
 
 ul {
@@ -31,8 +84,8 @@ a {
 .btn {
   cursor: pointer;
   padding: 5px 15px;
-  background: #EEEEEE;
-  color: #00ADB5;
+  background: #eeeeee;
+  color: #00adb5;
   border: 0;
   font-size: 17px;
 }
@@ -47,11 +100,11 @@ a {
   opacity: 1;
   -webkit-box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
           box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
-  border: 1px solid #393E46;
+  border: 1px solid #393e46;
 }
 
 .chat-header {
-  background: #00ADB5;
+  background: #00adb5;
   color: #fff;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -74,22 +127,28 @@ a {
 .chat-main {
   display: -ms-grid;
   display: grid;
+  min-height: 52vh;
   -ms-grid-columns: 1fr 3fr;
       grid-template-columns: 1fr 3fr;
 }
 
 .chat-sidebar {
-  background: #393E46;
+  background: #393e46;
   color: #fff;
   padding: 20px 20px 60px;
   overflow-y: scroll;
+  min-height: 400px;
 }
 
 .chat-sidebar h2 {
   font-size: 20px;
-  background: rgba(0, 0, 0, 0.1);
   padding: 10px;
-  margin-bottom: 20px;
+}
+
+.room-name-container {
+  height: 45px;
+  margin-bottom: 25px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .chat-sidebar h3 {
@@ -102,37 +161,67 @@ a {
 
 .chat-messages {
   padding: 30px;
-  max-height: 400px;
+  max-height: 52vh;
   overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .chat-messages .message {
-  padding: 15px;
-  margin-bottom: 15px;
-  background-color: #EEEEEE;
-  border-radius: 15px;
+  position: relative;
+  padding: 10px 20px;
+  background: #e5e5ea;
+  border-radius: 25px;
+  color: black;
+  float: left;
+  margin-right: auto;
+  margin-bottom: 10px;
 }
 
-.message {
-  -webkit-animation: swing-in-left-bck 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-  animation: swing-in-left-bck 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+.chat-messages .author {
+  position: relative;
+  padding: 10px 20px;
+  color: white;
+  background: #0b93f6;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-bottom: 10px;
 }
 
 .chat-messages .message .meta {
   font-size: 15px;
   font-weight: bold;
-  color: #393E46;
+  color: #393e46;
   opacity: 0.7;
   margin-bottom: 7px;
 }
 
 .chat-messages .message .meta span {
   color: #777;
+  padding-left: 0.6em;
+}
+
+.chat-messages .author .meta {
+  font-size: 15px;
+  font-weight: bold;
+  color: #eeeeee;
+  opacity: 0.7;
+  margin-bottom: 7px;
+}
+
+.chat-messages .author .meta span {
+  color: #eeeeeed0;
+  padding-left: 0.6em;
 }
 
 .chat-form-container {
   padding: 20px 30px;
-  background: #00ADB5;
+  background: #00adb5;
 }
 
 .chat-form-container form {
@@ -141,7 +230,7 @@ a {
   display: flex;
 }
 
-.chat-form-container input[type='text'] {
+.chat-form-container input[type="text"] {
   font-size: 16px;
   padding: 5px;
   height: 40px;
@@ -160,14 +249,14 @@ a {
 .join-header {
   text-align: center;
   padding: 20px;
-  background: #00ADB5;
+  background: #00adb5;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
 .join-main {
   padding: 30px 40px;
-  background: #393E46;
+  background: #393e46;
 }
 
 .join-main p {
@@ -183,7 +272,7 @@ a {
   margin-bottom: 5px;
 }
 
-.join-main input[type='text'] {
+.join-main input[type="text"] {
   font-size: 16px;
   padding: 5px;
   height: 40px;
@@ -202,9 +291,48 @@ a {
   width: 100%;
 }
 
+.dark-mode {
+  background-image: -webkit-gradient(linear, left top, right top, from(#002846), color-stop(#ff7373), to(#ffaf7b));
+  background-image: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
+}
+
+.dark-mode .chat-header {
+  background: #002846;
+}
+
+.dark-mode .chat-sidebar {
+  background: #ff7373;
+}
+
+.dark-mode .chat-form-container {
+  background: #002846;
+}
+
+.dark-mode .btn {
+  color: #002846;
+}
+
+.dark-mode .chat-main {
+  background: rgba(0, 0, 0, 0.849);
+}
+
+.dark-mode::before {
+  opacity: 0;
+}
+
+@media (max-width: 1200px) {
+  .chat-container {
+    margin: 60px auto;
+  }
+}
+
 @media (max-width: 700px) {
   .chat-main {
     display: block;
+    max-height: 52vh;
+  }
+  .chat-messages {
+    height: 52vh;
   }
   .chat-sidebar {
     display: none;
@@ -264,6 +392,84 @@ a {
     -webkit-transform-origin: left;
     transform-origin: left;
     opacity: 1;
+  }
+}
+
+.animate {
+  -webkit-animation: shimmer 15s infinite linear;
+          animation: shimmer 15s infinite linear;
+  background: -webkit-gradient(linear, left top, right top, color-stop(4%, rgba(0, 0, 0, 0.05)), color-stop(35%, rgba(0, 0, 0, 0.01)), color-stop(55%, rgba(0, 0, 0, 0.1)));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.05) 4%, rgba(0, 0, 0, 0.01) 35%, rgba(0, 0, 0, 0.1) 55%);
+  background-size: 1000px 100%;
+}
+
+.fade-in {
+  animation: fadeIn linear 1s;
+  -webkit-animation: fadeIn linear 1s;
+  -moz-animation: fadeIn linear 1s;
+  -o-animation: fadeIn linear 1s;
+  -ms-animation: fadeIn linear 1s;
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut ease 1.5s;
+  -webkit-animation: fadeOut ease 1.5s;
+  -moz-animation: fadeOut ease 1.5s;
+  -o-animation: fadeOut ease 1.5s;
+  -ms-animation: fadeOut ease 1.5s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 /*# sourceMappingURL=main.css.map */
