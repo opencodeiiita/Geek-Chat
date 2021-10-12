@@ -12,4 +12,5 @@ if (lastJoinedRoom !== null)
 joinChatFrom.addEventListener('submit', () => {
     localStorage.setItem('last_used_username', username.value);
     localStorage.setItem('last_joined_room', roomSelector.value);
+    sessionStorage.setItem('current_user', username.value);
 });

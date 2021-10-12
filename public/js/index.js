@@ -5,7 +5,7 @@ const roomName = document.querySelector("#room-name");
 const users = document.querySelector("#users");
 const roomNameDiv = document.querySelector(".room-name-container");
 const userMap = new Map();
-
+const CURRENT_USER = sessionStorage.getItem('current_user')
 var room;
 socket.on("roomJoined", (connectionObj) => {
     console.log(connectionObj);
@@ -24,26 +24,31 @@ function outputMessage(msg) {
     console.log(msg.message);
     console.log(values[0]);
     const div = document.createElement("div");
+    div.setAttribute('id', values[0].id)
     if (values[0].userID === values[1]) {
         div.classList.add("author");
+        div.innerHTML += `<button class="btn-danger" onclick="deleteMsg('${values[0].id}')"><span class="material-icons">
+        delete
+        </span></button>`
     } else {
         div.classList.add("message");
     }
     if (values[0].username === "GeekChat Bot") {
+
         div.classList.add("bot");
-        div.innerHTML = `<p class="meta">${values[0].username} <span>${moment(
+        div.innerHTML += `<p class="meta">${values[0].username} <span>${moment(
             values[0].time
         ).format("h:mm a")}</span></p>
-<p class="text">
-${values[0]["text"]}
-</p>`;
+        <p class="text">
+        ${values[0]["text"]}
+        </p>`;
     } else {
-        div.innerHTML = `<p class="meta">${values[0].username} <span>${moment(
+        div.innerHTML += `<p class="meta">${values[0].username} <span>${moment(
             values[0].time
         ).format("h:mm a")}</span></p>
-<p class="text">
-  ${values[0].text}
-</p>`;
+        <p class="text">
+        ${values[0].text}
+        </p>`;
     }
 
     document.querySelector(".chat-messages").appendChild(div);
@@ -102,3 +107,18 @@ socket.on("userLeft", ({ id, username }) => {
     }, 1500);
     userMap.delete(id, username);
 });
+
+socket.on('deleteMsgFromChat', (msgId) => {
+    if (msgId == null || msgId == undefined) {
+      return;
+    }
+    document.getElementById(msgId).remove();
+});
+
+function deleteMsg(info){
+    console.log(info)
+    let [name, id] = info.split('_');
+    if (name === CURRENT_USER) {
+      socket.emit('deleteChatMsg', info);
+    }
+  }

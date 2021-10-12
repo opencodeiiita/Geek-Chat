@@ -127,7 +127,7 @@ a {
 .chat-main {
   display: -ms-grid;
   display: grid;
-  min-height: 52vh;
+  min-height: 60vh;
   -ms-grid-columns: 1fr 3fr;
       grid-template-columns: 1fr 3fr;
 }
@@ -137,7 +137,7 @@ a {
   color: #fff;
   padding: 20px 20px 60px;
   overflow-y: scroll;
-  min-height: 400px;
+  min-height: 60vh;
 }
 
 .chat-sidebar h2 {
@@ -161,7 +161,7 @@ a {
 
 .chat-messages {
   padding: 30px;
-  max-height: 52vh;
+  max-height: 60vh;
   overflow-y: scroll;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -206,6 +206,14 @@ a {
   height: 11%;
   text-align: center;
   vertical-align: middle;
+}
+
+.chat-messages .author:hover {
+  background: #f3201380;
+}
+
+.chat-messages .author:hover .btn-danger {
+  opacity: 1;
 }
 
 .chat-messages .message .meta {
@@ -349,6 +357,25 @@ a {
   opacity: 0;
 }
 
+.btn-danger {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  color: #FFFFFF;
+  background-color: #F32013;
+  opacity: 0;
+}
+
+.btn-danger:hover {
+  background: #a20900;
+}
+
 @media (max-width: 1200px) {
   .chat-container {
     margin: 60px auto;
@@ -358,10 +385,10 @@ a {
 @media (max-width: 700px) {
   .chat-main {
     display: block;
-    max-height: 52vh;
+    max-height: 60vh;
   }
   .chat-messages {
-    height: 52vh;
+    height: 60vh;
   }
   .chat-sidebar {
     display: none;
