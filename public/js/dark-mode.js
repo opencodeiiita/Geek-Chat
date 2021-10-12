@@ -8,11 +8,9 @@ $(document).ready(() => {
     toggleButton.classList.toggle("toggle");
   }
 
-
   toggleButton.onclick = function () {
     toggleButton.classList.toggle("active");
     body.classList.toggle("dark-mode");
     localStorage.dark ^= true;
-
   };
 });
