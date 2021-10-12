@@ -173,6 +173,44 @@ a {
     margin-bottom: 10px;
 }
 
+.GeekChat-message{
+    position: relative;
+    padding: 10px 20px;
+    background: #276060;
+    border-radius: 25px;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.tooltip {
+    position: relative;
+    text-align: center;
+    border-bottom: 1px black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    top: 10px;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+
 .chat-messages .author {
     position: relative;
     padding: 10px 20px;

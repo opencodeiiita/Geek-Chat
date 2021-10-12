@@ -34,12 +34,18 @@ function outputMessage(msg) {
         div.classList.add("message");
     }
     if (values[0].username === "GeekChat Bot") {
-        div.innerHTML += `<p class="meta">${values[0].username} <span>${moment(
+        let mySubString = values[0]["text"].substring(
+            3, 
+            values[0]["text"].lastIndexOf("</p>")
+        );
+        div.className = 'GeekChat-message'
+        div.innerHTML += `<p class="tooltip">
+        ${mySubString}
+        <span class="tooltiptext">${moment(
             values[0].time
-        ).format("h:mm a")}</span></p>
-<p class="text">
-${values[0]["text"]}
-</p>`;
+        ).format("h:mm a")}
+        </span>
+        </p>`;
     } else {
         div.innerHTML += `<p class="meta">${values[0].username} <span>${moment(
             values[0].time
