@@ -26,7 +26,12 @@
                 <h1 class="main-heading">
                     <i class="fas fa-smile"></i>GeekChat
                 </h1>
-                <a href="index.html" class="btn">Leave Room</a>
+                <a href="index.html">
+                    <button class="mdc-fab" id="logout-btn" aria-label="Favorite">
+                        <div class="mdc-fab__ripple"></div>
+                        <span class="mdc-fab__icon material-icons" id="logout-btn-icon">logout</span>
+                      </button>
+                </a>
             </header>
             <main class="chat-main">
                 <div class="chat-sidebar">
@@ -63,9 +68,10 @@
                         required
                         autocomplete="off"
                     />
-                    <button class="btn">
-                        <i class="fas fa-paper-plane"></i> Send
-                    </button>
+                    <button class="mdc-fab btn" aria-label="Favorite" id="send-btn">
+                        <div class="mdc-fab__ripple"></div>
+                        <span class="mdc-fab__icon material-icons" id="send-btn-icon">send</span>
+                      </button>
                 </form>
             </div>
         </div>
