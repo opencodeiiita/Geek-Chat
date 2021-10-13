@@ -367,8 +367,8 @@ a {
   outline: none;
   border: none;
   border-radius: 0.5rem;
-  color: #FFFFFF;
-  background-color: #F32013;
+  color: #ffffff;
+  background-color: #f32013;
   opacity: 0;
 }
 
@@ -528,9 +528,6 @@ a {
     opacity: 0;
   }
 }
-/*# sourceMappingURL=main.css.map */
-
-
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -544,3 +541,4 @@ a {
   border-radius: 10px;
   background: #0b93f6;
 }
+/*# sourceMappingURL=main.css.map */
