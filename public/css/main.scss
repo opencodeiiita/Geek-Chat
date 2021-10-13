@@ -7,6 +7,7 @@ $light-color: #eeeeee;
 $light-color-b: #eeeeeed0;
 $success-color: #222831;
 $error-color: #d9534f;
+$transitionchange:all 1s ease 0s;
 
 * {
     box-sizing: border-box;
@@ -171,7 +172,9 @@ a {
     border-radius: 1.125rem 1.125rem 1.125rem 0;
  }
 
-.chat-messages .author {
+
+ .chat-messages .author {
+    position: relative;
     margin: 1rem 1rem 1rem auto ;
     border-radius: 1.125rem 1.125rem 0 1.125rem;
     color: white;
@@ -179,6 +182,9 @@ a {
     box-sizing: border-box;
     padding: 0.5rem 1rem;
 }
+
+
+
 
 .message.bot{
     position: relative;
@@ -265,6 +271,7 @@ a {
     max-width: 500px;
     margin: 80px auto;
     color: #fff;
+    transition: $transitionchange;
 }
 
 .join-header {
@@ -320,18 +327,23 @@ a {
     );
     .chat-header {
         background: rgb(0, 40, 70);
+        transition: $transitionchange;
     }
     .chat-sidebar {
         background: rgb(255, 115, 115);
+        transition: $transitionchange;
     }
     .chat-form-container {
         background: rgb(0, 40, 70);
+        transition: $transitionchange;
     }
     .btn {
         color: rgb(0, 40, 70);
+        transition: $transitionchange;
     }
     .chat-main {
         background: rgba(0, 0, 0, 0.849);
+        transition: $transitionchange;
     }
 }
 .dark-mode::before {
@@ -350,6 +362,8 @@ a {
     background-color: #F32013;
     opacity: 0;
 }
+
+
 .btn-danger:hover{
     background: #a20900;
 }

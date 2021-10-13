@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap");
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -10,7 +9,6 @@
 body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  background-image: -webkit-gradient(linear, left top, right top, from(#002846), color-stop(#ff7373), to(#ffaf7b));
   background-image: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
   background-position: center;
   background-repeat: no-repeat;
@@ -21,7 +19,6 @@ body {
 }
 
 body * {
-  -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
 }
 
@@ -29,11 +26,9 @@ body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: -webkit-gradient(linear, left top, right top, from(#01cafe), to(#60ecbf));
   background-image: linear-gradient(90deg, #01cafe 0%, #60ecbf 100%);
   opacity: 1;
   z-index: -1;
-  -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
 }
 
@@ -46,11 +41,9 @@ body::before {
   right: 10px;
   border-radius: 160px;
   background: white;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
-  -webkit-box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
 }
 
 #toggle .indicator {
@@ -60,12 +53,9 @@ body::before {
   height: 30px;
   width: 30px;
   background: black;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+  transform: scale(0.9);
   border-radius: 50%;
-  -webkit-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
-          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
-  -webkit-transition: 0.5s;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
   transition: 0.5s;
 }
 
@@ -98,8 +88,7 @@ a {
   margin: 40px auto;
   overflow: hidden;
   opacity: 1;
-  -webkit-box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
-          box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
   border: 1px solid #393e46;
 }
 
@@ -109,15 +98,9 @@ a {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .chat-header .main-heading {
@@ -125,11 +108,9 @@ a {
 }
 
 .chat-main {
-  display: -ms-grid;
   display: grid;
   min-height: 60vh;
-  -ms-grid-columns: 1fr 3fr;
-      grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 3fr;
 }
 
 .chat-sidebar {
@@ -163,18 +144,12 @@ a {
   padding: 30px;
   max-height: 60vh;
   overflow-y: scroll;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .chat-messages .message {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0.5rem 1rem;
   margin: 1rem auto 1rem 1rem;
   color: black;
@@ -183,12 +158,12 @@ a {
 }
 
 .chat-messages .author {
+  position: relative;
   margin: 1rem 1rem 1rem auto;
   border-radius: 1.125rem 1.125rem 0 1.125rem;
   color: white;
   background: #0b93f6;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0.5rem 1rem;
 }
 
@@ -200,8 +175,7 @@ a {
   background: #948e8e;
   border-radius: 5px;
   opacity: 0.8;
-  -webkit-box-shadow: #eeeeeed0 5px 5px;
-          box-shadow: #eeeeeed0 5px 5px;
+  box-shadow: #eeeeeed0 5px 5px;
   width: 75%;
   height: 11%;
   text-align: center;
@@ -262,8 +236,6 @@ a {
 }
 
 .chat-form-container form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -271,9 +243,7 @@ a {
   font-size: 16px;
   padding: 5px;
   height: 40px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 
 /* Join Page */
@@ -281,6 +251,7 @@ a {
   max-width: 500px;
   margin: 80px auto;
   color: #fff;
+  transition: all 1s ease 0s;
 }
 
 .join-header {
@@ -329,28 +300,32 @@ a {
 }
 
 .dark-mode {
-  background-image: -webkit-gradient(linear, left top, right top, from(#002846), color-stop(#ff7373), to(#ffaf7b));
   background-image: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
 }
 
 .dark-mode .chat-header {
   background: #002846;
+  transition: all 1s ease 0s;
 }
 
 .dark-mode .chat-sidebar {
   background: #ff7373;
+  transition: all 1s ease 0s;
 }
 
 .dark-mode .chat-form-container {
   background: #002846;
+  transition: all 1s ease 0s;
 }
 
 .dark-mode .btn {
   color: #002846;
+  transition: all 1s ease 0s;
 }
 
 .dark-mode .chat-main {
   background: rgba(0, 0, 0, 0.849);
+  transition: all 1s ease 0s;
 }
 
 .dark-mode::before {
@@ -361,8 +336,7 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   padding: 0.5rem;
   outline: none;
   border: none;
@@ -417,44 +391,22 @@ a {
  * animation swing-in-left-bck
  * ----------------------------------------
  */
-@-webkit-keyframes swing-in-left-bck {
-  0% {
-    -webkit-transform: rotateY(-70deg);
-    transform: rotateY(-70deg);
-    -webkit-transform-origin: left;
-    transform-origin: left;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateY(0);
-    transform: rotateY(0);
-    -webkit-transform-origin: left;
-    transform-origin: left;
-    opacity: 1;
-  }
-}
 
 @keyframes swing-in-left-bck {
   0% {
-    -webkit-transform: rotateY(-70deg);
     transform: rotateY(-70deg);
-    -webkit-transform-origin: left;
     transform-origin: left;
     opacity: 0;
   }
   100% {
-    -webkit-transform: rotateY(0);
     transform: rotateY(0);
-    -webkit-transform-origin: left;
     transform-origin: left;
     opacity: 1;
   }
 }
 
 .animate {
-  -webkit-animation: shimmer 15s infinite linear;
-          animation: shimmer 15s infinite linear;
-  background: -webkit-gradient(linear, left top, right top, color-stop(4%, rgba(0, 0, 0, 0.05)), color-stop(35%, rgba(0, 0, 0, 0.01)), color-stop(55%, rgba(0, 0, 0, 0.1)));
+  animation: shimmer 15s infinite linear;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.05) 4%, rgba(0, 0, 0, 0.01) 35%, rgba(0, 0, 0, 0.1) 55%);
   background-size: 1000px 100%;
 }
@@ -467,15 +419,6 @@ a {
   -ms-animation: fadeIn linear 1s;
 }
 
-@-webkit-keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;
@@ -486,15 +429,6 @@ a {
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -519,13 +453,3 @@ a {
     opacity: 0;
   }
 }
-
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-/*# sourceMappingURL=main.css.map */
