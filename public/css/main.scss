@@ -172,6 +172,7 @@ a {
  }
 
 .chat-messages .author {
+    position: relative;
     margin: 1rem 1rem 1rem auto ;
     border-radius: 1.125rem 1.125rem 0 1.125rem;
     color: white;
@@ -350,6 +351,7 @@ a {
     background-color: #F32013;
     opacity: 0;
 }
+
 .btn-danger:hover{
     background: #a20900;
 }
