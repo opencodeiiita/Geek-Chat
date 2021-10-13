@@ -7,13 +7,22 @@ const cors = require("cors"); //make requests from one website to another websit
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+const compileSass = require('compile-sass');
+
 var usrnm;
 var room;
 
 const formatMessages = require("./utils/message.js");
-const { usersArr, newUser } = require("./utils/users.js");
-const { roomMembersCount } = require("./utils/roomMembersCount.js");
-const { on } = require("events");
+const {
+  usersArr,
+  newUser
+} = require("./utils/users.js");
+const {
+  roomMembersCount
+} = require("./utils/roomMembersCount.js");
+const {
+  on
+} = require("events");
 
 // Json
 app.use(express.json());
@@ -22,6 +31,17 @@ app.use(
     extended: true,
   })
 );
+app.use('/css/:cssName', compileSass.setup({
+  sassFilePath: path.join(__dirname, 'public/scss/'),
+  sassFileExt: 'scss',
+  embedSrcMapInProd: true,
+  resolveTildes: true,
+  nodeSassOptions: {
+    errLogToConsole: true,
+    noCache: true,
+    force: true
+  }
+}));
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
@@ -57,10 +77,16 @@ io.on("connection", (socket) => {
 
   if (usrnm != undefined && room != undefined) {
     roomMembersCount[room]++;
-    roomDetails.emit('countUpdate', { room, count:roomMembersCount[room]});
+    roomDetails.emit('countUpdate', {
+      room,
+      count: roomMembersCount[room]
+    });
     newUser(usrnm, room, socket.id);
     socket.join(room);
-    socket.emit("roomJoined", { room, username: usrnm });
+    socket.emit("roomJoined", {
+      room,
+      username: usrnm
+    });
   }
 
   socket.emit(
@@ -76,15 +102,24 @@ io.on("connection", (socket) => {
   let userList = usersArr.filter((ob) => ob.room === room);
   socket.emit("userList", userList);
 
-  socket.to(room).emit("userJoined", { id: socket.id, username: usrnm });
+  socket.to(room).emit("userJoined", {
+    id: socket.id,
+    username: usrnm
+  });
 
   //When a user leaves the room
   //Disconnecting the user from the room
   //Message in the room user has disconnected
   socket.on("disconnect", () => {
     roomMembersCount[room]--;
-    roomDetails.emit('countUpdate', { room, count: roomMembersCount[room] });
-    io.in(room).emit("userLeft", { id: socket.id, username: usrnm });
+    roomDetails.emit('countUpdate', {
+      room,
+      count: roomMembersCount[room]
+    });
+    io.in(room).emit("userLeft", {
+      id: socket.id,
+      username: usrnm
+    });
     let userIndex = -1,
       user;
     for (const [index, userObj] of usersArr.entries()) {
