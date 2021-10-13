@@ -7,6 +7,7 @@ $light-color: #eeeeee;
 $light-color-b: #eeeeeed0;
 $success-color: #222831;
 $error-color: #d9534f;
+$transitionchange:all 1s ease 0s;
 
 * {
     box-sizing: border-box;
@@ -270,6 +271,7 @@ a {
     max-width: 500px;
     margin: 80px auto;
     color: #fff;
+    transition: $transitionchange;
 }
 
 .join-header {
@@ -325,18 +327,23 @@ a {
     );
     .chat-header {
         background: rgb(0, 40, 70);
+        transition: $transitionchange;
     }
     .chat-sidebar {
         background: rgb(255, 115, 115);
+        transition: $transitionchange;
     }
     .chat-form-container {
         background: rgb(0, 40, 70);
+        transition: $transitionchange;
     }
     .btn {
         color: rgb(0, 40, 70);
+        transition: $transitionchange;
     }
     .chat-main {
         background: rgba(0, 0, 0, 0.849);
+        transition: $transitionchange;
     }
 }
 .dark-mode::before {
