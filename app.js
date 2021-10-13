@@ -12,6 +12,7 @@ var room;
 
 const formatMessages = require("./utils/message.js");
 const { usersArr, newUser } = require("./utils/users.js");
+const { roomMembersCount } = require("./utils/roomMembersCount.js");
 const { on } = require("events");
 
 // Json
@@ -45,13 +46,18 @@ app.post("/", (req, res) => {
 
   res.sendFile(__dirname + "/public/main.html");
 });
-
+const roomDetails = io.of('/roomMembers');
+roomDetails.on('connection', (socket) => {
+  roomDetails.emit('roomMembersCount', roomMembersCount);
+})
 io.on("connection", (socket) => {
   //Validating user
   //Connecting the user to the room
   //Greeting message in the room user has joined
 
   if (usrnm != undefined && room != undefined) {
+    roomMembersCount[room]++;
+    roomDetails.emit('countUpdate', { room, count:roomMembersCount[room]});
     newUser(usrnm, room, socket.id);
     socket.join(room);
     socket.emit("roomJoined", { room, username: usrnm });
@@ -76,6 +82,8 @@ io.on("connection", (socket) => {
   //Disconnecting the user from the room
   //Message in the room user has disconnected
   socket.on("disconnect", () => {
+    roomMembersCount[room]--;
+    roomDetails.emit('countUpdate', { room, count: roomMembersCount[room] });
     io.in(room).emit("userLeft", { id: socket.id, username: usrnm });
     let userIndex = -1,
       user;
