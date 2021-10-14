@@ -1,0 +1,618 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#002846), color-stop(#ff7373), to(#ffaf7b));
+  background-image: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  margin: 20px;
+}
+
+body * {
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#01cafe), to(#60ecbf));
+  background-image: linear-gradient(90deg, #01cafe 0%, #60ecbf 100%);
+  opacity: 1;
+  z-index: -1;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+#toggle {
+  width: 60px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 160px;
+  background: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+}
+
+#toggle .indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background: black;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  border-radius: 50%;
+  -webkit-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#toggle.active .indicator {
+  left: 30px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 5px 15px;
+  background: #eeeeee;
+  color: #00adb5;
+  border: 0;
+  font-size: 17px;
+}
+
+/* Chat Page */
+.chat-container {
+  border-radius: 20px;
+  max-width: 1100px;
+  background: #fff;
+  margin: 40px auto;
+  overflow: hidden;
+  opacity: 1;
+  -webkit-box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 58px 3px rgba(0, 0, 0, 0.75);
+  border: 1px solid #393e46;
+}
+
+.chat-header {
+  background: #00adb5;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.chat-header .main-heading {
+  font-family: "Gluten", cursive;
+}
+
+.chat-main {
+  display: -ms-grid;
+  display: grid;
+  min-height: 60vh;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+}
+
+.chat-sidebar {
+  background: #393e46;
+  color: #fff;
+  padding: 20px 20px 60px;
+  overflow-y: scroll;
+  min-height: 60vh;
+}
+
+.chat-sidebar h2 {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.room-name-container {
+  height: 45px;
+  margin-bottom: 25px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.chat-sidebar h3 {
+  margin-bottom: 15px;
+}
+
+.chat-sidebar ul li {
+  padding: 10px 0;
+}
+
+.chat-main,
+.chat-messages,
+.chat-sidebar {
+  max-height: 64vh;
+}
+
+.chat-messages {
+  padding: 30px;
+  max-height: 64vh;
+  overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chat-messages .message {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0.5rem 1rem;
+  margin: 1rem auto 1rem 1rem;
+  color: black;
+  background: #e5e5ea;
+  border-radius: 1.125rem 1.125rem 1.125rem 0;
+}
+
+.chat-messages .author {
+  position: relative;
+  margin: 1rem 1rem 1rem auto;
+  border-radius: 1.125rem 1.125rem 0 1.125rem;
+  color: white;
+  background: #0b93f6;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0.5rem 1rem;
+}
+
+.message.bot {
+  position: relative;
+  margin: 1rem auto 1rem auto;
+  padding: 10px 10px 15px;
+  color: white;
+  background: #948e8e;
+  border-radius: 5px;
+  opacity: 0.8;
+  -webkit-box-shadow: #eeeeeed0 5px 5px;
+          box-shadow: #eeeeeed0 5px 5px;
+  width: 75%;
+  height: 11%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.message.bot p {
+  max-width: none !important;
+}
+
+.chat-messages .author:hover {
+  background: #f3201380;
+}
+
+.chat-messages .author:hover .btn-danger {
+  opacity: 1;
+}
+
+.chat-messages .message .meta {
+  font-size: 15px;
+  font-weight: bold;
+  color: #393e46;
+  opacity: 0.7;
+  margin-bottom: 7px;
+}
+
+.chat-messages .message .meta span {
+  color: #777;
+  padding-left: 0.6em;
+}
+
+.chat-messages .message p {
+  max-width: 300px;
+  word-break: break-all;
+}
+
+.chat-messages .author .meta {
+  font-size: 15px;
+  font-weight: bold;
+  color: #eeeeee;
+  opacity: 0.7;
+  margin-bottom: 7px;
+}
+
+.chat-messages .author p {
+  max-width: 300px;
+  word-break: break-all;
+}
+
+.chat-messages .author .meta span {
+  color: #eeeeeed0;
+  padding-left: 0.6em;
+  opacity: 1;
+}
+
+.message.bot .meta {
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 7px;
+  display: none;
+}
+
+.message.bot .meta span {
+  color: #525050;
+  padding-left: 0.6em;
+}
+
+.chat-form-container {
+  padding: 20px 30px;
+  background: #00adb5;
+}
+
+.chat-form-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chat-form-container input[type="text"] {
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+/* Join Page */
+.join-container {
+  max-width: 500px;
+  margin: 80px auto;
+  color: #fff;
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+}
+
+.join-header {
+  text-align: center;
+  padding: 20px;
+  background: #00adb5;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.join-main {
+  padding: 30px 40px;
+  background: #393e46;
+}
+
+.join-main p {
+  margin-bottom: 20px;
+}
+
+.join-main .form-control {
+  margin-bottom: 20px;
+}
+
+.join-main label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.join-main input[type="text"] {
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  width: 100%;
+}
+
+.join-main select {
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  width: 100%;
+}
+
+.join-main .btn {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.dark-mode {
+  background-image: -webkit-gradient(linear, left top, right top, from(#002846), color-stop(#ff7373), to(#ffaf7b));
+  background-image: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
+}
+
+.dark-mode .chat-header {
+  background: #002846;
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+}
+
+.dark-mode .chat-sidebar {
+  background: #ff7373;
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+}
+
+.dark-mode .chat-form-container {
+  background: #002846;
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+}
+
+.dark-mode .btn {
+  color: #002846;
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+}
+
+.dark-mode .chat-main {
+  background: rgba(0, 0, 0, 0.849);
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+.dark-mode::before {
+  opacity: 0;
+}
+
+.btn-danger {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  color: #FFFFFF;
+  background-color: #F32013;
+  opacity: 0;
+}
+
+.btn-danger:hover {
+  background: #a20900;
+}
+
+@media (max-width: 1200px) {
+  .chat-container {
+    margin: 60px auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .chat-main {
+    display: block;
+    max-height: 60vh;
+  }
+  .chat-messages {
+    height: 60vh;
+  }
+  .chat-sidebar {
+    display: none;
+  }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2021-9-30 12:47:32
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+/**
+ * ----------------------------------------
+ * animation bounce-in-bottom
+ * ----------------------------------------
+ */
+/* ----------------------------------------------
+ * Generated by Animista on 2021-9-30 12:51:35
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+/**
+ * ----------------------------------------
+ * animation swing-in-left-bck
+ * ----------------------------------------
+ */
+@-webkit-keyframes swing-in-left-bck {
+  0% {
+    -webkit-transform: rotateY(-70deg);
+    transform: rotateY(-70deg);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 1;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px grey;
+          box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00adb5;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #bbbbbb;
+}
+
+::-webkit-scrollbar-button:single-button {
+  background-color: #bbbbbb;
+  display: block;
+  border-style: solid;
+  height: 13px;
+  width: 16px;
+}
+
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #555555 transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  border-color: transparent transparent #777777 transparent;
+}
+
+/* Down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: #555555 transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+  border-color: #777777 transparent transparent transparent;
+}
+
+@keyframes swing-in-left-bck {
+  0% {
+    -webkit-transform: rotateY(-70deg);
+    transform: rotateY(-70deg);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 1;
+  }
+}
+
+.animate {
+  -webkit-animation: shimmer 15s infinite linear;
+          animation: shimmer 15s infinite linear;
+  background: -webkit-gradient(linear, left top, right top, color-stop(4%, rgba(0, 0, 0, 0.05)), color-stop(35%, rgba(0, 0, 0, 0.01)), color-stop(55%, rgba(0, 0, 0, 0.1)));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.05) 4%, rgba(0, 0, 0, 0.01) 35%, rgba(0, 0, 0, 0.1) 55%);
+  background-size: 1000px 100%;
+}
+
+.fade-in {
+  animation: fadeIn linear 1s;
+  -webkit-animation: fadeIn linear 1s;
+  -moz-animation: fadeIn linear 1s;
+  -o-animation: fadeIn linear 1s;
+  -ms-animation: fadeIn linear 1s;
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut ease 1.5s;
+  -webkit-animation: fadeOut ease 1.5s;
+  -moz-animation: fadeOut ease 1.5s;
+  -o-animation: fadeOut ease 1.5s;
+  -ms-animation: fadeOut ease 1.5s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=main.css.map */
