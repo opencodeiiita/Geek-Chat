@@ -200,7 +200,9 @@ a {
     text-align: center;
     vertical-align: middle;
 }
-
+.message.bot p {
+    max-width: none !important;
+}
 .chat-messages .author:hover{
     background: #f3201380;
 }
@@ -220,7 +222,10 @@ a {
     color: #777;
     padding-left: 0.6em;
 }
-
+.chat-messages .message p {
+    max-width: 300px;
+    word-break: break-all;
+}
 .chat-messages .author .meta {
     font-size: 15px;
     font-weight: bold;
@@ -228,7 +233,10 @@ a {
     opacity: 0.7;
     margin-bottom: 7px;
 }
-
+.chat-messages .author p {
+    max-width: 300px;
+    word-break: break-all;
+}
 .chat-messages .author .meta span {
     color: $light-color-b;
     padding-left: 0.6em;
