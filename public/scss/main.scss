@@ -200,7 +200,9 @@ a {
     text-align: center;
     vertical-align: middle;
 }
-
+.message.bot p {
+    max-width: none !important;
+}
 .chat-messages .author:hover{
     background: #f3201380;
 }
