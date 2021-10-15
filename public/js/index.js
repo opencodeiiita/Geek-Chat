@@ -37,6 +37,7 @@ function outputMessage(msg) {
         <p class="text">
         ${values[0]["text"]}
         </p>`;
+    playSound('bot')
   } else {
     div.innerHTML += `<p class="meta">${values[0].username} <span>${moment(
       values[0].time
@@ -114,7 +115,10 @@ const beep1 = document.getElementById('beep1')
 const beep2 = document.getElementById('beep2')
 const playSound = (beep) => {
   if (beep === 'send') {
-    return beep1.play()
+    return beep1.play();
+  }
+  if (beep === 'bot'){
+    return beep3.play();
   }
   return beep2.play();
 }
