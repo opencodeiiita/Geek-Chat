@@ -27,7 +27,11 @@ function outputMessage(msg) {
     playSound('send')
   } else {
     div.classList.add("message");
-    playSound('recieve');
+    if (values[0].username === "GeekChat Bot") {
+      playSound('bot')
+    } else {
+      playSound('recieve')
+    }
   }
   if (values[0].username === "GeekChat Bot") {
     div.classList.add("bot");
@@ -113,12 +117,16 @@ function deleteMsg(info) {
 
 const beep1 = document.getElementById('beep1')
 const beep2 = document.getElementById('beep2')
+const beep3 = document.getElementById('beep3')
 const playSound = (beep) => {
   if (beep === 'send') {
+    console.log('beep1 send')
     return beep1.play();
   }
   if (beep === 'bot'){
+    console.log('beep3 bot')
     return beep3.play();
   }
+  console.log('beep2 recieve')
   return beep2.play();
 }
