@@ -51,12 +51,13 @@ function outputMessage(msg) {
   } else {
     let textid = `${pid}-text`;
     let textcontent = values[0].text.slice(3, -5);
-
+    let replyContent = "";
     if (a.replyarr.length > 0) {
+
       var str =
         a.replyarr[0].slice(0, 250) +
         (a.replyarr[0].length > 250 ? "....." : "");
-      div.innerHTML += `<div class=" ${a.replyarr[2]} reply-div  "><p class="${a.replyarr[2]} replyPh">${a.replyarr[1]}</p> <hr>
+        replyContent= `<div class=" ${a.replyarr[2]} reply-div  "><p class="${a.replyarr[2]} replyPh">${a.replyarr[1]}</p> <hr>
                     <p class="${a.replyarr[2]} nouseclass">${str}</p></div>`;
 
       if (document.querySelector(".replyBox")) {
@@ -68,7 +69,8 @@ function outputMessage(msg) {
     div.innerHTML += `<p class='meta' id='${pid}'>${
       values[0].username
     } <span>${moment(values[0].time).format("h:mm a")}</span></p>
-      <p class='text' id = '${textid}'>
+       ${replyContent}
+      <p class='text textpadding' id = '${textid}'>
       ${textcontent}
       </p>`;
   }

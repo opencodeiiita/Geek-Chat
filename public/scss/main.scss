@@ -329,7 +329,9 @@ a {
     height: 40px;
     width: 100%;
 }
-
+.textpadding{
+    padding: 10px;
+}
 .join-main select {
     font-size: 16px;
     padding: 5px;
@@ -439,6 +441,7 @@ a {
     color: white;
     font-size: 16px;
     z-index: 1000;
+ 
     border-radius: 10px 10px 0 0;
     
 }
@@ -470,6 +473,9 @@ a {
     padding: 15px 10px ;
  
 }
+ .reply-div:hover{
+     cursor: pointer;
+ }
 @media (max-width: 1200px) {
     .chat-container {
         margin: 60px auto;
