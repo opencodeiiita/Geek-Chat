@@ -1,59 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.1/moment.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/dark-mode.js"></script>
-    <title>GeekChat!</title>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.1/moment.min.js"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"
+        ></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/4.0.0/iconfont/material-icons.min.css"
+            referrerpolicy="no-referrer"
+        />
+        <script src="./js/dark-mode.js"></script>
+        <link
+            href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+            rel="stylesheet"
+        />
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <title>GeekChat!</title>
+    </head>
 
-  <body>
-    <div id="toggle">
-      <i class="indicator"> </i>
-    </div>
-    <div class="chat-container">
-      <header class="chat-header">
-        <h1 class="main-heading"><i class="fas fa-smile"></i>GeekChat</h1>
-        <a href="index.html" class="btn">Leave Room</a>
-      </header>
-      <main class="chat-main">
-        <div class="chat-sidebar">
-          <h3><i class="fas fa-comments"></i> Room Name:</h3>
-          <div class="room-name-container animate">
-            <h2 id="room-name" class="fade-in"></h2>
-          </div>
-          <h3><i class="fas fa-users"></i> Users</h3>
-          <ul id="users"></ul>
+    <body>
+        <div id="toggle">
+            <i class="indicator"> </i>
         </div>
-        <div class="chat-messages"></div>
-      </main>
-      <div class="chat-form-container">
-        <form id="chat-form">
-          <input
-            id="msg"
-            type="text"
-            placeholder="Enter Message"
-            required
-            autocomplete="off"
-          />
-          <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
-        </form>
-      </div>
-    </div>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/index.js"></script>
-  </body>
+        <div class="chat-container">
+            <header class="chat-header">
+                <h1 class="main-heading"><i class="fas fa-smile"></i>GeekChat</h1>
+                <!-- <a href="index.html" class="btn">Leave Room</a> -->
+                <button
+                    class="foo-button mdc-button mdc-button--raised"
+                    href="index.html"
+                    style="background-color: red"
+                >
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Leave</span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">logout</i>
+                </button>
+            </header>
+            <main class="chat-main">
+                <div class="chat-sidebar">
+                    <h3><i class="fas fa-comments"></i> Room Name:</h3>
+                    <div class="room-name-container animate">
+                        <h2 id="room-name" class="fade-in"></h2>
+                    </div>
+                    <h3><i class="fas fa-users"></i> Users</h3>
+                    <ul id="users"></ul>
+                </div>
+                <div class="chat-messages"></div>
+            </main>
+            <div class="chat-form-container">
+                <form id="chat-form">
+                    <input
+                        id="msg"
+                        type="text"
+                        class="message_input"
+                        placeholder="Enter Message"
+                        autofocus="autofocus"
+                        required
+                        autocomplete="off"
+                    />
+                    <button
+                        class="mdc-fab message_send_btn"
+                        aria-label="send"
+                        style="background-color: rgb(69, 1, 255); margin-left: 1em"
+                    >
+                        <div class="mdc-fab__ripple"></div>
+                        <span class="mdc-fab__icon material-icons">send</span>
+                    </button>
+                    <!-- <button
+                        class="mdc-fab mdc-fab--mini message_send_btn"
+                        aria-label="send"
+                        style="background-color: rgb(69, 1, 255)"
+                    >
+                        <div class="mdc-fab__ripple"></div>
+                        <span class="mdc-fab__icon material-icons">send</span>
+                    </button> -->
+                </form>
+            </div>
+        </div>
+        <script>
+            document.querySelectorAll('.foo-button').forEach(button => {
+                mdc.ripple.MDCRipple.attachTo(button);
+            });
+            document.querySelectorAll('.mdc-fab').forEach(fab => {
+                mdc.ripple.MDCRipple.attachTo(fab);
+            });
+            // const fabRipple = new MDCRipple(document.querySelector('.mdc-fab'));
+        </script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/index.js"></script>
+    </body>
 </html>
