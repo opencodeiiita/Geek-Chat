@@ -24,8 +24,14 @@ function outputMessage(msg) {
     div.innerHTML += `<button class="btn-danger" onclick="deleteMsg('${values[0].id}')"><span class="material-icons">
         delete
         </span></button>`;
+    playSound('send')
   } else {
     div.classList.add("message");
+    if (values[0].username === "GeekChat Bot") {
+      playSound('bot')
+    } else {
+      playSound('recieve')
+    }
   }
   if (values[0].username === "GeekChat Bot") {
     div.classList.add("bot");
@@ -35,6 +41,7 @@ function outputMessage(msg) {
         <p class="text">
         ${values[0]["text"]}
         </p>`;
+    playSound('bot')
   } else {
     div.innerHTML += `<p class="meta">${values[0].username} <span>${moment(
       values[0].time
@@ -106,4 +113,20 @@ function deleteMsg(info) {
   if (name === CURRENT_USER) {
     socket.emit("deleteChatMsg", info);
   }
+}
+
+const beep1 = document.getElementById('beep1')
+const beep2 = document.getElementById('beep2')
+const beep3 = document.getElementById('beep3')
+const playSound = (beep) => {
+  if (beep === 'send') {
+    console.log('beep1 send')
+    return beep1.play();
+  }
+  if (beep === 'bot'){
+    console.log('beep3 bot')
+    return beep3.play();
+  }
+  console.log('beep2 recieve')
+  return beep2.play();
 }
