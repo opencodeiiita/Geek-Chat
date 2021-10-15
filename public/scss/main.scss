@@ -375,6 +375,10 @@ a {
 .btn-danger:hover{
     background: #a20900;
 }
+
+#beep1, #beep2 {
+    display: none;
+}
 @media (max-width: 1200px) {
     .chat-container {
         margin: 60px auto;
