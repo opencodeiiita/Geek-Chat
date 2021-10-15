@@ -18,6 +18,8 @@ $transitionchange:all 1s ease 0s;
 body {
     font-family: "Roboto", sans-serif;
     font-size: 16px;
+    position: fixed;
+    width: 100%;
     // background-color: #FFDEE9;
     // background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
     background-image: linear-gradient(
@@ -126,6 +128,7 @@ a {
 .chat-main {
     display: grid;
     min-height: 60vh;
+    position: relative;
     // margin-bottom: 5vh;
     grid-template-columns: 1fr 3fr;
 }
@@ -166,6 +169,7 @@ a {
 .chat-messages {
     padding: 30px;
     max-height: 64vh;
+    position: relative;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -199,7 +203,7 @@ a {
     margin: 1rem auto 1rem auto;
     padding: 10px 10px 15px;
     color:white;
-    background: #948e8e;
+    background: #948e8e !important;
     border-radius: 5px;
     opacity: 0.8;
     box-shadow: $light-color-b 5px 5px;
@@ -213,6 +217,9 @@ a {
 }
 .chat-messages .author:hover{
     background: #f3201380;
+}
+.chat-messages .author:hover .replyicon{
+    opacity: 1;
 }
 .chat-messages .author:hover .btn-danger{
     opacity: 1;
@@ -382,10 +389,86 @@ a {
     background-color: #F32013;
     opacity: 0;
 }
+.replyicon{
+    position:absolute;
+    opacity: 0; // opacity:0
+    z-index: 0;
+    padding: 5px;
+    margin:0;
+    background: none;
+    left: -50px;
+    color: black;
+    transform: translateX(-10px);
+    
+}
+.message .replyicon{
+    opacity: 0;
+    position: absolute;
+}
+.message:hover .replyicon{
+    opacity: 1;
+}
 
+.dark-mode .replyicon{
+    color: white;
+}
 
 .btn-danger:hover{
     background: #a20900;
+}
+.inactive .icon-reply.icon-2x.replyicon{
+    opacity: 0;
+}
+
+.replyBox{
+  
+
+    position: absolute;
+    // border: 2px solid red;
+    display: block;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    padding: 20px;
+    font-family: 'Lato', sans-serif;
+    background-color: #013049;
+    color: white;
+    font-size: 16px;
+    z-index: 1000;
+    border-radius: 10px 10px 0 0;
+    
+}
+.cross{
+    position: absolute;
+    right: 20px;
+    background-color: white;
+    color: black;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border: 2px solid red;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    
+    padding: 4px;
+}
+.cross:hover{
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.reply-div{
+    background-color: #393e46;
+    border-radius: 10px 10px 10px 10px;
+    border-left: 5px solid purple;
+    padding: 15px 10px ;
+ 
 }
 @media (max-width: 1200px) {
     .chat-container {
@@ -628,4 +711,11 @@ a {
     100% {
         opacity: 0;
     }
+}
+button.discard {
+    background: none;
+    border: none;
+    position: absolute;
+   
+
 }

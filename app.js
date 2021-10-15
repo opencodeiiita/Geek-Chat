@@ -91,13 +91,13 @@ io.on("connection", (socket) => {
 
   socket.emit(
     "message",
-    formatMessages("", "GeekChat Bot", "Welcome to GeekChat!", "")
+    formatMessages("", "GeekChat Bot", "Welcome to GeekChat!", "", [])
   );
   socket
     .to(room)
     .emit(
       "message",
-      formatMessages("", "GeekChat Bot", `${usrnm} entered the chat!`, "")
+      formatMessages("", "GeekChat Bot", `${usrnm} entered the chat!`, "", [])
     );
   let userList = usersArr.filter((ob) => ob.room === room);
   socket.emit("userList", userList);
@@ -133,7 +133,7 @@ io.on("connection", (socket) => {
       usersArr.splice(userIndex, 1);
       io.in(user.room).emit(
         "message",
-        formatMessages("", "GeekChat Bot", `${user.name} disconnected.`, "")
+        formatMessages("", "GeekChat Bot", `${user.name} disconnected.`, "", [])
       );
     }
   });
@@ -152,7 +152,8 @@ io.on("connection", (socket) => {
           messageID,
           user.name,
           messageObject.msg,
-          messageObject.userID
+          messageObject.userID,
+          messageObject.arr 
         )
       );
     }
