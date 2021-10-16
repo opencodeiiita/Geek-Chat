@@ -130,3 +130,75 @@ const playSound = (beep) => {
   console.log('beep2 recieve')
   return beep2.play();
 }
+
+//timeout for removing typing element from dom
+var timeout;
+
+//event for typing
+socket.on('typing', (typingUser)=>{
+    //push user to typingusers array
+    TYPING_USERS.push(typingUser);
+
+    //remove duplicates
+    TYPING_USERS = [...new Set(TYPING_USERS)];
+
+    //append typing event msg
+    appendTyping();
+
+    //timeout to delete typing event
+    if (timeout !== undefined) {
+      clearTimeout(timeout);
+    }
+    if (document.querySelector('.typing') != null || document.querySelector('.typing') != undefined) {
+      timeout = setTimeout(() => {
+        document.querySelector('.typing').remove();
+        TYPING_USERS = []
+      }, 3000);
+    }
+})
+
+//list of typing users
+var TYPING_USERS = [];
+
+const emitTyping = () => {
+  console.log('here')
+  socket.emit('typing', {name: CURRENT_USER, room});
+}
+
+//function to append typing msg
+const appendTyping = () => {
+  console.log(TYPING_USERS)
+
+  if (document.querySelector('.typing') != null || document.querySelector('.typing') != undefined) {
+    let divEx = document.querySelector('.typing')
+
+    if (TYPING_USERS.length > 2) {
+      divEx.innerHTML = `<p class="typing-text">many people typing <span class="dot-animation"></span></p>`;
+    } else if (TYPING_USERS.length > 1) {
+      divEx.innerHTML = `<p class="typing-text">${TYPING_USERS.join(', ')} are typing <span class="dot-animation"></span></p>`;
+    } else if (TYPING_USERS.length <= 1) {
+      divEx.innerHTML = `<p class="typing-text">${TYPING_USERS.join(', ')} is typing <span class="dot-animation"></span></p>`;
+    }
+
+    return;
+  }
+
+  //create div
+  let div = document.createElement('div');
+
+  //add class
+  div.classList.add("message", "typing");
+
+  //check no. of users typing
+  if (TYPING_USERS.length > 2) {
+    div.innerHTML = `<p class="typing-text">many people typing <span class="dot-animation"></span></p>`;
+  } else if (TYPING_USERS.length > 1) {
+    div.innerHTML = `<p class="typing-text">${TYPING_USERS.join(', ')} are typing <span class="dot-animation"></span></p>`;
+  } else if (TYPING_USERS.length <= 1) {
+    div.innerHTML = `<p class="typing-text">${TYPING_USERS.join(', ')} is typing <span class="dot-animation"></span></p>`;
+  }
+
+  //apend element to dom
+  document.querySelector(".chat-messages").appendChild(div);
+  scrollToBottom();
+}

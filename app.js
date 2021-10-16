@@ -169,6 +169,13 @@ io.on("connection", (socket) => {
       io.in(user.room).emit("deleteMsgFromChat", msgId);
     }
   });
+
+  //Event listner for typing
+  socket.on('typing', (info) => {
+    if (info.name !== undefined || info.name !== null) {
+      socket.broadcast.to(info.room).emit('typing', info.name)
+    }
+  })
 });
 
 const port = process.env.PORT || 3000;
