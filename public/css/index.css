@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap");
+body {
+  background: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
+  text-align: center;
+}
+
+body #toggle {
+  width: 60px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 160px;
+  background: white;
+  transition: 0.8s;
+  cursor: pointer;
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+}
+
+body #toggle .indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background: black;
+  transform: scale(0.9);
+  border-radius: 50%;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+  transition: 1s;
+}
+
+body #toggle.active .indicator {
+  left: 30px;
+}
+
+body .heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  padding: 3%;
+}
+
+body .heading iframe {
+  height: 100%;
+  pointer-events: none;
+  width: 10%;
+}
+
+body .heading h1 {
+  font-family: "Gluten", cursive;
+  font-size: 4rem;
+  font-weight: 600;
+  transition: all 1s ease-in-out 0s;
+  display: inline;
+}
+
+body .main-div {
+  min-height: 60vh;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 11px 10px 25px 2px rgba(0, 0, 0, 0.75);
+  padding: 5%;
+}
+
+body .main-div form .form-group {
+  padding: 3%;
+  margin-bottom: 20px;
+}
+
+body .main-div form label {
+  font-size: 1.2rem;
+  padding: 1%;
+}
+
+body .main-div form input:focus {
+  display: inline;
+  width: 45%;
+  background: none;
+  border: none;
+  border-bottom: 3px solid black;
+  border-radius: 0px;
+  outline: none;
+  text-align: center;
+  font-size: 20px;
+}
+
+body .main-div form input {
+  display: inline;
+  width: 45%;
+  background: none;
+  border: none;
+  border-bottom: 3px solid black;
+  border-radius: 0px;
+  outline: none;
+  text-align: center;
+  font-size: 20px;
+  transition: all 1s ease-in-out 0s;
+}
+
+body .main-div form select {
+  display: inline;
+  width: 45%;
+  background: none;
+  font-size: 20px;
+  border: 3px solid black;
+  transition: all 1s ease-in-out 0s;
+}
+
+body .main-div form select:focus {
+  display: inline;
+  width: 45%;
+  background: none;
+  font-size: 20px;
+  border: 3px solid black;
+}
+
+body .main-div form button {
+  font-size: 15px;
+  font-weight: bold;
+  background: none;
+  padding: 5px 20px;
+  color: black;
+  transition: color 1s ease 0s;
+  border: 5 none;
+  border-radius: 20px;
+  border-color: black;
+  cursor: pointer;
+  box-shadow: none;
+  transition-duration: 0.3s;
+  transition-property: box-shadow, transform;
+}
+
+body .main-div form button:hover, body .main-div form button:focus, body .main-div form button:active {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.75);
+  transform: scale(1.1);
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #00c9ff, #92fe9e);
+  opacity: 1;
+  z-index: -1;
+  transition: all 1s ease-in-out 0.5s;
+}
+
+#joinChat {
+  transition: all 1s ease 0s;
+}
+
+.form-group {
+  transition: all 1s ease-in-out 0s;
+}
+
+.dark-mode {
+  color: white;
+}
+
+.dark-mode h1 {
+  color: white;
+}
+
+.dark-mode select {
+  color: white;
+  border: 3px solid white;
+}
+
+.dark-mode input {
+  color: white;
+}
+
+.dark-mode select:focus {
+  border: 3px solid white;
+}
+
+.dark-mode #joinChat {
+  color: white;
+}
+
+.dark-mode::before {
+  opacity: 0;
+}
+
+@media (max-height: 768px) {
+  body .main-div {
+    min-height: 55vh;
+  }
+}
+
+@media (max-width: 768px) {
+  body .main-div {
+    padding: 5% 5% 7% 5%;
+  }
+  body .heading h1 {
+    font-size: 3rem;
+  }
+  body .main-div form .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  body .main-div form input:focus {
+    width: 85%;
+  }
+  body .main-div form input {
+    width: 85%;
+  }
+  body .main-div form select {
+    width: 85%;
+    text-align: center;
+  }
+  body .main-div form select:focus {
+    text-align: center;
+    width: 85%;
+  }
+}
+
+@media (max-width: 576px) {
+  body .heading h1 {
+    font-size: 2.75rem;
+  }
+  body .heading iframe {
+    width: 15%;
+  }
+}
