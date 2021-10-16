@@ -392,6 +392,27 @@ a {
 #beep2 {
     display: none;
 }
+
+.dot-animation {
+    position: relative;
+    margin-right: 0.5rem;
+}
+.dot-animation::after {
+    position: absolute;
+    content: "";
+    animation: dotdot 1s infinite;
+}
+@keyframes dotdot {
+    0% {
+        content: ".";
+    }
+    50% {
+        content: "..";
+    }
+    100% {
+        content: "...";
+    }
+}
 @media (max-width: 1200px) {
     .chat-container {
         margin: 60px auto;
