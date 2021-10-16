@@ -124,14 +124,11 @@ const beep2 = document.getElementById('beep2')
 const beep3 = document.getElementById('beep3')
 const playSound = (beep) => {
   if (beep === 'send') {
-    console.log('beep1 send')
     return beep1.play();
   }
   if (beep === 'bot'){
-    console.log('beep3 bot')
     return beep3.play();
   }
-  console.log('beep2 recieve')
   return beep2.play();
 }
 
@@ -165,17 +162,17 @@ socket.on('typing', (typingUser)=>{
 var TYPING_USERS = [];
 
 const emitTyping = () => {
-  console.log('here')
   socket.emit('typing', {name: CURRENT_USER, room});
 }
 
 //function to append typing msg
 const appendTyping = () => {
-  console.log(TYPING_USERS)
 
+  //checking for existing typing element
   if (document.querySelector('.typing') != null || document.querySelector('.typing') != undefined) {
     let divEx = document.querySelector('.typing')
 
+    //if found then changing its content
     if (TYPING_USERS.length > 2) {
       divEx.innerHTML = `<p class="typing-text">many people typing <span class="dot-animation"></span></p>`;
     } else if (TYPING_USERS.length > 1) {
