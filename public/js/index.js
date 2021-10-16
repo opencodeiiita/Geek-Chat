@@ -11,6 +11,10 @@ socket.on("roomJoined", (connectionObj) => {
   roomNameDiv.classList.remove("animate");
 });
 socket.on("message", (message) => {
+  if (document.querySelector('.typing') != null || document.querySelector('.typing') != undefined) {
+      document.querySelector('.typing').remove();
+      TYPING_USERS = []
+  }
   let userID = socket.id;
   outputMessage({ message, userID });
 });
