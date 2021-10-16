@@ -178,8 +178,8 @@ a {
     color: black;
     background: #e5e5ea;
     border-radius: 1.125rem 1.125rem 1.125rem 0;
- }
-
+    animation: fadeInLeft 0.8s linear 0s 1 normal none;
+}
 
  .chat-messages .author {
     position: relative;
@@ -189,10 +189,8 @@ a {
     background: #0b93f6;
     box-sizing: border-box;
     padding: 0.5rem 1rem;
+    animation: fadeInRight 0.8s linear 0s 1 normal none;
 }
-
-
-
 
 .message.bot{
     position: relative;
@@ -207,6 +205,7 @@ a {
     height: 11%;    
     text-align: center;
     vertical-align: middle;
+    animation: fadeDown 700ms ease-out 0s 1 normal none;
 }
 .message.bot p {
     max-width: none !important;
@@ -428,6 +427,7 @@ a {
  * animation swing-in-left-bck
  * ----------------------------------------
  */
+
 @-webkit-keyframes swing-in-left-bck {
     0% {
         -webkit-transform: rotateY(-70deg);
@@ -629,3 +629,71 @@ a {
         opacity: 0;
     }
 }
+
+
+@-webkit-keyframes fadeInLeft {
+    0% {
+       opacity: 0;
+       -webkit-transform: translateX(-20px);
+    }
+    100% {
+       opacity: 1;
+       -webkit-transform: translateX(0);
+    }
+ }
+ 
+ @keyframes fadeInLeft {
+    0% {
+       opacity: 0;
+       transform: translateX(-20px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes fadeInRight {
+    0% {
+       opacity: 0;
+       -webkit-transform: translateX(20px);
+    }
+    100% {
+       opacity: 1;
+       -webkit-transform: translateX(0);
+    }
+ }
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px) ;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes fadeDown {
+    0% {
+        opacity:0;
+        -webkit-transform: translateY(-15px);
+    }
+    100% {
+        opacity: 0.8;
+        -webkit-transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+}
+
