@@ -65,7 +65,10 @@ form.addEventListener("submit", (e) => {
 
   const msg = e.target.elements.msg.value;
   let userID = socket.id;
-  socket.emit("chatMessage", { msg, userID });
+  if (msg.trim() == "") { }
+  else {
+    socket.emit("chatMessage", { msg, userID });
+  }
 
   e.target.elements.msg.value = "";
   e.target.elements.msg.focus();
