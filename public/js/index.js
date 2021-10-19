@@ -28,6 +28,9 @@ function outputMessage(msg) {
     div.innerHTML += `<button class="btn-danger" onclick="deleteMsg('${values[0].id}')"><span class="material-icons">
         delete
         </span></button>`;
+    div.innerHTML += `<button class="btn-danger btn-danger-edit" onclick="editMsg('${values[0].id}')"><span class="material-icons">
+        edit
+        </span></button>`;
     playSound('send')
   } else {
     div.classList.add("message");
@@ -42,17 +45,17 @@ function outputMessage(msg) {
     div.innerHTML += `<p class="meta">${values[0].username} <span>${moment(
       values[0].time
     ).format("h:mm a")}</span></p>
-        <p class="text">
+        <div class="text">
         ${values[0]["text"]}
-        </p>`;
+        </div>`;
     playSound('bot')
   } else {
     div.innerHTML += `<p class="meta">${values[0].username} <span>${moment(
       values[0].time
     ).format("h:mm a")}</span></p>
-        <p class="text">
+        <div class="text">
         ${values[0].text}
-        </p>`;
+        </div>`;
   }
 
   document.querySelector(".chat-messages").appendChild(div);
@@ -62,6 +65,10 @@ function outputMessage(msg) {
 const form = document.getElementById("chat-form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  if (isEditing.status) {
+    return emitEditedText(e);
+  }
 
   const msg = e.target.elements.msg.value;
   let userID = socket.id;
@@ -206,3 +213,47 @@ const appendTyping = () => {
   document.querySelector(".chat-messages").appendChild(div);
   scrollToBottom();
 }
+
+/* EDITING MSG FEATURE */
+var isEditing = {status: false, id: null};
+
+const editMsg = (id) => {
+  //set editing mode to true
+  isEditing = {status: true, id: id};
+  //get old text
+  const prevMsgText = document.getElementById(id).querySelector('.text').querySelector('p').innerText;
+  //select input and put old text in input
+  const inputEle = document.getElementById('msg');
+  inputEle.value = prevMsgText;
+  //focus
+  inputEle.focus();
+}
+
+const emitEditedText = (e) => {
+  //get msg text
+  const msg = e.target.elements.msg.value;
+  //check msg and emit
+  if (msg.trim() == "") {
+    isEditing = {status: false, id: null};
+  }
+  else {
+    socket.emit("edited-msg", { text: msg, id: isEditing.id });
+    isEditing = {status: false, id: null};
+  }
+  //scroll
+  e.target.elements.msg.value = "";
+  e.target.elements.msg.focus();
+  scrollToBottom();
+}
+
+socket.on('edit-msg', ({text, id}) => {
+  //get msg div with id
+  const msgDiv = document.getElementById(id);
+  //get text msg div
+  const textDiv = msgDiv.querySelector('.text');
+  //insert new text
+  textDiv.innerHTML = `<p class='text'>${text}</p>`
+  //change classes
+  msgDiv.classList.add('edited-msg');
+})
+

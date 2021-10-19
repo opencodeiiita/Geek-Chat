@@ -176,6 +176,19 @@ io.on("connection", (socket) => {
       socket.broadcast.to(info.room).emit('typing', info.name)
     }
   })
+
+  //event listner for edit msg
+  socket.on('edited-msg', (info) => {
+    //find user
+    let user = usersArr.find((ob) => ob.session_id === socket.id);
+    //check user
+    if (user != null || user != undefined) {
+      if (info.text !== undefined || info.id !== undefined) {
+        console.log(info)
+        io.in(user.room).emit('edit-msg', info)
+      }
+    }
+  })
 });
 
 const port = process.env.PORT || 3000;
