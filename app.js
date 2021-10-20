@@ -3,6 +3,7 @@ const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const cors = require("cors"); //make requests from one website to another website in the browser
+const moment = require("moment");
 
 const app = express();
 const server = http.createServer(app);
@@ -174,6 +175,19 @@ io.on("connection", (socket) => {
   socket.on('typing', (info) => {
     if (info.name !== undefined || info.name !== null) {
       socket.broadcast.to(info.room).emit('typing', info.name)
+    }
+  })
+
+  //event listner for edit msg
+  socket.on('edited-msg', (info) => {
+    //find user
+    let user = usersArr.find((ob) => ob.session_id === socket.id);
+    //check user
+    if (user != null || user != undefined) {
+      if (info.text !== undefined || info.id !== undefined) {
+        info = {...info, time: moment().valueOf()}
+        io.in(user.room).emit('edit-msg', info)
+      }
     }
   })
 });
