@@ -50,12 +50,24 @@ function outputMessage(msg) {
         </div>`;
     playSound('bot')
   } else {
-    div.innerHTML += `<p class="meta">${values[0].username} <span>${moment(
+    div.innerHTML += `
+    <button class="btn-danger btn-danger-reply" onclick="replyMsg('${values[0].id}')"><span class="material-icons">
+        reply
+    </span></button>
+    <p class="meta">${values[0].username} <span>${moment(
       values[0].time
     ).format("h:mm a")}</span></p>
         <div class="text">
         ${values[0].text}
         </div>`;
+  }
+
+
+  let repliedMsgCheck = div.querySelector('.text').querySelector('.replied-msg-container')
+  if (repliedMsgCheck != null || repliedMsgCheck != undefined) {
+    if (repliedMsgCheck.querySelector('.replied-msg') != null || repliedMsgCheck.querySelector('.replied-msg') != undefined) {
+      repliedMsgCheck.querySelector('.replied-msg').classList.remove('replied-msg');
+    }
   }
 
   document.querySelector(".chat-messages").appendChild(div);
@@ -68,6 +80,9 @@ form.addEventListener("submit", (e) => {
 
   if (isEditing.status) {
     return emitEditedText(e);
+  }
+  if (isReplying.status) {
+    return emitReplyMsg(e);
   }
 
   const msg = e.target.elements.msg.value;
@@ -220,8 +235,12 @@ var isEditing = {status: false, id: null};
 const editMsg = (id) => {
   //set editing mode to true
   isEditing = {status: true, id: id};
+  let isRepliedMsg = false;
   //get old text
-  const prevMsgText = document.getElementById(id).querySelector('.text').querySelector('p').innerText;
+  if (document.getElementById(id).querySelector('.text').querySelector('.replied-msg') != undefined || document.getElementById(id).querySelector('.text').querySelector('.replied-msg') != null) {
+    isRepliedMsg = true;
+  }
+  const prevMsgText = document.getElementById(id).querySelector('.text').querySelector(`${isRepliedMsg ? '.replied-msg' : 'p'}`).innerText;
   //select input and put old text in input
   const inputEle = document.getElementById('msg');
   inputEle.value = prevMsgText;
@@ -253,12 +272,21 @@ const emitEditedText = (e) => {
 }
 
 socket.on('edit-msg', ({text, id, time}) => {
+  let isRepliedMsg = false;
+  if (document.getElementById(id).querySelector('.text').querySelector('.replied-msg') != undefined || document.getElementById(id).querySelector('.text').querySelector('.replied-msg') != null) {
+    isRepliedMsg = true;
+    document.getElementById(id).querySelector('.text').querySelector('.replied-msg').remove();
+  }
   //get msg div with id
   const msgDiv = document.getElementById(id);
   //get text msg div
   const textDiv = msgDiv.querySelector('.text');
   //insert new text
-  textDiv.innerHTML = `<p class='text'>${text}</p>`
+  if (isRepliedMsg) {
+    textDiv.innerHTML += `<p class='replied-msg'>${text}</p>`
+  } else {
+    textDiv.innerHTML = `<p class='text'>${text}</p>`
+  }
   //change time
   const timeSpan = msgDiv.querySelector('.meta').querySelector('span');
   timeSpan.innerHTML = moment(time).format("h:mm a");
@@ -266,3 +294,54 @@ socket.on('edit-msg', ({text, id, time}) => {
   msgDiv.classList.add('edited-msg');
 })
 
+/* Replying msg feature */
+var isReplying = {status: false, info: {name: "", text: ""}}
+
+const replyMsg = (id) => {
+  let isRepliedMsg = false;
+  if (document.getElementById(id).querySelector('.text').querySelector('.replied-msg') != undefined || document.getElementById(id).querySelector('.text').querySelector('.replied-msg') != null) {
+    isRepliedMsg = true;
+  }
+  //find author name and text
+  const msgDiv = document.getElementById(id);
+  const authorDetails = msgDiv.querySelector('.meta');
+  const authorName = authorDetails.innerText;
+  let msgText;
+  if (isRepliedMsg) {
+    msgText = msgDiv.querySelector('.text').querySelector('.replied-msg');
+  } else {
+    msgText = msgDiv.querySelector('.text').querySelector('p');
+  }
+  console.log(msgText)
+  //set replying mode
+  isReplying = {status: true, info: {name: authorDetails.outerHTML, text: msgText.outerHTML}}
+  //set popup
+  const formContainer = document.querySelector('.chat-form-container');
+  formContainer.classList.add('replying-form-container');
+  document.querySelector('.replying-form-container').setAttribute('to', `Replying to : ${authorName.split(' ')[0]}`)
+
+  const inputEle = document.getElementById('msg');
+  inputEle.focus();
+}
+
+const emitReplyMsg = (e) => {
+  //get msg text
+  const repMsg = e.target.elements.msg.value;
+  //check msg and emit
+  let userID = socket.id;
+  if (repMsg.trim() == "") {
+    isReplying = {status: false, info: {name: "", text: ""}};
+  }
+  else {
+    const msg = `<div class="replied-msg-container">${isReplying.info.name}${isReplying.info.text}</div><p class='replied-msg'>${repMsg}</p>`
+    socket.emit("chatMessage", { msg, userID });
+    isReplying = {status: false, info: {name: "", text: ""}};
+  }
+  //remove popup
+  const formContainer = document.querySelector('.chat-form-container');
+  formContainer.classList.remove('replying-form-container');
+  // //scroll
+  e.target.elements.msg.value = "";
+  e.target.elements.msg.focus();
+  scrollToBottom();
+}
