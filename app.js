@@ -3,6 +3,7 @@ const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const cors = require("cors"); //make requests from one website to another website in the browser
+const moment = require("moment");
 
 const app = express();
 const server = http.createServer(app);
@@ -184,7 +185,7 @@ io.on("connection", (socket) => {
     //check user
     if (user != null || user != undefined) {
       if (info.text !== undefined || info.id !== undefined) {
-        console.log(info)
+        info = {...info, time: moment().valueOf()}
         io.in(user.room).emit('edit-msg', info)
       }
     }

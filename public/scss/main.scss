@@ -259,11 +259,27 @@ a {
     background: #00adb5;
 }
 
+.editing-form-container {
+    position: relative;
+}
+.editing-form-container::before {
+    position: absolute;
+    content: "Editing a message";
+    top: -20px;
+    left: 50px;
+    padding: 0.5rem;
+    background: navajowhite;
+    font-weight: 800;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+}
+
 .chat-form-container form {
     display: flex;
 }
 
 .chat-form-container input[type='text'] {
+    position: relative;
     font-size: 16px;
     padding: 5px 15px;
     height: 50px;
@@ -411,6 +427,10 @@ a {
 }
 .edited-msg::after {
     content: "(edited)";
+    font-size: 0.75rem;
+    font-family: monospace;
+    font-weight: 300;
+    opacity: 0.75;
 }
 @keyframes dotdot {
     0% {

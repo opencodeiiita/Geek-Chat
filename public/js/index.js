@@ -225,6 +225,9 @@ const editMsg = (id) => {
   //select input and put old text in input
   const inputEle = document.getElementById('msg');
   inputEle.value = prevMsgText;
+  //set popup to inform user that he is editing
+  const formContainer = document.querySelector('.chat-form-container');
+  formContainer.classList.add('editing-form-container');
   //focus
   inputEle.focus();
 }
@@ -240,19 +243,25 @@ const emitEditedText = (e) => {
     socket.emit("edited-msg", { text: msg, id: isEditing.id });
     isEditing = {status: false, id: null};
   }
+  //remove popup
+  const formContainer = document.querySelector('.chat-form-container');
+  formContainer.classList.remove('editing-form-container');
   //scroll
   e.target.elements.msg.value = "";
   e.target.elements.msg.focus();
   scrollToBottom();
 }
 
-socket.on('edit-msg', ({text, id}) => {
+socket.on('edit-msg', ({text, id, time}) => {
   //get msg div with id
   const msgDiv = document.getElementById(id);
   //get text msg div
   const textDiv = msgDiv.querySelector('.text');
   //insert new text
   textDiv.innerHTML = `<p class='text'>${text}</p>`
+  //change time
+  const timeSpan = msgDiv.querySelector('.meta').querySelector('span');
+  timeSpan.innerHTML = moment(time).format("h:mm a");
   //change classes
   msgDiv.classList.add('edited-msg');
 })
