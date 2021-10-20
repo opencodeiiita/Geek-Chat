@@ -312,7 +312,6 @@ const replyMsg = (id) => {
   } else {
     msgText = msgDiv.querySelector('.text').querySelector('p');
   }
-  console.log(msgText)
   //set replying mode
   isReplying = {status: true, info: {name: authorDetails.outerHTML, text: msgText.outerHTML}}
   //set popup
