@@ -16,6 +16,8 @@
     "html-entities": "^2.3.2",
     "marked": "^3.0.7",
     "moment": "^2.29.1",
+    "node-fetch": "2.6",
+    "querystring": "^0.2.1",
     "socket.io": "^4.2.0"
   }
 }
