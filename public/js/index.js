@@ -318,6 +318,13 @@ const replyMsg = (id) => {
   const formContainer = document.querySelector('.chat-form-container');
   formContainer.classList.add('replying-form-container');
   document.querySelector('.replying-form-container').setAttribute('to', `Replying to : ${authorName.split(' ')[0]}`)
+  //create close button
+  let span = document.createElement('span');
+  span.classList.add('material-icons', 'replying-close-btn');
+  span.innerText = 'cancel';
+  span.setAttribute('onclick', 'cancelReply()');
+  //prepend
+  formContainer.prepend(span);
 
   const inputEle = document.getElementById('msg');
   inputEle.focus();
@@ -339,8 +346,23 @@ const emitReplyMsg = (e) => {
   //remove popup
   const formContainer = document.querySelector('.chat-form-container');
   formContainer.classList.remove('replying-form-container');
+  //remove close btn
+  formContainer.querySelector('.replying-close-btn').remove();
   // //scroll
   e.target.elements.msg.value = "";
   e.target.elements.msg.focus();
   scrollToBottom();
+}
+
+const cancelReply = () => {
+  //exit replying
+  isReplying = {status: false, info: {name: "", text: ""}}
+    //remove popup
+    const formContainer = document.querySelector('.chat-form-container');
+    formContainer.classList.remove('replying-form-container');
+    //remove close btn
+    formContainer.querySelector('.replying-close-btn').remove();
+    // //scroll
+    formContainer.querySelector('#msg').focus();
+    scrollToBottom();
 }

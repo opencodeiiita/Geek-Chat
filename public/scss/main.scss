@@ -220,9 +220,13 @@ a {
     margin-bottom: 7px;
 }
 .chat-messages .message .replied-msg-container {
+    background-color: #a9a5a5 !important;
     color: white !important;
 }
 .chat-messages .message .replied-msg-container .meta {
+    color: white;
+}
+.chat-messages .message .replied-msg-container .meta span{
     color: white;
 }
 .chat-messages .message .meta span {
@@ -289,14 +293,19 @@ a {
     position: absolute;
     content: attr(to);
     top: -20px;
-    left: 50px;
+    left: 65px;
     padding: 0.5rem;
     background: navajowhite;
     font-weight: 800;
     border-radius: 10px;
     box-shadow: 1px 1px 5px black;
 }
-
+.replying-close-btn {
+    position: absolute;
+    top: -15px;
+    color: navajowhite;
+    cursor: pointer;
+}
 .chat-form-container form {
     display: flex;
 }
@@ -450,7 +459,7 @@ a {
 }
 
 .replied-msg-container {
-    background-color: #393e46;
+    background-color: #0a77c6;
     padding: 0.5rem;
     margin: 10px -2px;
     border-radius: 10px;
