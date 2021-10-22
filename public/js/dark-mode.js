@@ -1,4 +1,4 @@
-$(document).ready(() => {
+ $(document).ready(() => {
   var body = document.querySelector("body");
   var toggleButton = document.getElementById("toggle");
   if (localStorage.dark == true) {

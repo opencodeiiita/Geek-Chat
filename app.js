@@ -12,18 +12,12 @@ const compileSass = require('compile-sass');
 
 var usrnm;
 var room;
+var  profilePhoto;
 
 const formatMessages = require("./utils/message.js");
-const {
-  usersArr,
-  newUser
-} = require("./utils/users.js");
-const {
-  roomMembersCount
-} = require("./utils/roomMembersCount.js");
-const {
-  on
-} = require("events");
+const { usersArr, newUser } = require("./utils/users.js");
+const { roomMembersCount } = require("./utils/roomMembersCount.js");
+const { on } = require("events");
 
 // Json
 app.use(express.json());
@@ -32,17 +26,20 @@ app.use(
     extended: true,
   })
 );
-app.use('/css/:cssName', compileSass.setup({
-  sassFilePath: path.join(__dirname, 'public/scss/'),
-  sassFileExt: 'scss',
-  embedSrcMapInProd: true,
-  resolveTildes: true,
-  nodeSassOptions: {
-    errLogToConsole: true,
-    noCache: true,
-    force: true
-  }
-}));
+app.use(
+  "/css/:cssName",
+  compileSass.setup({
+    sassFilePath: path.join(__dirname, "public/scss/"),
+    sassFileExt: "scss",
+    embedSrcMapInProd: true,
+    resolveTildes: true,
+    nodeSassOptions: {
+      errLogToConsole: true,
+      noCache: true,
+      force: true,
+    },
+  })
+);
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
@@ -56,7 +53,7 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   usrnm = req.body.usrnm;
   room = req.body.room;
-
+  profilePhoto=req.body.imageUrl;
   if (
     usersArr.find((user) => {
       if (user.name === usrnm && user.room === room) return true;
@@ -67,10 +64,10 @@ app.post("/", (req, res) => {
 
   res.sendFile(__dirname + "/public/main.html");
 });
-const roomDetails = io.of('/roomMembers');
-roomDetails.on('connection', (socket) => {
-  roomDetails.emit('roomMembersCount', roomMembersCount);
-})
+const roomDetails = io.of("/roomMembers");
+roomDetails.on("connection", (socket) => {
+  roomDetails.emit("roomMembersCount", roomMembersCount);
+});
 io.on("connection", (socket) => {
   //Validating user
   //Connecting the user to the room
@@ -78,11 +75,11 @@ io.on("connection", (socket) => {
 
   if (usrnm != undefined && room != undefined) {
     roomMembersCount[room]++;
-    roomDetails.emit('countUpdate', {
+    roomDetails.emit("countUpdate", {
       room,
-      count: roomMembersCount[room]
+      count: roomMembersCount[room],
     });
-    newUser(usrnm, room, socket.id);
+    newUser(usrnm, room, socket.id, profilePhoto);
     socket.join(room);
     socket.emit("roomJoined", {
       room,
@@ -98,14 +95,15 @@ io.on("connection", (socket) => {
     .to(room)
     .emit(
       "message",
-      formatMessages("", "GeekChat Bot", `${usrnm} entered the chat!`, "")
+      formatMessages("", "GeekChat Bot", `${usrnm} entered the chat!`, "", profilePhoto)
     );
   let userList = usersArr.filter((ob) => ob.room === room);
   socket.emit("userList", userList);
 
   socket.to(room).emit("userJoined", {
     id: socket.id,
-    username: usrnm
+    username: usrnm,
+    profilePhoto:profilePhoto
   });
 
   //When a user leaves the room
@@ -113,13 +111,13 @@ io.on("connection", (socket) => {
   //Message in the room user has disconnected
   socket.on("disconnect", () => {
     roomMembersCount[room]--;
-    roomDetails.emit('countUpdate', {
+    roomDetails.emit("countUpdate", {
       room,
-      count: roomMembersCount[room]
+      count: roomMembersCount[room],
     });
     io.in(room).emit("userLeft", {
       id: socket.id,
-      username: usrnm
+      username: usrnm,
     });
     let userIndex = -1,
       user;
@@ -134,7 +132,7 @@ io.on("connection", (socket) => {
       usersArr.splice(userIndex, 1);
       io.in(user.room).emit(
         "message",
-        formatMessages("", "GeekChat Bot", `${user.name} disconnected.`, "")
+        formatMessages("", "GeekChat Bot", `${user.name} disconnected.`, "", user.profilePhoto)
       );
     }
   });
@@ -143,8 +141,8 @@ io.on("connection", (socket) => {
     // When a user sends a chat message
     // An id is created for the message
     // Validating user and sending the message in the room
-    let user = usersArr.find((ob) => ob.session_id === socket.id);
 
+    let user = usersArr.find((ob) => ob.session_id === socket.id);
     let messageID = user.name + "_" + new Date().getTime();
     if (user) {
       io.in(user.room).emit(
@@ -153,7 +151,8 @@ io.on("connection", (socket) => {
           messageID,
           user.name,
           messageObject.msg,
-          messageObject.userID
+          messageObject.userID,
+          user.profilePhoto,
         )
       );
     }
@@ -172,24 +171,24 @@ io.on("connection", (socket) => {
   });
 
   //Event listner for typing
-  socket.on('typing', (info) => {
+  socket.on("typing", (info) => {
     if (info.name !== undefined || info.name !== null) {
-      socket.broadcast.to(info.room).emit('typing', info.name)
+      socket.broadcast.to(info.room).emit("typing", info.name);
     }
-  })
+  });
 
   //event listner for edit msg
-  socket.on('edited-msg', (info) => {
+  socket.on("edited-msg", (info) => {
     //find user
     let user = usersArr.find((ob) => ob.session_id === socket.id);
     //check user
     if (user != null || user != undefined) {
       if (info.text !== undefined || info.id !== undefined) {
-        info = {...info, time: moment().valueOf()}
-        io.in(user.room).emit('edit-msg', info)
+        info = { ...info, time: moment().valueOf() };
+        io.in(user.room).emit("edit-msg", info);
       }
     }
-  })
+  });
 });
 
 const port = process.env.PORT || 3000;
