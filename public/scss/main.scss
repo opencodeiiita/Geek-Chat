@@ -166,6 +166,7 @@ a {
 }
 
 .chat-messages .message {
+    position: relative;
     box-sizing: border-box;
     padding: 0.5rem 1rem;
     margin: 1rem auto 1rem 1rem;
@@ -210,6 +211,9 @@ a {
 .chat-messages .author:hover .btn-danger {
     opacity: 1;
 }
+.chat-messages .message:hover .btn-danger {
+    opacity: 1;
+}
 
 .chat-messages .message .meta {
     font-size: 15px;
@@ -218,7 +222,16 @@ a {
     opacity: 0.7;
     margin-bottom: 7px;
 }
-
+.chat-messages .message .replied-msg-container {
+    background-color: #a9a5a5 !important;
+    color: white !important;
+}
+.chat-messages .message .replied-msg-container .meta {
+    color: white;
+}
+.chat-messages .message .replied-msg-container .meta span{
+    color: white;
+}
 .chat-messages .message .meta span {
     color: #777;
     padding-left: 0.6em;
@@ -276,7 +289,26 @@ a {
     border-radius: 10px;
     box-shadow: 1px 1px 5px black;
 }
-
+.replying-form-container {
+    position: relative;
+}
+.replying-form-container::before {
+    position: absolute;
+    content: attr(to);
+    top: -20px;
+    left: 65px;
+    padding: 0.5rem;
+    background: navajowhite;
+    font-weight: 800;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+}
+.replying-close-btn {
+    position: absolute;
+    top: -15px;
+    color: navajowhite;
+    cursor: pointer;
+}
 .chat-form-container form {
     display: flex;
 }
@@ -406,8 +438,34 @@ a {
     left: 30%;
 }
 
+.author .btn-danger-reply {
+    left: -25px;
+    background: none !important;
+    color: black;
+}
+.author .btn-danger-reply:hover {
+    background-color: #00000080 !important;
+    color: white;
+}
+.message .btn-danger-reply {
+    left: calc(100% + 25px);
+    background: none !important;
+    color: black;
+}
+.message .btn-danger-reply:hover {
+    background-color: #00000080 !important;
+    color: white;
+}
+
 .btn-danger:hover {
     background: #a20900;
+}
+
+.replied-msg-container {
+    background-color: #0a77c6;
+    padding: 0.5rem;
+    margin: 10px -2px;
+    border-radius: 10px;
 }
 
 #beep1,

@@ -61,6 +61,9 @@ app.post("/", (req, res) => {
   ) {
     return res.sendFile(__dirname + "/public/index.html");
   }
+  if (/\s/g.test(usrnm)) {
+    return res.sendFile(__dirname + "/public/index.html");
+  }
 
   res.sendFile(__dirname + "/public/main.html");
 });
@@ -141,7 +144,6 @@ io.on("connection", (socket) => {
     // When a user sends a chat message
     // An id is created for the message
     // Validating user and sending the message in the room
-
     let user = usersArr.find((ob) => ob.session_id === socket.id);
     let messageID = user.name + "_" + new Date().getTime();
     if (user) {
