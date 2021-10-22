@@ -81,6 +81,11 @@ const form = document.getElementById("chat-form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  let allList = document.querySelectorAll('.btn-container');
+  allList.forEach(item => {
+      item.style['display'] = 'none';
+  })
+
   if (isEditing.status) {
     return emitEditedText(e);
   }
