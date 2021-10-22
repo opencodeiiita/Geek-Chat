@@ -25,12 +25,12 @@ function outputMessage(msg) {
   div.setAttribute("id", values[0].id);
   if (values[0].userID === values[1]) {
     div.classList.add("author");
-    div.innerHTML += `<button class="btn-danger" onclick="deleteMsg('${values[0].id}')"><span class="material-icons">
+    div.innerHTML += `<div class="btn-container"><button class="btn-danger2" onclick="deleteMsg('${values[0].id}')"><span class="material-icons">
         delete
-        </span></button>`;
-    div.innerHTML += `<button class="btn-danger btn-danger-edit" onclick="editMsg('${values[0].id}')"><span class="material-icons">
+        </span></button>
+        <button class="btn-danger2 btn-danger-edit" onclick="editMsg('${values[0].id}')"><span class="material-icons">
         edit
-        </span></button>`;
+        </span></button></div>`;
     playSound('send')
   } else {
     div.classList.add("message");
@@ -54,9 +54,13 @@ function outputMessage(msg) {
     <button class="btn-danger btn-danger-reply" onclick="replyMsg('${values[0].id}')"><span class="material-icons">
         reply
     </span></button>
-    <p class="meta">${values[0].username} <span>${moment(
+    ${values[0].userID === values[1] ? `<div class='msg-head'><p class="meta">${values[0].username} <span>${moment(
       values[0].time
-    ).format("h:mm a")}</span></p>
+    ).format("h:mm a")}</span></p><span class="material-icons three-dots-menu" onclick="menuOpen('${values[0].id}')">
+    more_vert
+    </span></div>` : `<p class="meta">${values[0].username} <span>${moment(
+      values[0].time
+    ).format("h:mm a")}</span></p>`}
         <div class="text">
         ${values[0].text}
         </div>`;
@@ -290,6 +294,8 @@ socket.on('edit-msg', ({text, id, time}) => {
   //change time
   const timeSpan = msgDiv.querySelector('.meta').querySelector('span');
   timeSpan.innerHTML = moment(time).format("h:mm a");
+  //close menu
+  msgDiv.querySelector('.btn-container').style['display'] = 'none';
   //change classes
   msgDiv.classList.add('edited-msg');
 })
@@ -365,4 +371,22 @@ const cancelReply = () => {
     // //scroll
     formContainer.querySelector('#msg').focus();
     scrollToBottom();
+}
+
+var isMenuOpen = false;
+const menuOpen = (id) => {
+  let allList = document.querySelectorAll('.btn-container');
+  allList.forEach(item => {
+    item.style['display'] = 'none';
+  })
+
+  const msgDiv = document.getElementById(id);
+  const btnContainer = msgDiv.querySelector('.btn-container');
+  if (!isMenuOpen) {
+    isMenuOpen = true;
+    btnContainer.style['display'] = 'flex';
+  } else {
+    isMenuOpen = false;
+    btnContainer.style['display'] = 'none';
+  }
 }
