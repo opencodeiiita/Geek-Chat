@@ -54,16 +54,15 @@ function outputMessage(msg) {
     <button class="btn-danger btn-danger-reply" onclick="replyMsg('${values[0].id}')"><span class="material-icons">
         reply
     </span></button>
-    ${values[0].userID === values[1] ? `<div class='msg-head'><p class="meta">${values[0].username} <span>${moment(
+    <p class="meta">${values[0].username} <span>${moment(
       values[0].time
-    ).format("h:mm a")}</span></p><span class="material-icons three-dots-menu" onclick="menuOpen('${values[0].id}')">
-    more_vert
-    </span></div>` : `<p class="meta">${values[0].username} <span>${moment(
-      values[0].time
-    ).format("h:mm a")}</span></p>`}
+    ).format("h:mm a")}</span></p>
         <div class="text">
         ${values[0].text}
-        </div>`;
+        </div>
+        <span class="material-icons three-dots-menu" onclick="menuOpen('${values[0].id}')">
+    more_vert
+    </span>`;
   }
 
 
@@ -251,6 +250,13 @@ const editMsg = (id) => {
   //set popup to inform user that he is editing
   const formContainer = document.querySelector('.chat-form-container');
   formContainer.classList.add('editing-form-container');
+  //close btn
+  let span = document.createElement('span');
+  span.classList.add('material-icons', 'replying-close-btn');
+  span.innerText = 'cancel';
+  span.setAttribute('onclick', 'cancelEdit()');
+  //prepend
+  formContainer.prepend(span);
   //focus
   inputEle.focus();
 }
@@ -298,6 +304,10 @@ socket.on('edit-msg', ({text, id, time}) => {
   msgDiv.querySelector('.btn-container').style['display'] = 'none';
   //change classes
   msgDiv.classList.add('edited-msg');
+  let allList = document.querySelectorAll('.btn-container');
+  allList.forEach(item => {
+    item.style['display'] = 'none';
+  })
 })
 
 /* Replying msg feature */
@@ -355,6 +365,10 @@ const emitReplyMsg = (e) => {
   //remove close btn
   formContainer.querySelector('.replying-close-btn').remove();
   // //scroll
+  let allList = document.querySelectorAll('.btn-container');
+  allList.forEach(item => {
+    item.style['display'] = 'none';
+  })
   e.target.elements.msg.value = "";
   e.target.elements.msg.focus();
   scrollToBottom();
@@ -369,6 +383,23 @@ const cancelReply = () => {
     //remove close btn
     formContainer.querySelector('.replying-close-btn').remove();
     // //scroll
+    formContainer.querySelector('#msg').focus();
+    scrollToBottom();
+}
+const cancelEdit = () => {
+    //exit replying
+    isEditing = {status: false, id: null};
+    //remove popup
+    const formContainer = document.querySelector('.chat-form-container');
+    formContainer.classList.remove('editing-form-container');
+    //remove close btn
+    formContainer.querySelector('.replying-close-btn').remove();
+    // //scroll
+    //remove popup
+    let allList = document.querySelectorAll('.btn-container');
+    allList.forEach(item => {
+      item.style['display'] = 'none';
+    })
     formContainer.querySelector('#msg').focus();
     scrollToBottom();
 }
