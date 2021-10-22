@@ -11,9 +11,12 @@ socket.on("roomJoined", (connectionObj) => {
   roomNameDiv.classList.remove("animate");
 });
 socket.on("message", (message) => {
-  if (document.querySelector('.typing') != null || document.querySelector('.typing') != undefined) {
-      document.querySelector('.typing').remove();
-      TYPING_USERS = []
+  if (
+    document.querySelector(".typing") != null ||
+    document.querySelector(".typing") != undefined
+  ) {
+    document.querySelector(".typing").remove();
+    TYPING_USERS = [];
   }
   let userID = socket.id;
   outputMessage({ message, userID });
@@ -22,33 +25,43 @@ socket.on("message", (message) => {
 function outputMessage(msg) {
   var values = Object.values(msg);
   const div = document.createElement("div");
+  const mssgProfilePhoto = document.createElement("img");
+  const div1 = document.createElement("div");
+  mssgProfilePhoto.src = values[0].profilePhoto;
+  mssgProfilePhoto.classList.add('userAvatar1');
   div.setAttribute("id", values[0].id);
   if (values[0].userID === values[1]) {
     div.classList.add("author");
+    div1.classList.add('profileRight')
     div.innerHTML += `<button class="btn-danger" onclick="deleteMsg('${values[0].id}')"><span class="material-icons">
         delete
         </span></button>`;
     div.innerHTML += `<button class="btn-danger btn-danger-edit" onclick="editMsg('${values[0].id}')"><span class="material-icons">
         edit
         </span></button>`;
-    playSound('send')
+    playSound("send");
   } else {
     div.classList.add("message");
+    div1.classList.add('profileLeft')
     if (values[0].username === "GeekChat Bot") {
-      playSound('bot')
+      playSound("bot");
     } else {
-      playSound('recieve')
+      playSound("recieve");
     }
   }
   if (values[0].username === "GeekChat Bot") {
     div.classList.add("bot");
+    if(values[0].profilePhoto!==''){
+       div.appendChild(mssgProfilePhoto)
+        div.classList.add('profileAdded')
+    }
     div.innerHTML += `<p class="meta">${values[0].username} <span>${moment(
       values[0].time
     ).format("h:mm a")}</span></p>
         <div class="text">
         ${values[0]["text"]}
         </div>`;
-    playSound('bot')
+    playSound("bot");
   } else {
     div.innerHTML += `
     <button class="btn-danger btn-danger-reply" onclick="replyMsg('${values[0].id}')"><span class="material-icons">
@@ -61,16 +74,17 @@ function outputMessage(msg) {
         ${values[0].text}
         </div>`;
   }
-
-
-  let repliedMsgCheck = div.querySelector('.text').querySelector('.replied-msg-container')
+ let repliedMsgCheck = div.querySelector('.text').querySelector('.replied-msg-container')
   if (repliedMsgCheck != null || repliedMsgCheck != undefined) {
     if (repliedMsgCheck.querySelector('.replied-msg') != null || repliedMsgCheck.querySelector('.replied-msg') != undefined) {
       repliedMsgCheck.querySelector('.replied-msg').classList.remove('replied-msg');
     }
   }
-
+  div1.appendChild(mssgProfilePhoto);
+  div1.appendChild(div);
+  if(values[0].username === "GeekChat Bot")
   document.querySelector(".chat-messages").appendChild(div);
+  else document.querySelector(".chat-messages").appendChild(div1);
   scrollToBottom();
 }
 
@@ -87,8 +101,8 @@ form.addEventListener("submit", (e) => {
 
   const msg = e.target.elements.msg.value;
   let userID = socket.id;
-  if (msg.trim() == "") { }
-  else {
+  if (msg.trim() == "") {
+  } else {
     socket.emit("chatMessage", { msg, userID });
   }
 
@@ -103,21 +117,30 @@ function scrollToBottom() {
 }
 
 socket.on("userList", (userList) => {
-  for (let { name, session_id } of userList) {
+  // console.log(userList)
+  for (let { name, session_id, profilePhoto } of userList) {
     userMap.set(session_id, name);
     let user = document.createElement("li");
     user.classList.add("fade-in");
     user.dataset.id = session_id;
     user.innerHTML = name;
+    const profileImage = document.createElement("img"); // created an img element to add profile photo of each entering new user
+    profileImage.src = profilePhoto;
+    profileImage.classList.add("userAvatar");
+    user.appendChild(profileImage);
     users.appendChild(user);
   }
 });
-socket.on("userJoined", ({ id, username }) => {
+socket.on("userJoined", ({ id, username, profilePhoto }) => {
   userMap.set(id, username);
   const user = document.createElement("li");
   user.classList.add("fade-in");
   user.dataset.id = id;
   user.innerHTML = username;
+  const profileImage = document.createElement("img"); // created an img element to add profile photo of each entering new user
+  profileImage.src = profilePhoto;
+  profileImage.classList.add("userAvatar");
+  user.appendChild(profileImage);
   users.appendChild(user);
 });
 
@@ -144,73 +167,82 @@ function deleteMsg(info) {
   }
 }
 
-const beep1 = document.getElementById('beep1')
-const beep2 = document.getElementById('beep2')
-const beep3 = document.getElementById('beep3')
+const beep1 = document.getElementById("beep1");
+const beep2 = document.getElementById("beep2");
+const beep3 = document.getElementById("beep3");
 const playSound = (beep) => {
-  if (beep === 'send') {
+  if (beep === "send") {
     return beep1.play();
   }
-  if (beep === 'bot'){
+  if (beep === "bot") {
     return beep3.play();
   }
   return beep2.play();
-}
+};
 
 //timeout for removing typing element from dom
 var timeout;
 
 //event for typing
-socket.on('typing', (typingUser)=>{
-    //push user to typingusers array
-    TYPING_USERS.push(typingUser);
+socket.on("typing", (typingUser) => {
+  //push user to typingusers array
+  TYPING_USERS.push(typingUser);
 
-    //remove duplicates
-    TYPING_USERS = [...new Set(TYPING_USERS)];
+  //remove duplicates
+  TYPING_USERS = [...new Set(TYPING_USERS)];
 
-    //append typing event msg
-    appendTyping();
+  //append typing event msg
+  appendTyping();
 
-    //timeout to delete typing event
-    if (timeout !== undefined) {
-      clearTimeout(timeout);
-    }
-    if (document.querySelector('.typing') != null || document.querySelector('.typing') != undefined) {
-      timeout = setTimeout(() => {
-        document.querySelector('.typing').remove();
-        TYPING_USERS = []
-      }, 3000);
-    }
-})
+  //timeout to delete typing event
+  if (timeout !== undefined) {
+    clearTimeout(timeout);
+  }
+  if (
+    document.querySelector(".typing") != null ||
+    document.querySelector(".typing") != undefined
+  ) {
+    timeout = setTimeout(() => {
+      document.querySelector(".typing").remove();
+      TYPING_USERS = [];
+    }, 3000);
+  }
+});
 
 //list of typing users
 var TYPING_USERS = [];
 
 const emitTyping = () => {
-  socket.emit('typing', {name: CURRENT_USER, room});
-}
+  socket.emit("typing", { name: CURRENT_USER, room });
+};
 
 //function to append typing msg
 const appendTyping = () => {
-
   //checking for existing typing element
-  if (document.querySelector('.typing') != null || document.querySelector('.typing') != undefined) {
-    let divEx = document.querySelector('.typing')
+  if (
+    document.querySelector(".typing") != null ||
+    document.querySelector(".typing") != undefined
+  ) {
+    let divEx = document.querySelector(".typing");
 
     //if found then changing its content
     if (TYPING_USERS.length > 2) {
       divEx.innerHTML = `<p class="typing-text">many people typing <span class="dot-animation"></span></p>`;
     } else if (TYPING_USERS.length > 1) {
-      divEx.innerHTML = `<p class="typing-text">${TYPING_USERS.join(', ')} are typing <span class="dot-animation"></span></p>`;
+      divEx.innerHTML = `<p class="typing-text">${TYPING_USERS.join(
+        ", "
+      )} are typing <span class="dot-animation"></span></p>`;
     } else if (TYPING_USERS.length <= 1) {
-      divEx.innerHTML = `<p class="typing-text">${TYPING_USERS.join(', ')} is typing <span class="dot-animation"></span></p>`;
+      divEx.innerHTML = `<p class="typing-text">${TYPING_USERS.join(
+        ", "
+      )} is typing <span class="dot-animation"></span></p>`;
     }
 
     return;
   }
 
   //create div
-  let div = document.createElement('div');
+  let div = document.createElement("div");
 
   //add class
   div.classList.add("message", "typing");
@@ -219,18 +251,22 @@ const appendTyping = () => {
   if (TYPING_USERS.length > 2) {
     div.innerHTML = `<p class="typing-text">many people typing <span class="dot-animation"></span></p>`;
   } else if (TYPING_USERS.length > 1) {
-    div.innerHTML = `<p class="typing-text">${TYPING_USERS.join(', ')} are typing <span class="dot-animation"></span></p>`;
+    div.innerHTML = `<p class="typing-text">${TYPING_USERS.join(
+      ", "
+    )} are typing <span class="dot-animation"></span></p>`;
   } else if (TYPING_USERS.length <= 1) {
-    div.innerHTML = `<p class="typing-text">${TYPING_USERS.join(', ')} is typing <span class="dot-animation"></span></p>`;
+    div.innerHTML = `<p class="typing-text">${TYPING_USERS.join(
+      ", "
+    )} is typing <span class="dot-animation"></span></p>`;
   }
 
   //apend element to dom
   document.querySelector(".chat-messages").appendChild(div);
   scrollToBottom();
-}
+};
 
 /* EDITING MSG FEATURE */
-var isEditing = {status: false, id: null};
+var isEditing = { status: false, id: null };
 
 const editMsg = (id) => {
   //set editing mode to true
@@ -242,34 +278,33 @@ const editMsg = (id) => {
   }
   const prevMsgText = document.getElementById(id).querySelector('.text').querySelector(`${isRepliedMsg ? '.replied-msg' : 'p'}`).innerText;
   //select input and put old text in input
-  const inputEle = document.getElementById('msg');
+  const inputEle = document.getElementById("msg");
   inputEle.value = prevMsgText;
   //set popup to inform user that he is editing
-  const formContainer = document.querySelector('.chat-form-container');
-  formContainer.classList.add('editing-form-container');
+  const formContainer = document.querySelector(".chat-form-container");
+  formContainer.classList.add("editing-form-container");
   //focus
   inputEle.focus();
-}
+};
 
 const emitEditedText = (e) => {
   //get msg text
   const msg = e.target.elements.msg.value;
   //check msg and emit
   if (msg.trim() == "") {
-    isEditing = {status: false, id: null};
-  }
-  else {
+    isEditing = { status: false, id: null };
+  } else {
     socket.emit("edited-msg", { text: msg, id: isEditing.id });
-    isEditing = {status: false, id: null};
+    isEditing = { status: false, id: null };
   }
   //remove popup
-  const formContainer = document.querySelector('.chat-form-container');
-  formContainer.classList.remove('editing-form-container');
+  const formContainer = document.querySelector(".chat-form-container");
+  formContainer.classList.remove("editing-form-container");
   //scroll
   e.target.elements.msg.value = "";
   e.target.elements.msg.focus();
   scrollToBottom();
-}
+};
 
 socket.on('edit-msg', ({text, id, time}) => {
   let isRepliedMsg = false;
@@ -280,7 +315,7 @@ socket.on('edit-msg', ({text, id, time}) => {
   //get msg div with id
   const msgDiv = document.getElementById(id);
   //get text msg div
-  const textDiv = msgDiv.querySelector('.text');
+  const textDiv = msgDiv.querySelector(".text");
   //insert new text
   if (isRepliedMsg) {
     textDiv.innerHTML += `<p class='replied-msg'>${text}</p>`
@@ -288,10 +323,10 @@ socket.on('edit-msg', ({text, id, time}) => {
     textDiv.innerHTML = `<p class='text'>${text}</p>`
   }
   //change time
-  const timeSpan = msgDiv.querySelector('.meta').querySelector('span');
+  const timeSpan = msgDiv.querySelector(".meta").querySelector("span");
   timeSpan.innerHTML = moment(time).format("h:mm a");
   //change classes
-  msgDiv.classList.add('edited-msg');
+  msgDiv.classList.add("edited-msg");
 })
 
 /* Replying msg feature */
@@ -366,3 +401,4 @@ const cancelReply = () => {
     formContainer.querySelector('#msg').focus();
     scrollToBottom();
 }
+
