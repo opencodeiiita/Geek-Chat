@@ -37,30 +37,55 @@
     <div class="modal_div hidden darkModal" id="modal_div">
       <p class="btn--close-modal" style="color: black">&times;</p>
       <div class="modal_box">
-        <button class="slider__btn slider__btn--left darkClose">&larr;</button>
-        <div class="slider">
-          <img class="slide avatar_div01" src="./avtars/01.png" alt="">
-          <img class="slide avatar_div02 hidden_slide" src="./avtars/02.png" alt="">
-          <img class="slide avatar_div03 hidden_slide" src="./avtars/03.png" alt="">
-          <img class="slide avatar_div04 hidden_slide" src="./avtars/04.png" alt="">
-          <img class="slide avatar_div05 hidden_slide" src="./avtars/05.png" alt="">
-          <img class="slide avatar_div06 hidden_slide" src="./avtars/06.png" alt="">
-          <img class="slide avatar_div07 hidden_slide" src="./avtars/07.png" alt="">
-          <img class="slide avatar_div08 hidden_slide" src="./avtars/08.png" alt="">
-          <img class="slide avatar_div09 hidden_slide" src="./avtars/09.png" alt="">
-          <img class="slide avatar_div10 hidden_slide" src="./avtars/10.png" alt="">
-          <img class="slide avatar_div11 hidden_slide" src="./avtars/11.png" alt="">
-          <img class="slide avatar_div12 hidden_slide" src="./avtars/12.png" alt="">          
-        </div>
-
-        <div class="top-4 "></div>
-
-        <button class="slider__btn slider__btn--right darkClose">&rarr;</button>
+        <div class="numbertext"><span class="numberChange">1</span> / 12</div>
+        <div class="slideshow-container" style="height:340px">
+          <div class="mySlides fade1">
+            <img src="./avtars/01.png" class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/02.png"  class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/03.png"  class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/04.png"  class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/05.png"  class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/06.png"  class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/07.png"  class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/08.png"  class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/09.png"  class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/10.png"  class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/11.png"  class="ProfileImg">
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/12.png"  class="ProfileImg">
+          </div>
+          
+          <a class="prev" >&#10094;</a>
+          <a class="next">&#10095;</a>
+          <div class="dotBox" style="text-align:center">
+          </div>
+          </div>
+          <br>
+         
       </div>
-      <!-- <h2 class="modal__header">Avatars</h2> -->
     </div>
     <div class="container-fluid">
-     
       <div class="col-lg-6 col-md-6 col-sm-10 col-10 main-div">
         <div class="profile">
           <img
@@ -119,7 +144,7 @@
         </form>
       </div>
     </div>
-    <div class="overlay_div hidden"></div>
+    <div class="overlay_div overlay_hidden"></div>
     <script src="./js/lastEncounter.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/roomMembers.js"></script>

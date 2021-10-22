@@ -3,6 +3,8 @@ $primary-color: #63b4b8;
 body {
   background: linear-gradient(90deg, rgb(0, 40, 70), rgb(255, 115, 115), rgb(255, 175, 123));
   text-align: center;
+  position: relative;
+  min-height: 100vh;
   #toggle {
     width: 60px;
     height: 30px;
@@ -122,12 +124,13 @@ body {
         -webkit-transition-property: box-shadow, tranform;
         transition-property: box-shadow, transform;
       }
-      button:hover, button:focus, button:active{
-        box-shadow: 0 0 20px rgba(0,0,0,0.75);
-       
+      button:hover,
+      button:focus,
+      button:active {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.75);
+
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
-        
       }
     }
   }
@@ -138,19 +141,16 @@ body::before {
   inset: 0;
   background: linear-gradient(90deg, #00c9ff, #92fe9e);
   opacity: 1;
-  z-index:  -1;
-  transition: all 1s ease-in-out 0.5s ;
+  z-index: -1;
+  transition: all 1s ease-in-out 0.5s;
 }
-#joinChat{
+#joinChat {
   transition: all 1s ease 0s;
 }
-.form-group{
-  
-  transition: all 1s ease-in-out 0s ;
-   
+.form-group {
+  transition: all 1s ease-in-out 0s;
 }
 .dark-mode {
-  
   color: white;
   h1 {
     color: white;
@@ -180,28 +180,6 @@ body::before {
 ===================================
 */
 
-.top-4{
-  width: 120px;
-  height: 120px;
-  position: absolute;
-  border-style:solid;
-  border-width:2px ;opacity: 0.5;
-  position: absolute;
-  top: 30%;
-  left: 31.5%;
-  transform: translate(-50%, -50%);
-  border-image:   linear-gradient(315deg, #f9c5d1 0%, #9795ef 74%) 0.5;
-  transform: rotate(-45deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: -1;
-}
-.dark-mode {
-  .top-4{
-border-image:  linear-gradient(315deg, #42378f 0%, #f53844 74%) 0.5;
-  }
-}
 .profile {
   width: 124px;
   height: 124px;
@@ -212,9 +190,10 @@ border-image:  linear-gradient(315deg, #42378f 0%, #f53844 74%) 0.5;
     height: 120px;
     border-radius: 50%;
     vertical-align: middle;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   }
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 }
@@ -228,11 +207,11 @@ border-image:  linear-gradient(315deg, #42378f 0%, #f53844 74%) 0.5;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
-  padding: 20px;
+  width: 400px;
+  height: 400px;
+  // padding: 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   flex-direction: column;
   border-radius: 10px;
@@ -240,95 +219,142 @@ border-image:  linear-gradient(315deg, #42378f 0%, #f53844 74%) 0.5;
   background-image: linear-gradient(315deg, #fee2f8 0%, #dcf8ef 74%);
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  transition: all 0.5s;
-  h2{
-    margin-top: 10%;
-    font-size: 40px;
-  }
-  .btn--close-modal {
-    position: absolute;
-    // border: 2px solid red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    top: 0.1rem;
-    right: 0.5rem;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.7s ease 0s;
+  p.btn--close-modal {
+    display: block;
+    text-align: right;
+    margin: 0 10px;
+    font-family: "Times New Roman", Times, serif;
+    cursor: pointer;
     font-size: 3rem;
     font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-    width: 3rem;
-    height: 3rem;
-    cursor: pointer;  
   }
-  transition: transform 5s;
+}
+.modal_box {
+  width: 400px;
+  height: 340px;
 }
 /*
 =============================================
        ******Slider Related SCSS********
 ============================================
 */
-.slider{
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 1s;
-}
-.slide{
-  margin: 10px;
-  width: 16rem;
-  height: 16rem;
-  border-radius: 50%;
-  transition: all 1s;
-  background-size: contain;
-  background-repeat: no-repeat;
-  cursor: pointer;
 
- 
-  
+.slideshow-container {
+  position: relative;
+  overflow: hidden;
+  .mySlides {
+    width: 400px;
+    height: 240px;
+    margin: 0 auto;
+
+
+  }
 }
-.modal_box{
-  display: flex;
-  height: 65%;
-}
-.slider__btn{
+
+.mySlides {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin-top: 20px;
   position: absolute;
-  z-index: 10;
-  border: none;
-  background: #2eb4d3b3;
-  color: black;
-  border-radius: 50%;
-  height: 3rem;
-  width: 3rem;
-  font-size: 1.8rem;
-  text-align: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  top: 0px;
+  transition: transform 1s;
+
+  img {
+    // vertical-align: middle;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+/* Next & previous buttons */
+.prev,
+.next {
   cursor: pointer;
-}
-.slider__btn:hover{
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-.slider__btn--left {
-  left:19%;
-  top: 49%;
-  z-index: 10;
-  font-family: 'Times New Roman', Times, serif;
+  position: absolute;
+  top: 33%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: grey;
   font-weight: bold;
-  transform: translate(-50%, -50%);
+  font-size: 22px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  text-decoration: none;
 }
-.slider__btn--right {
-  right:16%;
-  font-family: 'Times New Roman', Times, serif;
-  top: 49%;
-  z-index: 10;
-  font-weight: bold;
-  transform: translate(50%, -50%);
+
+/* Position the "next button" to the right */
+.next {
+  right: 10px;
+  border-radius: 3px 0 0 3px;
 }
-.hidden_slide{
-  display: none;
+.prev {
+  left: 10px;
+  border-radius: 3px 0 0 3px;
 }
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(41, 129, 151, 0.8);
+}
+
+a.next:hover {
+  color: white;
+}
+a.prev:hover {
+  color: white;
+}
+/* Caption text */
+.text {
+  color: grey;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: grey;
+  font-size: 12px;
+  padding: 12px 16px;
+  position: absolute;
+  display: block;
+  top: 0px;
+}
+.dotBox {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.selectDot {
+  background-color: #13b8ff !important;
+}
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
 /*
 =============================================
        ******Overlay Related Scss********
@@ -342,20 +368,28 @@ border-image:  linear-gradient(315deg, #42378f 0%, #f53844 74%) 0.5;
   height: 100%;
   background-color: black;
   z-index: 100;
-  transition: all 0.5s;
-  opacity: 0.4;
+  transition: all 0.7s;
+  opacity: 0.5;
+  visibility: visible;
+}
+.overlay_hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+img {
+  transition: all 1s;
 }
 /*
 =============================================
        ******Dark MODE OF modal Scss********
 ============================================
 */
-.dark-mode{
-  .darkModal{
+.dark-mode {
+  .darkModal {
     background-color: #d9e4f5;
-background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+    background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
   }
-  .darkClose{
+  .darkClose {
     background-color: #d7a385b3;
   }
 }
@@ -402,7 +436,6 @@ background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
         }
       }
     }
-   
   }
 }
 
@@ -424,45 +457,54 @@ background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
         height: 80px;
       }
     }
-   
   }
-  .modal_div{
-    width: 250px;
-    height: 250px;
-    .btn--close-modal{
+  .modal_div {
+    width: 280px;
+    height: 280px;
+    p.btn--close-modal {
       font-size: 2rem;
     }
-  } 
-  .slider__btn{
-    width: 2rem;
-    height: 2rem;
-    font-size: 0.8rem;
   }
-  .top-4{
-    top: 29%;
-    left: 31%;
-    width: 100px;
-    height: 100px;
+  .modal_box {
+    width: 280px;
+    height: 250px;
   }
-  .slider__btn--left {
-    left:20%;
-    top: 48.5%;
+  .mySlides {
+    img {
+      width: 160px;
+      height: 160px;
+    }
   }
-  .slider__btn--right {
-    right:19%;
-    top: 48.5%;
+  .prev,
+  .next,
+  .text {
+    font-size: 14px;
   }
-  .slide{
-    width: 220px;
-    height: 220px;
+  .prev {
+    left: 5px;
+    
+  }
+  .next {
+    right: 5px;
+  
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+  .slideshow-container {
+    .mySlides {
+      width: 280px;
+      height: 240px;
+    }
+    height: 240px !important;
   }
   
 }
 
-@media (max-width:800px) {
- 
+@media (max-width: 800px) {
 }
 .hidden {
-  display: none;
-  transition: all 5s ease 0s;
+  opacity: 0;
+  visibility: hidden;
 }

@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   background-image: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
   background-position: center;
@@ -23,7 +23,7 @@ body * {
 }
 
 body::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image: linear-gradient(90deg, #01cafe 0%, #60ecbf 100%);
@@ -104,7 +104,7 @@ a {
 }
 
 .chat-header .main-heading {
-  font-family: 'Gluten', cursive;
+  font-family: "Gluten", cursive;
 }
 
 .chat-main {
@@ -137,7 +137,10 @@ a {
 }
 
 .chat-sidebar ul li {
-  padding: 10px 0;
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .chat-main,
@@ -155,6 +158,7 @@ a {
 }
 
 .chat-messages .message {
+  position: relative;
   box-sizing: border-box;
   padding: 0.5rem 1rem;
   margin: 1rem auto 1rem 1rem;
@@ -203,12 +207,29 @@ a {
   opacity: 1;
 }
 
+.chat-messages .message:hover .btn-danger {
+  opacity: 1;
+}
+
 .chat-messages .message .meta {
   font-size: 15px;
   font-weight: bold;
   color: #393e46;
   opacity: 0.7;
   margin-bottom: 7px;
+}
+
+.chat-messages .message .replied-msg-container {
+  background-color: #a9a5a5 !important;
+  color: white !important;
+}
+
+.chat-messages .message .replied-msg-container .meta {
+  color: white;
+}
+
+.chat-messages .message .replied-msg-container .meta span {
+  color: white;
 }
 
 .chat-messages .message .meta span {
@@ -274,11 +295,34 @@ a {
   box-shadow: 1px 1px 5px black;
 }
 
+.replying-form-container {
+  position: relative;
+}
+
+.replying-form-container::before {
+  position: absolute;
+  content: attr(to);
+  top: -20px;
+  left: 65px;
+  padding: 0.5rem;
+  background: navajowhite;
+  font-weight: 800;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.replying-close-btn {
+  position: absolute;
+  top: -15px;
+  color: navajowhite;
+  cursor: pointer;
+}
+
 .chat-form-container form {
   display: flex;
 }
 
-.chat-form-container input[type='text'] {
+.chat-form-container input[type="text"] {
   position: relative;
   font-size: 16px;
   padding: 5px 15px;
@@ -334,7 +378,7 @@ a {
   margin-bottom: 5px;
 }
 
-.join-main input[type='text'] {
+.join-main input[type="text"] {
   font-size: 16px;
   padding: 5px;
   height: 40px;
@@ -413,8 +457,37 @@ a {
   left: 30%;
 }
 
+.author .btn-danger-reply {
+  left: -25px;
+  background: none !important;
+  color: black;
+}
+
+.author .btn-danger-reply:hover {
+  background-color: #00000080 !important;
+  color: white;
+}
+
+.message .btn-danger-reply {
+  left: calc(100% + 25px);
+  background: none !important;
+  color: black;
+}
+
+.message .btn-danger-reply:hover {
+  background-color: #00000080 !important;
+  color: white;
+}
+
 .btn-danger:hover {
   background: #a20900;
+}
+
+.replied-msg-container {
+  background-color: #0a77c6;
+  padding: 0.5rem;
+  margin: 10px -2px;
+  border-radius: 10px;
 }
 
 #beep1,
@@ -617,6 +690,61 @@ a {
   -moz-animation: fadeIn linear 1s;
   -o-animation: fadeIn linear 1s;
   -ms-animation: fadeIn linear 1s;
+}
+
+/*
+==============================================
+ *********User List avtar related css********
+==============================================
+*/
+.users li {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.userAvatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.userAvatar1 {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.profileAdded {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileAdded img {
+  margin: 0 5px;
+  width: 40px;
+  height: 40px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+/*
+==============================================
+ *********Message related profiles********
+==============================================
+*/
+.profileLeft {
+  display: flex;
+  align-items: flex-end;
+}
+
+.profileRight {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
 }
 
 @keyframes shimmer {

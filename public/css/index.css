@@ -2,6 +2,8 @@
 body {
   background: linear-gradient(90deg, #002846, #ff7373, #ffaf7b);
   text-align: center;
+  position: relative;
+  min-height: 100vh;
 }
 
 body #toggle {
@@ -188,9 +190,9 @@ body::before {
 }
 
 /*
-=======================
+===================================
     ***Avatars***
-=======================
+===================================
 */
 .profile {
   width: 124px;
@@ -204,47 +206,183 @@ body::before {
   height: 120px;
   border-radius: 50%;
   vertical-align: middle;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-#modal_div {
+.profile:hover {
+  cursor: pointer;
+}
+
+/*
+=============================================
+       ******Modal Related SCSS********
+============================================
+*/
+.modal_div {
   position: fixed;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 60rem;
-  max-height: 60vh;
-  overflow: auto;
-  background-color: #f3f3f3;
-  padding: 5rem 6rem;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #fee2f8;
+  background-image: linear-gradient(315deg, #fee2f8 0%, #dcf8ef 74%);
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  transition: all 0.5s;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.7s ease 0s;
 }
 
-.avatar_div {
-  display: flex;
-  flex-wrap: wrap;
+.modal_div p.btn--close-modal {
+  display: block;
+  text-align: right;
+  margin: 0 10px;
+  font-family: "Times New Roman", Times, serif;
+  cursor: pointer;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.modal_box {
+  width: 400px;
+  height: 340px;
+}
+
+/*
+=============================================
+       ******Slider Related SCSS********
+============================================
+*/
+.slideshow-container {
+  position: relative;
   overflow: hidden;
 }
 
-.avatar {
-  width: 80px;
-  height: 80px;
-  margin: 5px 0;
-  flex: 20%;
+.slideshow-container .mySlides {
+  width: 400px;
+  height: 240px;
+  margin: 0 auto;
 }
 
-.avatar img {
-  width: 80px;
-  height: 80px;
+.mySlides {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin-top: 20px;
+  position: absolute;
+  top: 0px;
+  transition: transform 1s;
 }
 
-.hidden {
-  display: none;
-  transition: all 5s ease 0s;
+.mySlides img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 33%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: grey;
+  font-weight: bold;
+  font-size: 22px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  text-decoration: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 10px;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 10px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(41, 129, 151, 0.8);
+}
+
+a.next:hover {
+  color: white;
+}
+
+a.prev:hover {
+  color: white;
+}
+
+/* Caption text */
+.text {
+  color: grey;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: grey;
+  font-size: 12px;
+  padding: 12px 16px;
+  position: absolute;
+  display: block;
+  top: 0px;
+}
+
+.dotBox {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.selectDot {
+  background-color: #13b8ff !important;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/*
+=============================================
+       ******Overlay Related Scss********
+============================================
+*/
 .overlay_div {
   position: fixed;
   left: 0;
@@ -253,25 +391,32 @@ body::before {
   height: 100%;
   background-color: black;
   z-index: 100;
-  transition: all 0.5s;
-  opacity: 0.4;
+  transition: all 0.7s;
+  opacity: 0.5;
+  visibility: visible;
 }
 
-.btn--close-modal {
-  border: none;
-  outline: none;
-  font-size: 48px;
-  background: none;
-  position: fixed;
-  top: 0.5rem;
-  right: 2rem;
-  font-size: 4rem;
-  cursor: pointer;
+.overlay_hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
-.btn--close-modal:focus {
-  outline: none;
-  border: none;
+img {
+  transition: all 1s;
+}
+
+/*
+=============================================
+       ******Dark MODE OF modal Scss********
+============================================
+*/
+.dark-mode .darkModal {
+  background-color: #d9e4f5;
+  background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+}
+
+.dark-mode .darkClose {
+  background-color: #d7a385b3;
 }
 
 @media (max-height: 768px) {
@@ -307,9 +452,6 @@ body::before {
     text-align: center;
     width: 85%;
   }
-  #modal_div {
-    padding: 10px;
-  }
 }
 
 @media (max-width: 576px) {
@@ -327,18 +469,46 @@ body::before {
     width: 80px;
     height: 80px;
   }
-  body .avatar {
-    flex: 1;
-    margin: 5px;
+  .modal_div {
+    width: 280px;
+    height: 280px;
   }
-  #modal_div {
-    width: 80vw;
+  .modal_div p.btn--close-modal {
+    font-size: 2rem;
+  }
+  .modal_box {
+    width: 280px;
+    height: 250px;
+  }
+  .mySlides img {
+    width: 160px;
+    height: 160px;
+  }
+  .prev,
+  .next,
+  .text {
+    font-size: 14px;
+  }
+  .prev {
+    left: 5px;
+  }
+  .next {
+    right: 5px;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+  .slideshow-container {
+    height: 240px !important;
+  }
+  .slideshow-container .mySlides {
+    width: 280px;
+    height: 240px;
   }
 }
 
-@media (max-width: 800px) {
-  #modal_div {
-    width: 80vw;
-    height: auto;
-  }
+.hidden {
+  opacity: 0;
+  visibility: hidden;
 }

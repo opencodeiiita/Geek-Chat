@@ -30,6 +30,7 @@ function outputMessage(msg) {
   mssgProfilePhoto.src = values[0].profilePhoto;
   mssgProfilePhoto.classList.add('userAvatar1');
   div.setAttribute("id", values[0].id);
+  div1.setAttribute("id", `${values[0].id}-topDiv`);
   if (values[0].userID === values[1]) {
     div.classList.add("author");
     div1.classList.add('profileRight')
@@ -158,6 +159,7 @@ socket.on("deleteMsgFromChat", (msgId) => {
     return;
   }
   document.getElementById(msgId).remove();
+  document.getElementById(`${msgId}-topDiv`).remove();
 });
 
 function deleteMsg(info) {

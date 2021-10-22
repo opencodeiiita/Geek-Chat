@@ -1,41 +1,4 @@
-const slides = document.querySelectorAll('.slide');
-// console.log(slides)
-slides.forEach((s,i)=>(s.style.transform=`translateX(${100*i}vw)`));
-const slider = document.querySelector('.slider');
-slider.style.transform = 'scale(0.5)'
-const btnLeft = document.querySelector('.slider__btn--left');
-const btnRight = document.querySelector('.slider__btn--right');
-const profile = document.querySelector('#profile_avatars');
-// console.log(profile)
-let curSlide = 0;
-
-let maxSlide = slides.length;  // It will be use to determin wheter we are at the end of left or right ride in slider.
-
-// For slider Buttons 
-btnRight.addEventListener('click', function(){
-    // Here we are hidding current avatar.and str will store the on which profile number wer are at currently.
-    let str = (`0${curSlide+1}`).slice(-2)
-    document.querySelector(`.avatar_div${str}`).classList.add("hidden_slide")
-    curSlide++;
-    curSlide = curSlide%maxSlide
-    slides.forEach((s,i)=>(s.style.transform=`translateX(${120*(i-curSlide)}vw)`));
-    // here we are removing hidden class from avatar which is currently active and str will store the on which profile number wer are at currently.
-    str = (`0${curSlide+1}`).slice(-2)
-    document.querySelector(`.avatar_div${str}`).classList.remove("hidden_slide")
-})
-btnLeft.addEventListener('click', function(){
-     // Here we are hidding current avatar.and str will store the on which profile number wer are at currently.
-     let str = (`0${curSlide+1}`).slice(-2)
-    document.querySelector(`.avatar_div${str}`).classList.add("hidden_slide")
-    curSlide--;
-    curSlide = (curSlide+maxSlide)%maxSlide
-
-    slides.forEach((s,i)=>(s.style.transform=`translateX(${120*(i-curSlide)}vw)`));
-        // here we are removing hidden class from avatar which is currently active and str will store the on which profile number wer are at currently.
-        str = (`0${curSlide+1}`).slice(-2)
-    document.querySelector(`.avatar_div${str}`).classList.remove("hidden_slide")
-})
-
+const profile = document.querySelector("#profile_avatars");
 
 /*
 ===================================
@@ -43,10 +6,10 @@ btnLeft.addEventListener('click', function(){
 ===================================
 */
 
-const modalDiv = document.querySelector('.modal_div');
-const overlayDiv = document.querySelector('.overlay_div ');
-const btnCloseModal = document.querySelector('.btn--close-modal');
-const btnOpenModal = document.querySelector('.btn--show-modal');
+const modalDiv = document.querySelector(".modal_div");
+const overlayDiv = document.querySelector(".overlay_div ");
+const btnCloseModal = document.querySelector(".btn--close-modal");
+const btnOpenModal = document.querySelector(".btn--show-modal");
 
 /*
 ===========================================
@@ -54,10 +17,10 @@ const btnOpenModal = document.querySelector('.btn--show-modal');
 ===========================================
 */
 
-const OpenModal = ()=>{
-    modalDiv.classList.remove('hidden');
-    overlayDiv.classList.remove('hidden');
-}
+const OpenModal = () => {
+  modalDiv.classList.remove("hidden");
+  overlayDiv.classList.remove("overlay_hidden");
+};
 
 /*
 ===========================================
@@ -65,45 +28,154 @@ const OpenModal = ()=>{
 ===========================================
 */
 
-const CloseModal = ()=>{
-    modalDiv.classList.add('hidden');
-    overlayDiv.classList.add('hidden');
-}
-btnOpenModal.addEventListener('click', OpenModal);
-btnCloseModal.addEventListener('click', CloseModal);
+const CloseModal = () => {
+  modalDiv.classList.add("hidden");
+  overlayDiv.classList.add("overlay_hidden");
+};
+btnOpenModal.addEventListener("click", OpenModal);
+btnCloseModal.addEventListener("click", CloseModal);
 
 /*
 ==================================================
        ******Modal close with Escape Key********
 ==================================================
 */
-document.addEventListener('keydown', (e)=>{
-    if(e.key==='Escape'&&!modalDiv.classList.contains('hidden')){
-        CloseModal();
-    }
-})
-overlayDiv.addEventListener('click', ()=>{
-    if(!modalDiv.classList.contains('hidden')){
-        CloseModal();
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !modalDiv.classList.contains("hidden")) {
+    CloseModal();
+  }
+});
+overlayDiv.addEventListener("click", () => {
+  if (!modalDiv.classList.contains("hidden")) {
+    CloseModal();
+  }
+});
 
-    }
-})
+const profileImg = document.querySelectorAll(".ProfileImg");
+const profileUrl = document.querySelector("#profile_avatars");
+const profileValue = document.querySelector("#profilePhoto");
+/*
+===========================
+ ***Random Profile******
+===========================
+*/
+
+var PhotoNumber;
+if (localStorage.PhotoNumber) {
+  PhotoNumber = localStorage.PhotoNumber;
+} else {
+  var randNumber;
+  randNumber = Math.trunc(Math.random() * 12 + 1);
+  PhotoNumber = `0${randNumber}`.slice(-2);
+  localStorage.PhotoNumber = PhotoNumber;
+}
+profileUrl.src = `./avtars/${PhotoNumber}.png`;
+profileValue.value = `./avtars/${PhotoNumber}.png`;
+
+/*
+===========================
+ ***Initital SliderIndex******
+===========================
+*/
+
+var slideIndex = Number(profileUrl.src.slice(-6, -4));
+const numberChange = document.querySelector(".numberChange");
+const slides = document.querySelectorAll(".mySlides");
+const maxSlide = slides.length;
+const BtnRight = document.querySelector(".next");
+const BtnLeft = document.querySelector(".prev");
+const dotBox = document.querySelector('.dotBox');
+/*
+===========================
+ ***Creating dots******
+===========================
+*/
+const createDots = function (){
+    slides.forEach(function(s, i){
+        dotBox.insertAdjacentHTML('beforeend',   `<span class="dot" data-slide="${i}"></span>` );
+    })
+}
+
+createDots();
+
+
+/*
+===========================
+ ***Left Right Button***
+===========================
+*/
+
+const showSlides = (n) => {
+  slides.forEach((slide, i) => {
+    slide.style.transform = `translateX(${100 * (i - (n - 1))}%)`;
+  });
+  activeDot(n)
+};
+const activeDot = (slideIndex) => {
+    var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  numberChange.innerHTML = slideIndex;
+  dots[slideIndex - 1].className += " active";
+};
+showSlides(slideIndex);
+BtnRight.addEventListener("click", () => {
+  if (slideIndex === maxSlide) {
+    slideIndex = 1;
+  } else {
+    slideIndex++;
+  }
+  showSlides(slideIndex);
+ activeDot(slideIndex);
+});
+BtnLeft.addEventListener("click", () => {
+  if (slideIndex === 1) {
+    slideIndex = maxSlide;
+  } else {
+    slideIndex--;
+  }
+  showSlides(slideIndex);
+  activeDot(slideIndex);
+});
 
 /*
 ==================================================
        ******Profile Image Selection********
 ==================================================
 */
-const profilePhoto = document.querySelector('#profilePhoto')
-slides.forEach((slide, i)=>{
+const Dots = document.querySelectorAll(".dot");
+var curntSelected = Number(PhotoNumber);
+Dots[curntSelected - 1].className += " selectDot";
 
-    slide.addEventListener('click', (a)=>{
-      
-        let imgNumber = slide.classList[1].slice(-2)
-        console.log(imgNumber)
-        profile.src = `./avtars/${imgNumber}.png`;
-        profilePhoto.value = `./avtars/${imgNumber}.png`
-        CloseModal();
-        
-      })
+profileImg.forEach((profile) => {
+  profile.addEventListener("click", () => {
+    var srcNumber = profile.src.slice(-6, -4);
+    slideIndex = Number(srcNumber);
+    localStorage.PhotoNumber = srcNumber; //storing in local storage current profile Image
+    PhotoNumber = srcNumber; //current Profile Number
+    profileUrl.src = `./avtars/${PhotoNumber}.png`; // profile src
+    profileValue.value = `./avtars/${PhotoNumber}.png`; // profile value to send in chat box
+    Dots.forEach((Dot) => {
+      if (Dot.classList.contains("selectDot")) {
+        Dot.classList.remove("selectDot");
+      }
+    });
+    Dots[slideIndex - 1].className += " selectDot";
+  });
+});
+
+
+/*
+==================================================
+       ******Dot activation Selection********
+==================================================
+*/
+dotBox.addEventListener('click', function(e){
+    if(e.target.classList.contains('dot')){
+        const slide = e.target.dataset.slide;
+        // console.log(slide)
+        showSlides(Number(slide)+1);
+        slideIndex=Number(slide)+1;
+    }
 })
