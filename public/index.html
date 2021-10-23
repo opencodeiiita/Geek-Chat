@@ -22,6 +22,9 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+
+    <!-- Recaptcha -->
+    <script src="http://www.google.com/recaptcha/api.js"></script>
     <script src="./js/dark-mode.js"></script>
     <title>GeekChat</title>
   </head>
@@ -151,7 +154,8 @@
               </option>
             </select>
           </div>
-          <br />
+          <!-- <br /> -->
+          <div class="g-recaptcha" data-sitekey="6Lc20uYcAAAAAKYIVpzmArirW771YJ_41HQLDYGl" style="display: flex;justify-content: center; padding-bottom: 25px;"></div>
           <button id="joinChat" type="submit">Join Chat!</button>
         </form>
       </div>
@@ -162,4 +166,25 @@
     <script src="js/roomMembers.js"></script>
     <script src="./js/avatar.js"></script>
   </body>
+  <!-- Redundent Clientside ReCaptcha code -->
+  <!-- <script>
+    document.getElementById('joinChatForm').addEventListener('submit', e => {
+      // e.preventDefault();
+
+      const captcha = document.querySelector('#g-recaptcha-response').value;
+
+      return fetch('/joinRoom', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify({captcha })
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          // if (data.success) alert(data.msg);
+
+          // if (data.success) window.location.href = "./main.html";
+        });
+    });
+  </script> -->
 </html>
