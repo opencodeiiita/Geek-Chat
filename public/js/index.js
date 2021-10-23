@@ -60,9 +60,9 @@ function outputMessage(msg) {
         <div class="text">
         ${values[0].text}
         </div>
-        <span class="material-icons three-dots-menu" onclick="menuOpen('${values[0].id}')">
-    more_vert
-    </span>`;
+        ${values[0].userID === values[1] ? `<span class="material-icons three-dots-menu" onclick="menuOpen('${values[0].id}')">
+        more_vert
+        </span>` : ``}`;
   }
 
 
@@ -307,7 +307,7 @@ socket.on('edit-msg', ({text, id, time}) => {
   const timeSpan = msgDiv.querySelector('.meta').querySelector('span');
   timeSpan.innerHTML = moment(time).format("h:mm a");
   //close menu
-  msgDiv.querySelector('.btn-container').style['display'] = 'none';
+  msgDiv.querySelector('.btn-container').classList.add('hide');
   //change classes
   msgDiv.classList.add('edited-msg');
   let allList = document.querySelectorAll('.btn-container');
