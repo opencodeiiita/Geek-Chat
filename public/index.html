@@ -15,7 +15,7 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/index.css" />
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -34,10 +34,87 @@
       <h1 class="main-heading">GeekChat!</h1>
       <iframe src="https://embed.lottiefiles.com/animation/26439"></iframe>
     </div>
-
+    <div class="modal_div hidden darkModal" id="modal_div">
+      <p class="btn--close-modal" style="color: black">&times;</p>
+      <div class="modal_box">
+        <div class="numbertext"><span class="numberChange">1</span> / 12</div>
+        <div class="slideshow-container" style="height:340px">
+          <div class="mySlides fade1">
+            <img src="./avtars/01.png" class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/02.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/03.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/04.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/05.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/06.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/07.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/08.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/09.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/10.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/11.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          <div class="mySlides fade1">
+            <img src="./avtars/12.png"  class="ProfileImg">
+            <i class="fa fa-check icon_check hidden1"></i>
+          </div>
+          
+          <a class="prev" >&#10094;</a>
+          <a class="next">&#10095;</a>
+          <div class="dotBox" style="text-align:center">
+          </div>
+          </div>
+          <br>
+         
+      </div>
+    </div>
     <div class="container-fluid">
       <div class="col-lg-6 col-md-6 col-sm-10 col-10 main-div">
+        <div class="profile">
+          <img
+            src="./avtars/01.png"
+            alt="Avatars"
+            class="btn--show-modal"
+            id="profile_avatars"
+            name="ProfilePhoto"
+          />
+        </div>
         <form id="joinChatForm" action="/" method="post">
+          <input
+            type="hidden"
+            name="imageUrl"
+            id="profilePhoto"
+            value="./avtars/01.png"
+          />
           <div class="form-group">
             <label>Username</label>
             <input
@@ -79,8 +156,10 @@
         </form>
       </div>
     </div>
+    <div class="overlay_div overlay_hidden"></div>
     <script src="./js/lastEncounter.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/roomMembers.js"></script>
+    <script src="./js/avatar.js"></script>
   </body>
 </html>
