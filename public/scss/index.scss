@@ -346,9 +346,14 @@ a.prev:hover {
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
+  transition: all 0.3s;
 }
 .selectDot {
   background-color: #13b8ff !important;
+  width: 20px;
+  height: 20px;
+  // transition: all 0.6s;
+ 
 }
 .active,
 .dot:hover {
@@ -379,7 +384,28 @@ a.prev:hover {
 img {
   transition: all 1s;
 }
+
+i.fa.fa-check.icon_check{
+  position: absolute;
+  font-weight: lighter;
+  font-weight: 50;
+  top: 174px;
+  left: 64%;
+  font-size: 40px;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00a6ff;
+}
+i.fa.fa-check.icon_check.hidden1{
+  display: none;
+}
 /*
+
 =============================================
        ******Dark MODE OF modal Scss********
 ============================================
@@ -488,6 +514,14 @@ img {
     right: 5px;
   
   }
+  .selectDot {
+    background-color: #13b8ff !important;
+    width: 15px;
+    height: 15px;
+    // transition: all 0.6s;
+   
+  }
+  
   .dot {
     width: 10px;
     height: 10px;
@@ -499,6 +533,13 @@ img {
     }
     height: 240px !important;
   }
+  i.fa.fa-check.icon_check{
+    top: 118px;
+    font-size: 22px;
+    width: 35px;
+    height: 35px;
+  }
+
   
 }
 

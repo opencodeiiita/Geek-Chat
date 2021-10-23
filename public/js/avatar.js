@@ -146,8 +146,9 @@ BtnLeft.addEventListener("click", () => {
 */
 const Dots = document.querySelectorAll(".dot");
 var curntSelected = Number(PhotoNumber);
+const checkIcon = document.querySelectorAll('.icon_check');
 Dots[curntSelected - 1].className += " selectDot";
-
+checkIcon[curntSelected - 1].classList.remove('hidden1');
 profileImg.forEach((profile) => {
   profile.addEventListener("click", () => {
     var srcNumber = profile.src.slice(-6, -4);
@@ -156,12 +157,18 @@ profileImg.forEach((profile) => {
     PhotoNumber = srcNumber; //current Profile Number
     profileUrl.src = `./avtars/${PhotoNumber}.png`; // profile src
     profileValue.value = `./avtars/${PhotoNumber}.png`; // profile value to send in chat box
-    Dots.forEach((Dot) => {
+    Dots.forEach((Dot, i) => {
       if (Dot.classList.contains("selectDot")) {
         Dot.classList.remove("selectDot");
+        
       }
+      if(!checkIcon[i].classList.contains('hidden1'))
+      {checkIcon[i].classList.add('hidden1');
+      console.log('ashutosh')
+    }
     });
     Dots[slideIndex - 1].className += " selectDot";
+    checkIcon[slideIndex - 1].classList.remove('hidden1');
   });
 });
 
