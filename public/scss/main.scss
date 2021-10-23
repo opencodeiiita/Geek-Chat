@@ -446,11 +446,15 @@ a {
     right: 6px;
     bottom: -85px;
     z-index: 5;
-    display: none;
+    display: flex;
     flex-direction: column;
     background-color: white;
     border-radius: 10px;
     border: 1px solid #393e46;
+    transition: transform 125ms ease-in;
+}
+.hide {
+    transform: scale(0);
 }
 .btn-danger {
     position: absolute;

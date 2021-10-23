@@ -25,7 +25,7 @@ function outputMessage(msg) {
   div.setAttribute("id", values[0].id);
   if (values[0].userID === values[1]) {
     div.classList.add("author");
-    div.innerHTML += `<div class="btn-container"><button class="btn-danger2" onclick="deleteMsg('${values[0].id}')"><span class="material-icons">
+    div.innerHTML += `<div class="btn-container hide"><button class="btn-danger2" onclick="deleteMsg('${values[0].id}')"><span class="material-icons">
         delete
         </span></button>
         <button class="btn-danger2 btn-danger-edit" onclick="editMsg('${values[0].id}')"><span class="material-icons">
@@ -83,7 +83,8 @@ form.addEventListener("submit", (e) => {
 
   let allList = document.querySelectorAll('.btn-container');
   allList.forEach(item => {
-      item.style['display'] = 'none';
+      // item.style['display'] = 'none';
+      item.classList.add('hide');
   })
 
   if (isEditing.status) {
@@ -311,7 +312,8 @@ socket.on('edit-msg', ({text, id, time}) => {
   msgDiv.classList.add('edited-msg');
   let allList = document.querySelectorAll('.btn-container');
   allList.forEach(item => {
-    item.style['display'] = 'none';
+    // item.style['display'] = 'none';
+    item.classList.add('hide');
   })
 })
 
@@ -372,7 +374,8 @@ const emitReplyMsg = (e) => {
   // //scroll
   let allList = document.querySelectorAll('.btn-container');
   allList.forEach(item => {
-    item.style['display'] = 'none';
+    // item.style['display'] = 'none';
+    item.classList.add('hide');
   })
   e.target.elements.msg.value = "";
   e.target.elements.msg.focus();
@@ -403,7 +406,8 @@ const cancelEdit = () => {
     //remove popup
     let allList = document.querySelectorAll('.btn-container');
     allList.forEach(item => {
-      item.style['display'] = 'none';
+      // item.style['display'] = 'none';
+      item.classList.add('hide');
     })
     formContainer.querySelector('#msg').focus();
     scrollToBottom();
@@ -413,16 +417,19 @@ var isMenuOpen = false;
 const menuOpen = (id) => {
   let allList = document.querySelectorAll('.btn-container');
   allList.forEach(item => {
-    item.style['display'] = 'none';
+    // item.style['display'] = 'none';
+    item.classList.add('hide');
   })
 
   const msgDiv = document.getElementById(id);
   const btnContainer = msgDiv.querySelector('.btn-container');
   if (!isMenuOpen) {
     isMenuOpen = true;
-    btnContainer.style['display'] = 'flex';
+    // btnContainer.style['display'] = 'flex';
+    btnContainer.classList.remove('hide')
   } else {
     isMenuOpen = false;
-    btnContainer.style['display'] = 'none';
+    // btnContainer.style['display'] = 'none';
+    btnContainer.classList.add('hide');
   }
 }
