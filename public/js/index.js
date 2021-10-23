@@ -433,3 +433,16 @@ const menuOpen = (id) => {
     btnContainer.classList.add('hide');
   }
 }
+
+isSideBarOpen = false;
+const toggleSideBar = () => {
+  if (isSideBarOpen) {
+    document.querySelector('.chat-sidebar').classList.remove('sidemenu-open');
+    document.querySelector('.hamburger-icon').innerText = 'menu';
+    isSideBarOpen = false;
+  } else {
+    document.querySelector('.chat-sidebar').classList.add('sidemenu-open');
+    document.querySelector('.hamburger-icon').innerText = 'clear';
+    isSideBarOpen = true;
+  }
+}

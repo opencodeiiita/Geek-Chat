@@ -433,6 +433,9 @@ a {
         background-color: #272727;
         border: 1px solid white;
     }
+    .hamburger-icon {
+        color: white;
+    }
     ::-webkit-scrollbar-thumb {
         background: white;
         border-radius: 10px;
@@ -545,6 +548,9 @@ a {
     font-weight: 300;
     opacity: 0.75;
 }
+.hamburger-icon {
+    display: none !important;
+}
 @keyframes dotdot {
     0% {
         content: ".";
@@ -558,6 +564,7 @@ a {
 }
 @media (max-width: 1200px) {
     .chat-container {
+        position: relative;
         margin: 60px auto;
     }
 }
@@ -570,7 +577,24 @@ a {
         height: 60vh;
     }
     .chat-sidebar {
-        display: none;
+        position: absolute;
+        z-index: 10;
+        transform: translateX(-100%);        
+    }
+    .sidemenu-open {
+        transform: translateX(0);
+    }
+    .hamburger-icon {
+        display: block !important;
+        position: absolute;
+        top: 15px;
+        left: 25px;
+        transform: scale(1.5);
+    }
+    .top-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 }
 /* ----------------------------------------------
