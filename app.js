@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
 app.post("/", async(req, res) => {
   // RECAPTCHA SERVER SIDE
   if (!req.body['g-recaptcha-response'])
-    return res.sendFile(__dirname + "/public/index.html");;
+    return res.sendFile(__dirname + "/public/index.html");
   // Secret key
   const secretKey = '6Lc20uYcAAAAANeXi5yv3q_YTMsN3J8NTHUcpmD5';
   // Verify URL
@@ -72,7 +72,7 @@ app.post("/", async(req, res) => {
   // Make a request to verifyURL
   const body = await fetch(verifyURL).then(resp => resp.json());
   // If not successful
-  if (body.success !== undefined && !body.success)  return res.sendFile(__dirname + "/public/index.html");;
+  if (body.success !== undefined && !body.success)  return res.sendFile(__dirname + "/public/index.html");
   // If successful
   // return res.json({ success: true, msg: 'Captcha passed' });
 

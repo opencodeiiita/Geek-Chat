@@ -78,7 +78,7 @@
             </select>
           </div>
           <br />
-          <div class="g-recaptcha" data-sitekey="6Lc20uYcAAAAAKYIVpzmArirW771YJ_41HQLDYGl"></div>
+          <div class="g-recaptcha" data-sitekey="6Lc20uYcAAAAAKYIVpzmArirW771YJ_41HQLDYGl" style="display: flex;align-items: center; text-align: center;justify-content: center; padding-bottom: 10px;"></div>
           <button id="joinChat" type="submit">Join Chat!</button>
         </form>
       </div>
@@ -100,13 +100,13 @@
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify({captcha })
       })
-        // .then(res => res.json())
-        // .then(data => {
-        //   console.log(data);
-        //   // if (data.success) alert(data.msg);
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          // if (data.success) alert(data.msg);
 
-        //   // if (data.success) window.location.href = "./main.html";
-        // });
+          // if (data.success) window.location.href = "./main.html";
+        });
     });
   </script> -->
 </html>
