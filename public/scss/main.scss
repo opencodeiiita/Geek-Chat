@@ -202,8 +202,12 @@ a {
 .message.bot p {
     max-width: none !important;
 }
-.chat-messages .author:hover {
-    background: #f3201380;
+.three-dots-menu {
+    position: relative;
+    float: right;
+    margin-bottom: -2px;
+    transform: rotate(90deg);
+    cursor: pointer;
 }
 .chat-messages .author:hover .btn-danger {
     opacity: 1;
@@ -213,6 +217,7 @@ a {
 }
 
 .chat-messages .message .meta {
+    display: inline-block;
     font-size: 15px;
     font-weight: bold;
     color: $dark-color-b;
@@ -238,6 +243,7 @@ a {
     word-break: break-all;
 }
 .chat-messages .author .meta {
+    display: inline-block;
     font-size: 15px;
     font-weight: bold;
     color: $light-color;
@@ -279,7 +285,7 @@ a {
     position: absolute;
     content: "Editing a message";
     top: -20px;
-    left: 50px;
+    left: 65px;
     padding: 0.5rem;
     background: navajowhite;
     font-weight: 800;
@@ -410,6 +416,23 @@ a {
     .message_send_btn {
         background: rgb(119, 0, 255);
     }
+    .btn-danger, .btn-danger2 {
+        background-color: #272727 !important;
+        color: white !important;
+    }
+    .btn-danger span {
+        color: white;
+    }
+    .btn-danger-reply:hover {
+        background-color: #6c6c6c !important;
+    }
+    .btn-danger2:hover {
+        background-color: #6c6c6c !important;
+    }
+    .btn-container {
+        background-color: #272727;
+        border: 1px solid white;
+    }
     ::-webkit-scrollbar-thumb {
         background: white;
         border-radius: 10px;
@@ -417,6 +440,21 @@ a {
 }
 .dark-mode::before {
     opacity: 0;
+}
+.btn-container {
+    position: absolute;
+    right: 6px;
+    bottom: -85px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #393e46;
+    transition: transform 125ms ease-in;
+}
+.hide {
+    transform: scale(0);
 }
 .btn-danger {
     position: absolute;
@@ -428,8 +466,25 @@ a {
     border: none;
     border-radius: 0.5rem;
     color: #ffffff;
-    background-color: #f32013;
+    background-color: white;
     opacity: 0;
+}
+.msg-head {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-danger2 {
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+}
+.btn-danger2:hover {
+    background-color: #cacaca;
+}
+.btn-danger span {
+    color: black;
 }
 .btn-danger-edit {
     left: 30%;
@@ -437,11 +492,11 @@ a {
 
 .author .btn-danger-reply {
     left: -25px;
-    background: none !important;
+    background: none;
     color: black;
 }
 .author .btn-danger-reply:hover {
-    background-color: #00000080 !important;
+    background-color: #00000080;
     color: white;
 }
 .message .btn-danger-reply {
