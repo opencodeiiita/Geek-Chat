@@ -4,8 +4,11 @@ const express = require("express");
 const socketio = require("socket.io");
 const cors = require("cors"); //make requests from one website to another website in the browser
 const moment = require("moment");
+const fetch = require('node-fetch');
+const { stringify } = require('querystring');
 
 const app = express();
+app.use(express.json());
 const server = http.createServer(app);
 const io = socketio(server);
 const compileSass = require('compile-sass');
@@ -50,7 +53,26 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/main.html");
 });
 
-app.post("/", (req, res) => {
+app.post("/", async(req, res) => {
+  // RECAPTCHA SERVER SIDE
+  if (!req.body['g-recaptcha-response'])
+    return res.sendFile(__dirname + "/public/index.html");
+  // Secret key
+  const secretKey = '6Lc20uYcAAAAANeXi5yv3q_YTMsN3J8NTHUcpmD5';
+  // Verify URL
+  const query = stringify({
+    secret: secretKey,
+    response: req.body['g-recaptcha-response'],
+    remoteip: req.connection.remoteAddress
+  });
+  const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
+  // Make a request to verifyURL
+  const body = await fetch(verifyURL).then(resp => resp.json());
+  // If not successful
+  if (body.success !== undefined && !body.success)  return res.sendFile(__dirname + "/public/index.html");
+  // If successful
+  // return res.json({ success: true, msg: 'Captcha passed' });
+
   usrnm = req.body.usrnm;
   room = req.body.room;
   profilePhoto=req.body.imageUrl;
