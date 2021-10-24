@@ -4,7 +4,14 @@ const users = document.querySelector("#users");
 const roomNameDiv = document.querySelector(".room-name-container");
 const userMap = new Map();
 const CURRENT_USER = sessionStorage.getItem("current_user");
+const colors = ["F4C430","E02401","F037A5","A9333A","800080","FFA400","D8345F"]
 var room;
+
+function randColor() {
+  const c = Math.floor(Math.random() * 7);
+  return colors[c];
+}
+
 socket.on("roomJoined", (connectionObj) => {
   room = connectionObj.room;
   roomName.innerHTML = connectionObj.room;
@@ -24,6 +31,7 @@ socket.on("message", (message) => {
 
 function outputMessage(msg) {
   var values = Object.values(msg);
+  var color = sessionStorage.getItem(values[0].username);
   const div = document.createElement("div");
   const mssgProfilePhoto = document.createElement("img");
   const div1 = document.createElement("div");
@@ -64,15 +72,19 @@ function outputMessage(msg) {
         </div>`;
     playSound("bot");
   } else {
+    
+    if (div.classList.contains("author")){ 
+      color= "000000";
+    }
     div.innerHTML += `
     <button class="btn-danger btn-danger-reply" onclick="replyMsg('${
       values[0].id
     }')"><span class="material-icons">
         reply
     </span></button>
-    <p class="meta">${values[0].username} <span>${moment(values[0].time).format(
-      "h:mm a"
-    )}</span></p>
+    <p class="meta" style="color: #${color};">${values[0].username} <span>${moment(
+      values[0].time
+    ).format("h:mm a")}</span></p>
         <div class="text">
         ${values[0].text}
         </div>
@@ -160,6 +172,7 @@ socket.on("userJoined", ({ id, username, profilePhoto }) => {
   user.classList.add("fade-in");
   user.dataset.id = id;
   user.innerHTML = username;
+  sessionStorage.setItem(username, randColor());
   const profileImage = document.createElement("img"); // created an img element to add profile photo of each entering new user
   profileImage.src = profilePhoto;
   profileImage.classList.add("userAvatar");
@@ -174,6 +187,7 @@ socket.on("userLeft", ({ id, username }) => {
     user.remove();
   }, 1500);
   userMap.delete(id, username);
+  console.log(userMap);
 });
 
 socket.on("deleteMsgFromChat", (msgId) => {
