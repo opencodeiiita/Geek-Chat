@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap");
-
 $dark-color-a: #00adb5;
 $dark-color-b: #393e46;
 $light-color: #eeeeee;
@@ -8,7 +7,6 @@ $light-color-b: #eeeeeed0;
 $success-color: #222831;
 $error-color: #d9534f;
 $transitionchange: all 1s ease 0s;
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,9 +27,11 @@ body {
     // background: $light-color;
     margin: 20px;
 }
+
 body * {
     transition: all 0.5s linear;
 }
+
 body::before {
     content: "";
     position: absolute;
@@ -40,36 +40,6 @@ body::before {
     opacity: 1;
     z-index: -1;
     transition: all 0.5s linear;
-}
-#toggle {
-    width: 60px;
-    height: 30px;
-    display: block;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    border-radius: 160px;
-    background: white;
-    transition: 0.5s;
-    cursor: pointer;
-    box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1),
-        inset 0 -4px 4px rgba(0, 0, 0, 0.1);
-    .indicator {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 30px;
-        width: 30px;
-        background: black;
-        transform: scale(0.9);
-        border-radius: 50%;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2),
-            inset 0 -4px 4px rgba(255, 255, 255, 0.2);
-        transition: 0.5s;
-    }
-}
-#toggle.active .indicator {
-    left: 30px;
 }
 
 ul {
@@ -88,6 +58,7 @@ a {
     border: 0;
     font-size: 17px;
 }
+
 
 /* Chat Page */
 
@@ -110,7 +81,6 @@ a {
     padding: 15px;
     display: flex;
     align-items: center;
-
     justify-content: space-between;
     .main-heading {
         font-family: "Gluten", cursive;
@@ -136,11 +106,13 @@ a {
     font-size: 20px;
     padding: 10px;
 }
+
 .room-name-container {
     height: 45px;
     margin-bottom: 25px;
     background: rgba(0, 0, 0, 0.1);
 }
+
 .chat-sidebar h3 {
     margin-bottom: 15px;
 }
@@ -157,6 +129,7 @@ a {
 .chat-sidebar {
     max-height: 64vh;
 }
+
 .chat-messages {
     padding: 30px;
     max-height: 64vh;
@@ -202,9 +175,11 @@ a {
     vertical-align: middle;
     animation: fadeDown 700ms ease-out 0s 1 normal none;
 }
+
 .message.bot p {
     max-width: none !important;
 }
+
 .three-dots-menu {
     position: relative;
     float: right;
@@ -212,9 +187,11 @@ a {
     transform: rotate(90deg);
     cursor: pointer;
 }
+
 .chat-messages .author:hover .btn-danger {
     opacity: 1;
 }
+
 .chat-messages .message:hover .btn-danger {
     opacity: 1;
 }
@@ -227,24 +204,30 @@ a {
     opacity: 0.7;
     margin-bottom: 7px;
 }
+
 .chat-messages .message .replied-msg-container {
     background-color: #a9a5a5 !important;
     color: white !important;
 }
+
 .chat-messages .message .replied-msg-container .meta {
     color: white;
 }
-.chat-messages .message .replied-msg-container .meta span{
+
+.chat-messages .message .replied-msg-container .meta span {
     color: white;
 }
+
 .chat-messages .message .meta span {
     color: #777;
     padding-left: 0.6em;
 }
+
 .chat-messages .message p {
     max-width: 300px;
     word-break: break-all;
 }
+
 .chat-messages .author .meta {
     display: inline-block;
     font-size: 15px;
@@ -253,10 +236,12 @@ a {
     opacity: 0.7;
     margin-bottom: 7px;
 }
+
 .chat-messages .author p {
     max-width: 300px;
     word-break: break-all;
 }
+
 .chat-messages .author .meta span {
     color: $light-color-b;
     padding-left: 0.6em;
@@ -284,6 +269,7 @@ a {
 .editing-form-container {
     position: relative;
 }
+
 .editing-form-container::before {
     position: absolute;
     content: "Editing a message";
@@ -295,9 +281,11 @@ a {
     border-radius: 10px;
     box-shadow: 1px 1px 5px black;
 }
+
 .replying-form-container {
     position: relative;
 }
+
 .replying-form-container::before {
     position: absolute;
     content: attr(to);
@@ -309,12 +297,14 @@ a {
     border-radius: 10px;
     box-shadow: 1px 1px 5px black;
 }
+
 .replying-close-btn {
     position: absolute;
     top: -15px;
     color: navajowhite;
     cursor: pointer;
 }
+
 .chat-form-container form {
     display: flex;
 }
@@ -342,7 +332,9 @@ a {
     background: rgba(0, 255, 149, 0.349);
 }
 
+
 /* Join Page */
+
 .join-container {
     max-width: 500px;
     margin: 80px auto;
@@ -394,6 +386,7 @@ a {
     margin-top: 20px;
     width: 100%;
 }
+
 .dark-mode {
     background-image: linear-gradient(90deg, rgb(0, 40, 70), rgb(255, 115, 115), rgb(255, 175, 123));
     .chat-header {
@@ -419,7 +412,8 @@ a {
     .message_send_btn {
         background: rgb(119, 0, 255);
     }
-    .btn-danger, .btn-danger2 {
+    .btn-danger,
+    .btn-danger2 {
         background-color: #272727 !important;
         color: white !important;
     }
@@ -439,32 +433,34 @@ a {
     .hamburger-icon {
         color: #ffffff;
     }
-    .hamburger .hamburger-inner{
+    .hamburger .hamburger-inner {
         background: #ffffff;
     }
-    .hamburger .hamburger-inner::after{
+    .hamburger .hamburger-inner::after {
         background: #ffffff;
     }
-    .hamburger .hamburger-inner::before{
+    .hamburger .hamburger-inner::before {
         background: #ffffff;
     }
-    .hamburger--spin.is-active .hamburger-inner{
+    .hamburger--spin.is-active .hamburger-inner {
         background: #ffffff;
     }
-    .hamburger--spin.is-active .hamburger-inner::after{
+    .hamburger--spin.is-active .hamburger-inner::after {
         background: #ffffff;
     }
-    .hamburger--spin.is-active .hamburger-inner::before{
+    .hamburger--spin.is-active .hamburger-inner::before {
         background: #ffffff;
     }
-    ::-webkit-scrollbar-thumb {
+     ::-webkit-scrollbar-thumb {
         background: white;
         border-radius: 10px;
     }
 }
+
 .dark-mode::before {
     opacity: 0;
 }
+
 .btn-container {
     position: absolute;
     right: 6px;
@@ -477,9 +473,11 @@ a {
     border: 1px solid #393e46;
     transition: transform 125ms ease-in;
 }
+
 .hide {
     transform: scale(0);
 }
+
 .btn-danger {
     position: absolute;
     top: 50%;
@@ -493,10 +491,12 @@ a {
     background-color: white;
     opacity: 0;
 }
+
 .msg-head {
     display: flex;
     justify-content: space-between;
 }
+
 .btn-danger2 {
     padding: 0.5rem;
     outline: none;
@@ -504,12 +504,15 @@ a {
     border-radius: 10px;
     background-color: white;
 }
+
 .btn-danger2:hover {
     background-color: #cacaca;
 }
+
 .btn-danger span {
     color: black;
 }
+
 .btn-danger-edit {
     left: 30%;
 }
@@ -519,15 +522,18 @@ a {
     background: none;
     color: black;
 }
+
 .author .btn-danger-reply:hover {
     background-color: #00000080;
     color: white;
 }
+
 .message .btn-danger-reply {
     left: calc(100% + 25px);
     background: none !important;
     color: black;
 }
+
 .message .btn-danger-reply:hover {
     background-color: #00000080 !important;
     color: white;
@@ -554,15 +560,18 @@ a {
     position: relative;
     margin-right: 0.5rem;
 }
+
 .dot-animation::after {
     position: absolute;
     content: "";
     animation: dotdot 1s infinite;
 }
+
 .edited-msg {
     position: relative;
     margin-right: 0.5rem;
 }
+
 .edited-msg::after {
     content: "(edited)";
     font-size: 0.75rem;
@@ -570,12 +579,15 @@ a {
     font-weight: 300;
     opacity: 0.75;
 }
+
 .hamburger-icon {
     display: none !important;
 }
+
 .hamburger {
     display: none !important;
 }
+
 @keyframes dotdot {
     0% {
         content: ".";
@@ -587,12 +599,14 @@ a {
         content: "...";
     }
 }
+
 @media (max-width: 1200px) {
     .chat-container {
         position: relative;
         margin: 60px auto;
     }
 }
+
 @media (max-width: 700px) {
     .chat-main {
         display: block;
@@ -604,7 +618,7 @@ a {
     .chat-sidebar {
         position: absolute;
         z-index: 10;
-        transform: translateX(-100%);        
+        transform: translateX(-100%);
     }
     .sidemenu-open {
         transform: translateX(0);
@@ -625,6 +639,8 @@ a {
         justify-content: space-between;
     }
 }
+
+
 /* ----------------------------------------------
  * Generated by Animista on 2021-9-30 12:47:32
  * Licensed under FreeBSD License.
@@ -632,11 +648,14 @@ a {
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
+
 /**
  * ----------------------------------------
  * animation bounce-in-bottom
  * ----------------------------------------
  */
+
+
 /* ----------------------------------------------
  * Generated by Animista on 2021-9-30 12:51:35
  * Licensed under FreeBSD License.
@@ -644,11 +663,14 @@ a {
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
+
 /**
  * ----------------------------------------
  * animation swing-in-left-bck
  * ----------------------------------------
  */
+
+
 /* ----------------------------------------------
  * Generated by Animista on 2021-10-16 10:42:35
  * Licensed under FreeBSD License.
@@ -656,11 +678,14 @@ a {
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
+
 /**
  * ----------------------------------------
  * animation scale-up-br
  * ----------------------------------------
  */
+
+
 /* ----------------------------------------------
  * Generated by Animista on 2021-10-16 10:46:11
  * Licensed under FreeBSD License.
@@ -668,11 +693,13 @@ a {
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
+
 /**
  * ----------------------------------------
  * animation scale-up-tl
  * ----------------------------------------
  */
+
 @-webkit-keyframes scale-up-tl {
     0% {
         -webkit-transform: scale(0.5);
@@ -687,6 +714,7 @@ a {
         transform-origin: 0% 0%;
     }
 }
+
 @keyframes scale-up-tl {
     0% {
         -webkit-transform: scale(0.5);
@@ -716,6 +744,7 @@ a {
         transform-origin: 100% 100%;
     }
 }
+
 @keyframes scale-up-br {
     0% {
         -webkit-transform: scale(0.5);
@@ -747,24 +776,31 @@ a {
         opacity: 1;
     }
 }
+
 ::-webkit-scrollbar {
     width: 15px;
 }
+
 ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
 }
 
+
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
     background: #00adb5;
     border-radius: 10px;
 }
 
+
 /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
     background: #bbbbbb;
 }
+
 ::-webkit-scrollbar-button:single-button {
     background-color: #bbbbbb;
     display: block;
@@ -772,7 +808,10 @@ a {
     height: 13px;
     width: 16px;
 }
+
+
 /* Up */
+
 ::-webkit-scrollbar-button:single-button:vertical:decrement {
     border-width: 0 8px 8px 8px;
     border-color: transparent transparent #555555 transparent;
@@ -781,7 +820,10 @@ a {
 ::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
     border-color: transparent transparent #777777 transparent;
 }
+
+
 /* Down */
+
 ::-webkit-scrollbar-button:single-button:vertical:increment {
     border-width: 8px 8px 0 8px;
     border-color: #555555 transparent transparent transparent;
@@ -790,6 +832,7 @@ a {
 ::-webkit-scrollbar-button:vertical:single-button:increment:hover {
     border-color: #777777 transparent transparent transparent;
 }
+
 @keyframes swing-in-left-bck {
     0% {
         -webkit-transform: rotateY(-70deg);
@@ -821,11 +864,13 @@ a {
     -ms-animation: fadeIn linear 1s;
 }
 
+
 /*
 ==============================================
  *********User List avtar related css********
 ==============================================
 */
+
 .users {
     li {
         display: flex;
@@ -833,12 +878,14 @@ a {
         justify-content: center;
     }
 }
+
 .userAvatar {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
+
 .userAvatar1 {
     width: 55px;
     height: 55px;
@@ -846,11 +893,12 @@ a {
     margin-bottom: 15px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-.profileAdded{
+
+.profileAdded {
     display: flex;
     align-items: center;
     justify-content: center;
-    img{
+    img {
         margin: 0 5px;
         width: 40px;
         height: 40px;
@@ -858,17 +906,20 @@ a {
     }
 }
 
+
 /*
 ==============================================
  *********Message related profiles********
 ==============================================
 */
-.profileLeft{
+
+.profileLeft {
     display: flex;
     // flex-direction: row-reverse;
     align-items: flex-end;
 }
-.profileRight{
+
+.profileRight {
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-end;
@@ -980,6 +1031,7 @@ a {
         opacity: 0;
     }
 }
+
 @-webkit-keyframes fadeDown {
     0% {
         opacity: 0;
@@ -1018,60 +1070,122 @@ a {
     background-color: transparent;
     border: 0;
     margin: 0;
-    overflow: visible; }
-    .hamburger:hover {
-      opacity: 0.7; }
-    .hamburger.is-active:hover {
-      opacity: 0.7; }
-    .hamburger.is-active .hamburger-inner,
-    .hamburger.is-active .hamburger-inner::before,
-    .hamburger.is-active .hamburger-inner::after {
-      background-color: #000; }
-  
-  .hamburger-box {
+    overflow: visible;
+}
+
+.hamburger:hover {
+    opacity: 0.7;
+}
+
+.hamburger.is-active:hover {
+    opacity: 0.7;
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: #000;
+}
+
+.hamburger-box {
     width: 40px;
     height: 24px;
     display: inline-block;
-    position: relative; }
-  
-  .hamburger-inner {
+    position: relative;
+}
+
+.hamburger-inner {
     display: block;
     top: 50%;
-    margin-top: -2px; }
-    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-      width: 40px;
-      height: 4px;
-      background-color: #000;
-      border-radius: 4px;
-      position: absolute;
-      transition-property: transform;
-      transition-duration: 0.15s;
-      transition-timing-function: ease; }
-    .hamburger-inner::before, .hamburger-inner::after {
-      content: "";
-      display: block; }
-    .hamburger-inner::before {
-      top: -10px; }
-    .hamburger-inner::after {
-      bottom: -10px; }
+    margin-top: -2px;
+}
 
-      .hamburger--spin .hamburger-inner {
-        transition-duration: 0.22s;
-        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
-        .hamburger--spin .hamburger-inner::before {
-          transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in; }
-        .hamburger--spin .hamburger-inner::after {
-          transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
-      
-      .hamburger--spin.is-active .hamburger-inner {
-        transform: rotate(225deg);
-        transition-delay: 0.12s;
-        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
-        .hamburger--spin.is-active .hamburger-inner::before {
-          top: 0;
-          opacity: 0;
-          transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out; }
-        .hamburger--spin.is-active .hamburger-inner::after {
-          bottom: 0;
-          transform: rotate(-90deg);
-          transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    width: 40px;
+    height: 4px;
+    background-color: #000;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+}
+
+.hamburger-inner::before {
+    top: -10px;
+}
+
+.hamburger-inner::after {
+    bottom: -10px;
+}
+
+.hamburger--spin .hamburger-inner {
+    transition-duration: 0.22s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin .hamburger-inner::before {
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+
+.hamburger--spin .hamburger-inner::after {
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin.is-active .hamburger-inner {
+    transform: rotate(225deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--spin.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+
+.hamburger--spin.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#toggle {
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#toggle svg {
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+#toggle .outer-star {
+    transition: transform 600ms cubic-bezier(0.59, 0.02, 0, 1.26) 0s;
+}
+
+#toggle .inner-dot {
+    transition: transform 600ms ease 0s;
+    transform: matrix(1, 0, 0, 1.5, -3, 0);
+}
+
+#toggle.active .outer-star {
+    transform: rotate(180deg);
+}
+
+#toggle.active .inner-dot {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
