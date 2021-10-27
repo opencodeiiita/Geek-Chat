@@ -213,10 +213,7 @@ avtarForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const some = Input.value.split('.');
   const extn = some[some.length -1];
-  if (extn == 'png' || extn == 'jpg' || extn == 'jpeg' ) {
-    // console.log(Input.value);
-    // localStorage
-    //make an xml request to upload image
+  if (extn == 'png' || extn == 'jpg' || extn == 'jpeg' || extn == 'svg') {
     let xhr = new XMLHttpRequest();
   
     xhr.open('POST', '/newAvatar');
@@ -224,11 +221,7 @@ avtarForm.addEventListener('submit', (e) => {
     xhr.send(formData);
   
     xhr.onreadystatechange = function() {
-      if (xhr.readyState == 3) {
-        // loading
-        console.log(3);
-      }
-      if (xhr.readyState == 4) {
+      if (xhr.readyState === xhr.DONE) {
         // request finished
         Input.value = "";
         localStorage.setItem('customAvt',xhr.response);
