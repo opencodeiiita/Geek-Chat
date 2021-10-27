@@ -211,24 +211,36 @@ const Input = document.querySelector('#fileInp')
 
 avtarForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  //make an xml request to upload image
-  let xhr = new XMLHttpRequest();
+  const some = Input.value.split('.');
+  const extn = some[some.length -1];
+  if (extn == 'png' || extn == 'jpg' || extn == 'jpeg' ) {
+    // console.log(Input.value);
+    // localStorage
+    //make an xml request to upload image
+    let xhr = new XMLHttpRequest();
+  
+    xhr.open('POST', '/newAvatar');
+    let formData = new FormData(avtarForm);
+    xhr.send(formData);
+  
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 3) {
+        // loading
+        console.log(3);
+      }
+      if (xhr.readyState == 4) {
+        // request finished
+        Input.value = "";
+        localStorage.setItem('customAvt',xhr.response);
+        window.location.reload(false);
+        console.log(some);
+      }
+    };
+  }
+   else {
+    alert('supported formats png,jpg,jpeg')
+   }
 
-  xhr.open('POST', '/newAvatar');
-  let formData = new FormData(avtarForm);
-  xhr.send(formData);
 
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == 3) {
-      // loading
-      console.log(3);
-    }
-    if (xhr.readyState == 4) {
-      // request finished
-      Input.value = "";
-      localStorage.setItem('customAvt',xhr.response);
-      window.location.reload(false);
 
-    }
-  };
 })
