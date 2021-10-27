@@ -11,7 +11,7 @@ function sanitize(message){
     if(filter.isProfane(reducedString)){
         return null
     }
-    return fiterMessage
+    return markdown
 }
 
 function formatMessages(id, username, text, userID, profilePhoto='') {
