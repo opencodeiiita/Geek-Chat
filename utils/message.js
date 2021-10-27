@@ -19,7 +19,7 @@ function formatMessages(id, username, text, userID, profilePhoto='') {
     return {
         id,
         username,
-        text: sanitize(text) || "Profanity not allowed",
+        text: sanitize(text) || marked("Profanity not allowed"),
         userID,
         time: moment().valueOf(),
         profilePhoto,
@@ -28,7 +28,7 @@ function formatMessages(id, username, text, userID, profilePhoto='') {
 return {
     id,
     username,
-    text: sanitize(encode(text)) || "Profanity not allowed",
+    text: sanitize(encode(text)) || marked("Profanity not allowed"),
     userID,
     time: moment().valueOf(),
     profilePhoto,
