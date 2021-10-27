@@ -62,7 +62,7 @@
     <div class="modal_div hidden darkModal" id="modal_div">
       <p class="btn--close-modal" style="color: black">&times;</p>
       <div class="modal_box">
-        <div class="numbertext"><span class="numberChange">1</span> / 12</div>
+        <div class="numbertext"><span class="numberChange">1</span> / 13</div>
         <div class="slideshow-container" style="height:340px">
           <div class="mySlides fade1">
             <img src="./avtars/01.png" class="ProfileImg">
@@ -113,13 +113,20 @@
             <i class="fa fa-check icon_check hidden1"></i>
           </div>
           
+          <div class="mySlides fade1" id="addAvatar">
+            <form action="/newAvatar" method="post" id="avatarForm" enctype="multipart/form-data">
+                <h5>Add Custom Avatar</h5>
+                <input type="file" id="fileInp" class="custom-file-input" name="avatar">
+                <button id="upload">Upload</button>
+            </form>
+          </div>
+          
           <a class="prev" >&#10094;</a>
           <a class="next">&#10095;</a>
           <div class="dotBox" style="text-align:center">
           </div>
           </div>
           <br>
-         
       </div>
     </div>
     <div class="container-fluid">
@@ -141,7 +148,7 @@
             value="./avtars/01.png"
           />
           <div class="form-group">
-            <label>Username</label>
+            <label id="username">Username:</label>
             <input
               type="text"
               name="usrnm"
@@ -152,7 +159,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Select Room</label>
+            <label for="exampleFormControlSelect1">Select Room:</label>
             <select
               class="form-control"
               name="room"
@@ -176,7 +183,7 @@
               </option>
             </select>
           </div>
-          <div class="g-recaptcha" data-sitekey="6Lc20uYcAAAAAKYIVpzmArirW771YJ_41HQLDYGl" style="display: flex;justify-content: center; padding-bottom: 10px;"></div>
+          <div class="g-recaptcha" data-sitekey="6Lc20uYcAAAAAKYIVpzmArirW771YJ_41HQLDYGl" style="display: flex;justify-content: center; padding-top: 20px; padding-bottom: 20px;"></div>
           <br />
           <button id="joinChat" type="submit">Join Chat!</button>
         </form>
