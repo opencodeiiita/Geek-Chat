@@ -6,15 +6,15 @@ const cors = require("cors"); //make requests from one website to another websit
 const moment = require("moment");
 const multer  = require('multer');
 const fs = require('fs')
-const totalFiles = fs.readdirSync('./public/avtars').length;
-let cnt = totalFiles + 1;
+// const totalFiles = fs.readdirSync('./public/avtars').length;
+let cnt = fs.readdirSync('./public/avtars').length + 1;
 
 const storage = multer.diskStorage({
 destination: function (req, file, cb) {
   cb(null, './public/avtars')
 },
 filename: function (req, file, cb) {
-
+  cnt = fs.readdirSync('./public/avtars').length + 1;
   const uniqueSuffix = file.originalname.slice(file.originalname.indexOf('.'));
   cb(null, cnt + uniqueSuffix );
   

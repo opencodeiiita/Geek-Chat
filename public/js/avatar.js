@@ -83,7 +83,11 @@ if (localStorage.customAvt) {
 ===========================
 */
 
-var slideIndex = Number(profileUrl.src.slice(-6, -4));
+if (localStorage.customAvt) {
+  var slideIndex = 1;
+} else {
+  var slideIndex = Number(profileUrl.src.slice(-6, -4));
+}
 const numberChange = document.querySelector(".numberChange");
 const slides = document.querySelectorAll(".mySlides");
 const maxSlide = slides.length;
@@ -152,8 +156,10 @@ BtnLeft.addEventListener("click", () => {
 const Dots = document.querySelectorAll(".dot");
 var curntSelected = Number(PhotoNumber);
 const checkIcon = document.querySelectorAll('.icon_check');
-Dots[curntSelected - 1].className += " selectDot";
-checkIcon[curntSelected - 1].classList.remove('hidden1');
+if (curntSelected != 13) {
+  Dots[curntSelected - 1].className += " selectDot";
+  checkIcon[curntSelected - 1].classList.remove('hidden1');
+}
 profileImg.forEach((profile) => {
   profile.addEventListener("click", () => {
     var srcNumber = profile.src.slice(-6, -4);

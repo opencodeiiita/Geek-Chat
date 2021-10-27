@@ -554,37 +554,33 @@ i.fa.fa-check.icon_check.hidden1{
 //avatar form scss
 #addAvatar {
   text-align: center;
-  vertical-align: center;
-}
-
-.drag-area{
-  border: 2px solid #000000;
-  margin: 60px 50px;
-  width: 260px;
-  height: 200px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
- .icon{
-  font-size: 40px;
-  color: #fff;
+  margin: 20px 0;
+  h5{
+    font-weight: 500;
+    color: #000000;
   }
- h5{
-  font-weight: 500;
-  color: #000000;
+  #fileInp {
+    margin: 20px auto;
+    position: relative;
+    display: block;
+    background: #000000;
+    color: #5bc0de;
+    border-radius: 8px;
   }
- button{
-  padding: 8px 16px;
-  font-size: 16px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  background: #000000;
-  color: #52ad8f;
-  border-radius: 8px;
-  cursor: pointer;
-}
+
+  #upload{
+    display: block;
+    margin: 20px auto;
+    width: 80px;
+    height: max-content;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    color: black;
+    background: #5bc0de;
+    border-radius: 8px;
+    cursor: pointer;
+  }
 }
