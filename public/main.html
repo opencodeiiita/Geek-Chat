@@ -33,8 +33,31 @@
     <body>
         <div class="top-nav">
             <div id="toggle">
-                <i class="indicator"> </i>
+                <svg viewBox="0 0 24 24" width="24" height="24" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);">
+                    <defs>
+                        <clipPath id="__dark-mode-shape-boundary__">
+                            <rect width="24" height="24" x="0" y="0"></rect>
+                        </clipPath>
+                    </defs>
+
+                    <g clip-path="url(#__dark-mode-shape-boundary__)">
+                        <g transform="matrix(1.0000029802322388,0,0,1.0000029802322388,12,12)" style="display: block;">
+                            <g class="inner-dot" transform="matrix(1,0,0,1,0,0)">
+                                <path d=" M0,-4 C-2.2100000381469727,-4 -4,-2.2100000381469727 -4,0 C-4,2.2100000381469727 -2.2100000381469727,4 0,4 C2.2100000381469727,4 4,2.2100000381469727 4,0 C4,-2.2100000381469727 2.2100000381469727,-4 0,-4z">
+                                </path>
+                            </g>
+                        </g>
+
+                        <g transform="matrix(1,-0.0000058702244132291526,0.0000058702244132291526,1,12,12)" style="display: block;">
+                            <g class="outer-star" transform="matrix(1,0,0,1,0,0)">
+                                <path d=" M0,6 C-3.309999942779541,6 -6,3.309999942779541 -6,0 C-6,-3.309999942779541 -3.309999942779541,-6 0,-6 C3.309999942779541,-6 6,-3.309999942779541 6,0 C6,3.309999942779541 3.309999942779541,6 0,6z M8,-3.309999942779541 C8,-3.309999942779541 8,-8 8,-8 C8,-8 3.309999942779541,-8 3.309999942779541,-8 C3.309999942779541,-8 0,-11.3100004196167 0,-11.3100004196167 C0,-11.3100004196167 -3.309999942779541,-8 -3.309999942779541,-8 C-3.309999942779541,-8 -8,-8 -8,-8 C-8,-8 -8,-3.309999942779541 -8,-3.309999942779541 C-8,-3.309999942779541 -11.3100004196167,0 -11.3100004196167,0 C-11.3100004196167,0 -8,3.309999942779541 -8,3.309999942779541 C-8,3.309999942779541 -8,8 -8,8 C-8,8 -3.309999942779541,8 -3.309999942779541,8 C-3.309999942779541,8 0,11.3100004196167 0,11.3100004196167 C0,11.3100004196167 3.309999942779541,8 3.309999942779541,8 C3.309999942779541,8 8,8 8,8 C8,8 8,3.309999942779541 8,3.309999942779541 C8,3.309999942779541 11.3100004196167,0 11.3100004196167,0 C11.3100004196167,0 8,-3.309999942779541 8,-3.309999942779541z">
+                                </path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
             </div>
+
             <button class="hamburger hamburger--spin" type="button" onclick="toggleSideBar()">
                 <span class="hamburger-box">
                   <span class="hamburger-inner"></span>
@@ -44,13 +67,13 @@
         <div class="chat-container">
             <header class="chat-header">
                 <h1 class="main-heading"><i class="fas fa-smile"></i>GeekChat</h1>
-                <a href="index.html"
-                    ><button class="foo-button mdc-button mdc-button--raised" style="background-color: red">
+                <a href="index.html">
+                    <button class="foo-button mdc-button mdc-button--raised" style="background-color: red">
                         <div class="mdc-button__ripple"></div>
                         <span class="mdc-button__label">Leave</span>
                         <i class="material-icons mdc-button__icon" aria-hidden="true">logout</i>
-                    </button></a
-                >
+                    </button>
+                </a>
             </header>
             <main class="chat-main">
                 <div class="chat-sidebar">
