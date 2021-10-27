@@ -6,12 +6,15 @@ const userMap = new Map();
 const CURRENT_USER = sessionStorage.getItem("current_user");
 const colors = ["F4C430","E02401","F037A5","A9333A","800080","FFA400","D8345F"]
 var room;
-
+var msgNo =1;
 function randColor() {
   const c = Math.floor(Math.random() * 7);
   return colors[c];
 }
-
+function showMore(id){
+  document.getElementById('Overflow'+id).className='';
+  document.getElementById('MoreLink'+id).className='trunc';
+}
 socket.on("roomJoined", (connectionObj) => {
   room = connectionObj.room;
   roomName.innerHTML = connectionObj.room;
@@ -85,17 +88,28 @@ function outputMessage(msg) {
     <p class="meta" style="color: #${color};">${values[0].username} <span>${moment(
       values[0].time
     ).format("h:mm a")}</span></p>
-        <div class="text">
-        ${values[0].text}
-        </div>
+        <div class="text">`
+    if(values[0].text.length < 50) {
+      div.innerHTML += `${values[0].text}`;
+    }
+    else {
+      var fullText = values[0].text;
+      var trunc = fullText.substring(0, 50);
+      var remainder = fullText.substring(50, fullText.length);
+      div.innerHTML += '<span>' + trunc + `<span class="trunc" id="Overflow${msgNo}">`
+      + remainder +`</span></span>&nbsp;<a id="MoreLink${msgNo}" href="#!" onclick="showMore(${msgNo});">More</a>`;
+      }
+      msgNo++;
+    }
+        // ${values[0].text}
+    div.innerHTML += `</div>
         ${
           values[0].userID === values[1]
             ? `<span class="material-icons three-dots-menu" onclick="menuOpen('${values[0].id}')">
         more_vert
         </span>`
             : ``
-        }`;
-  }
+        }`;  
   let repliedMsgCheck = div
     .querySelector(".text")
     .querySelector(".replied-msg-container");
