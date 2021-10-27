@@ -6,6 +6,7 @@ const cors = require("cors"); //make requests from one website to another websit
 const moment = require("moment");
 const multer  = require('multer');
 const fs = require('fs')
+let uniqueSuffix;
 // const totalFiles = fs.readdirSync('./public/avtars').length;
 let cnt = fs.readdirSync('./public/avtars').length + 1;
 
@@ -15,8 +16,9 @@ destination: function (req, file, cb) {
 },
 filename: function (req, file, cb) {
   cnt = fs.readdirSync('./public/avtars').length + 1;
-  const uniqueSuffix = file.originalname.slice(file.originalname.indexOf('.'));
-  cb(null, cnt + uniqueSuffix );
+  let extn = file.originalname.split('.');
+  uniqueSuffix = cnt + '.'+extn[extn.length - 1];
+  cb(null, uniqueSuffix );
   
 }
 })
@@ -72,7 +74,7 @@ app.get("/", (req, res) => {
 
 app.post('/newAvatar', upload.single('avatar'), function (req, res, next) {
   // console.log(cnt.);
-	res.send(cnt.toString());
+	res.send(uniqueSuffix.toString());
 })
 
 app.post("/", async(req, res) => {

@@ -70,8 +70,8 @@ if (localStorage.PhotoNumber) {
   localStorage.PhotoNumber = PhotoNumber;
 }
 if (localStorage.customAvt) {
-	profileUrl.src = `./avtars/${localStorage.customAvt}.png`;
-	profileValue.value = `./avtars/${localStorage.customAvt}.png`;
+	profileUrl.src = `./avtars/${localStorage.customAvt}`;
+	profileValue.value = `./avtars/${localStorage.customAvt}`;
 } else {
   profileUrl.src = `./avtars/${PhotoNumber}.png`;
   profileValue.value = `./avtars/${PhotoNumber}.png`;
@@ -176,7 +176,6 @@ profileImg.forEach((profile) => {
         }
         if(!checkIcon[i].classList.contains('hidden1'))
         {checkIcon[i].classList.add('hidden1');
-        // console.log('ashutosh')
          }
         }
       });
