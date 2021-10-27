@@ -69,8 +69,13 @@ if (localStorage.PhotoNumber) {
   PhotoNumber = `0${randNumber}`.slice(-2);
   localStorage.PhotoNumber = PhotoNumber;
 }
-profileUrl.src = `./avtars/${PhotoNumber}.png`;
-profileValue.value = `./avtars/${PhotoNumber}.png`;
+if (localStorage.customAvt) {
+	profileUrl.src = `./avtars/${localStorage.customAvt}`;
+	profileValue.value = `./avtars/${localStorage.customAvt}`;
+} else {
+  profileUrl.src = `./avtars/${PhotoNumber}.png`;
+  profileValue.value = `./avtars/${PhotoNumber}.png`;
+}
 
 /*
 ===========================
@@ -78,7 +83,11 @@ profileValue.value = `./avtars/${PhotoNumber}.png`;
 ===========================
 */
 
-var slideIndex = Number(profileUrl.src.slice(-6, -4));
+if (localStorage.customAvt) {
+  var slideIndex = 1;
+} else {
+  var slideIndex = Number(profileUrl.src.slice(-6, -4));
+}
 const numberChange = document.querySelector(".numberChange");
 const slides = document.querySelectorAll(".mySlides");
 const maxSlide = slides.length;
@@ -147,8 +156,10 @@ BtnLeft.addEventListener("click", () => {
 const Dots = document.querySelectorAll(".dot");
 var curntSelected = Number(PhotoNumber);
 const checkIcon = document.querySelectorAll('.icon_check');
-Dots[curntSelected - 1].className += " selectDot";
-checkIcon[curntSelected - 1].classList.remove('hidden1');
+if (curntSelected != 13) {
+  Dots[curntSelected - 1].className += " selectDot";
+  checkIcon[curntSelected - 1].classList.remove('hidden1');
+}
 profileImg.forEach((profile) => {
   profile.addEventListener("click", () => {
     var srcNumber = profile.src.slice(-6, -4);
@@ -158,15 +169,16 @@ profileImg.forEach((profile) => {
     profileUrl.src = `./avtars/${PhotoNumber}.png`; // profile src
     profileValue.value = `./avtars/${PhotoNumber}.png`; // profile value to send in chat box
     Dots.forEach((Dot, i) => {
-      if (Dot.classList.contains("selectDot")) {
-        Dot.classList.remove("selectDot");
-        
-      }
-      if(!checkIcon[i].classList.contains('hidden1'))
-      {checkIcon[i].classList.add('hidden1');
-      console.log('ashutosh')
-    }
-    });
+      if(checkIcon[i]) {
+        if (Dot.classList.contains("selectDot")) {
+          Dot.classList.remove("selectDot");
+          
+        }
+        if(!checkIcon[i].classList.contains('hidden1'))
+        {checkIcon[i].classList.add('hidden1');
+         }
+        }
+      });
     Dots[slideIndex - 1].className += " selectDot";
     checkIcon[slideIndex - 1].classList.remove('hidden1');
   });
@@ -185,4 +197,43 @@ dotBox.addEventListener('click', function(e){
         showSlides(Number(slide)+1);
         slideIndex=Number(slide)+1;
     }
+})
+
+
+/*
+==================================================
+******Custom Avatar********
+==================================================
+*/
+const avtarForm = document.querySelector('#avatarForm')
+const upldBtn = document.querySelector('#upload')
+const Input = document.querySelector('#fileInp')
+
+avtarForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const some = Input.value.split('.');
+  const extn = some[some.length -1];
+  if (extn == 'png' || extn == 'jpg' || extn == 'jpeg' || extn == 'svg') {
+    let xhr = new XMLHttpRequest();
+  
+    xhr.open('POST', '/newAvatar');
+    let formData = new FormData(avtarForm);
+    xhr.send(formData);
+  
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === xhr.DONE) {
+        // request finished
+        Input.value = "";
+        localStorage.setItem('customAvt',xhr.response);
+        window.location.reload(false);
+        console.log(some);
+      }
+    };
+  }
+   else {
+    alert('supported formats png,jpg,jpeg')
+   }
+
+
+
 })

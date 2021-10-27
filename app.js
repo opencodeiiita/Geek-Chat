@@ -4,9 +4,28 @@ const express = require("express");
 const socketio = require("socket.io");
 const cors = require("cors"); //make requests from one website to another website in the browser
 const moment = require("moment");
+const multer  = require('multer');
+const fs = require('fs')
+let uniqueSuffix;
+// const totalFiles = fs.readdirSync('./public/avtars').length;
+let cnt = fs.readdirSync('./public/avtars').length + 1;
+
+const storage = multer.diskStorage({
+destination: function (req, file, cb) {
+  cb(null, './public/avtars')
+},
+filename: function (req, file, cb) {
+  cnt = fs.readdirSync('./public/avtars').length + 1;
+  let extn = file.originalname.split('.');
+  uniqueSuffix = cnt + '.'+extn[extn.length - 1];
+  cb(null, uniqueSuffix );
+  
+}
+})
+
+const upload = multer({ storage: storage })
 const fetch = require('node-fetch');
 const { stringify } = require('querystring');
-
 const app = express();
 app.use(express.json());
 const server = http.createServer(app);
@@ -53,6 +72,11 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/main.html");
 });
 
+app.post('/newAvatar', upload.single('avatar'), function (req, res, next) {
+  // console.log(cnt.);
+	res.send(uniqueSuffix.toString());
+})
+
 app.post("/", async(req, res) => {
   // RECAPTCHA SERVER SIDE
   if (!req.body['g-recaptcha-response'])
@@ -89,6 +113,8 @@ app.post("/", async(req, res) => {
 
   res.sendFile(__dirname + "/public/main.html");
 });
+
+
 const roomDetails = io.of("/roomMembers");
 roomDetails.on("connection", (socket) => {
   roomDetails.emit("roomMembersCount", roomMembersCount);
