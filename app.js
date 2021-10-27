@@ -71,7 +71,8 @@ app.get("/", (req, res) => {
 });
 
 app.post('/newAvatar', upload.single('avatar'), function (req, res, next) {
-	res.redirect('/index.html');
+  // console.log(cnt.);
+	res.send(cnt.toString());
 })
 
 app.post("/", async(req, res) => {

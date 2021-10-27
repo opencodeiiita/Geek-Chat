@@ -208,18 +208,28 @@ dotBox.addEventListener('click', function(e){
 */
 const avtarForm = document.querySelector('#avatarForm')
 const upldBtn = document.querySelector('#upload')
+const Input = document.querySelector('#fileInp')
 
-avtarForm.addEventListener('submit', () => {
+avtarForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  //make an xml request to upload image
+  let xhr = new XMLHttpRequest();
 
-  if(typeof localStorage.customAvt === 'undefined') {
-    localStorage.setItem("customAvt","13");
-  }
-  else {
-    let last = localStorage.getItem("customAvt");
-    last++;
-    localStorage.customAvt = last;
-  }
-  // localStorage.PhotoNumber = localStorage.customAvt;
-  // document.getElementById("addAvatar").hidden = true;
+  xhr.open('POST', '/newAvatar');
+  let formData = new FormData(avtarForm);
+  xhr.send(formData);
 
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 3) {
+      // loading
+      console.log(3);
+    }
+    if (xhr.readyState == 4) {
+      // request finished
+      Input.value = "";
+      localStorage.setItem('customAvt',xhr.response);
+      window.location.reload(false);
+
+    }
+  };
 })
