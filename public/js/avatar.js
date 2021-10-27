@@ -69,8 +69,13 @@ if (localStorage.PhotoNumber) {
   PhotoNumber = `0${randNumber}`.slice(-2);
   localStorage.PhotoNumber = PhotoNumber;
 }
-profileUrl.src = `./avtars/${PhotoNumber}.png`;
-profileValue.value = `./avtars/${PhotoNumber}.png`;
+if (localStorage.customAvt) {
+	profileUrl.src = `./avtars/${localStorage.customAvt}.png`;
+	profileValue.value = `./avtars/${localStorage.customAvt}.png`;
+} else {
+  profileUrl.src = `./avtars/${PhotoNumber}.png`;
+  profileValue.value = `./avtars/${PhotoNumber}.png`;
+}
 
 /*
 ===========================
@@ -158,15 +163,17 @@ profileImg.forEach((profile) => {
     profileUrl.src = `./avtars/${PhotoNumber}.png`; // profile src
     profileValue.value = `./avtars/${PhotoNumber}.png`; // profile value to send in chat box
     Dots.forEach((Dot, i) => {
-      if (Dot.classList.contains("selectDot")) {
-        Dot.classList.remove("selectDot");
-        
-      }
-      if(!checkIcon[i].classList.contains('hidden1'))
-      {checkIcon[i].classList.add('hidden1');
-      console.log('ashutosh')
-    }
-    });
+      if(checkIcon[i]) {
+        if (Dot.classList.contains("selectDot")) {
+          Dot.classList.remove("selectDot");
+          
+        }
+        if(!checkIcon[i].classList.contains('hidden1'))
+        {checkIcon[i].classList.add('hidden1');
+        // console.log('ashutosh')
+         }
+        }
+      });
     Dots[slideIndex - 1].className += " selectDot";
     checkIcon[slideIndex - 1].classList.remove('hidden1');
   });
@@ -185,4 +192,28 @@ dotBox.addEventListener('click', function(e){
         showSlides(Number(slide)+1);
         slideIndex=Number(slide)+1;
     }
+})
+
+
+/*
+==================================================
+******Custom Avatar********
+==================================================
+*/
+const avtarForm = document.querySelector('#avatarForm')
+const upldBtn = document.querySelector('#upload')
+
+avtarForm.addEventListener('submit', () => {
+
+  if(typeof localStorage.customAvt === 'undefined') {
+    localStorage.setItem("customAvt","13");
+  }
+  else {
+    let last = localStorage.getItem("customAvt");
+    last++;
+    localStorage.customAvt = last;
+  }
+  // localStorage.PhotoNumber = localStorage.customAvt;
+  // document.getElementById("addAvatar").hidden = true;
+
 })

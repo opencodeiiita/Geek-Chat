@@ -4,7 +4,24 @@ const express = require("express");
 const socketio = require("socket.io");
 const cors = require("cors"); //make requests from one website to another website in the browser
 const moment = require("moment");
+const multer  = require('multer');
+const fs = require('fs')
+const totalFiles = fs.readdirSync('./public/avtars').length;
+let cnt = totalFiles + 1;
 
+const storage = multer.diskStorage({
+destination: function (req, file, cb) {
+  cb(null, './public/avtars')
+},
+filename: function (req, file, cb) {
+
+  const uniqueSuffix = file.originalname.slice(file.originalname.indexOf('.'));
+  cb(null, cnt + uniqueSuffix );
+  
+}
+})
+
+const upload = multer({ storage: storage })
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
@@ -50,6 +67,10 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/main.html");
 });
 
+app.post('/newAvatar', upload.single('avatar'), function (req, res, next) {
+	res.redirect('/index.html');
+})
+
 app.post("/", (req, res) => {
   usrnm = req.body.usrnm;
   room = req.body.room;
@@ -67,6 +88,8 @@ app.post("/", (req, res) => {
 
   res.sendFile(__dirname + "/public/main.html");
 });
+
+
 const roomDetails = io.of("/roomMembers");
 roomDetails.on("connection", (socket) => {
   roomDetails.emit("roomMembersCount", roomMembersCount);
