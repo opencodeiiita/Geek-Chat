@@ -239,7 +239,7 @@ io.on("connection", (socket) => {
     //check user
     if (user != null || user != undefined) {
       if (info.text !== undefined || info.id !== undefined) {
-        info = { ...info, time: moment().valueOf() };
+        info = { id: info.id, text: sanitizeAndRenderMessage(info.text, true), time: moment().valueOf() };
         io.in(user.room).emit("edit-msg", info);
       }
     }

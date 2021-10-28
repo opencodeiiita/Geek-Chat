@@ -388,9 +388,10 @@ socket.on("edit-msg", ({ text, id, time }) => {
   const textDiv = msgDiv.querySelector(".text");
   //insert new text
   if (isRepliedMsg) {
-    textDiv.innerHTML += `<p class='replied-msg'>${text}</p>`;
+    textDiv.innerHTML += text;
+    textDiv.children[1].classList.add("replied-msg");
   } else {
-    textDiv.innerHTML = `<p class='text'>${text}</p>`;
+    textDiv.innerHTML = text;
   }
   //change time
   const timeSpan = msgDiv.querySelector(".meta").querySelector("span");
