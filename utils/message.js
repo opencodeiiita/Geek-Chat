@@ -1,12 +1,25 @@
 const marked = require("marked");
 const encode = require("html-entities")["encode"];
 const moment = require("moment");
+var Filter = require('bad-words')
+const filter = new Filter({ placeHolder: 'x'});
+
+function sanitize(message){
+    const fiterMessage = filter.clean(message)
+    const markdown = marked(fiterMessage)
+    const reducedString = markdown.replace( /(<([^>]+)>)/ig, '')
+    if(filter.isProfane(reducedString)){
+        return null
+    }
+    return markdown
+}
+
 function formatMessages(id, username, text, userID, profilePhoto='') {
     if(text.includes('replied-msg-container')){
     return {
         id,
         username,
-        text: marked(text),
+        text: sanitize(text) || marked("Profanity not allowed"),
         userID,
         time: moment().valueOf(),
         profilePhoto,
@@ -15,7 +28,7 @@ function formatMessages(id, username, text, userID, profilePhoto='') {
 return {
     id,
     username,
-    text: marked(encode(text)),
+    text: sanitize(encode(text)) || marked("Profanity not allowed"),
     userID,
     time: moment().valueOf(),
     profilePhoto,
