@@ -36,9 +36,9 @@ var usrnm;
 var room;
 var  profilePhoto;
 
-const formatMessages = require("./utils/message.js");
-const { usersArr, newUser } = require("./utils/users.js");
-const { roomMembersCount } = require("./utils/roomMembersCount.js");
+const { formatMessage, sanitizeAndRenderMessage } = require("./utils/message");
+const { usersArr, newUser } = require("./utils/users");
+const { roomMembersCount } = require("./utils/roomMembersCount");
 const { on } = require("events");
 
 // Json
@@ -140,14 +140,16 @@ io.on("connection", (socket) => {
 
   socket.emit(
     "message",
-    formatMessages("", "GeekChat Bot", "Welcome to GeekChat!", "")
+    formatMessage("", "GeekChat Bot", "*Welcome to GeekChat!*", "")
   );
+
   socket
     .to(room)
     .emit(
       "message",
-      formatMessages("", "GeekChat Bot", `${usrnm} entered the chat!`, "", profilePhoto)
+      formatMessage("", "GeekChat Bot", `**${usrnm}** entered the chat!`, "", profilePhoto)
     );
+
   let userList = usersArr.filter((ob) => ob.room === room);
   socket.emit("userList", userList);
 
@@ -166,12 +168,14 @@ io.on("connection", (socket) => {
       room,
       count: roomMembersCount[room],
     });
+
     io.in(room).emit("userLeft", {
       id: socket.id,
       username: usrnm,
     });
-    let userIndex = -1,
-      user;
+
+    let userIndex = -1, user;
+
     for (const [index, userObj] of usersArr.entries()) {
       if (userObj.session_id === socket.id) {
         userIndex = index;
@@ -179,11 +183,12 @@ io.on("connection", (socket) => {
         break;
       }
     }
+
     if (userIndex !== -1) {
       usersArr.splice(userIndex, 1);
       io.in(user.room).emit(
         "message",
-        formatMessages("", "GeekChat Bot", `${user.name} disconnected.`, "", user.profilePhoto)
+        formatMessage("", "GeekChat Bot", `**${user.name}** disconnected.`, "", user.profilePhoto)
       );
     }
   });
@@ -197,7 +202,7 @@ io.on("connection", (socket) => {
     if (user) {
       io.in(user.room).emit(
         "message",
-        formatMessages(
+        formatMessage(
           messageID,
           user.name,
           messageObject.msg,

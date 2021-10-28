@@ -1,38 +1,37 @@
-const marked = require("marked");
 const encode = require("html-entities")["encode"];
+const marked = require("marked");
 const moment = require("moment");
-var Filter = require('bad-words')
-const filter = new Filter({ placeHolder: 'x'});
+const Filter = require("bad-words");
 
-function sanitize(message){
-    const fiterMessage = filter.clean(message)
-    const markdown = marked(fiterMessage)
-    const reducedString = markdown.replace( /(<([^>]+)>)/ig, '')
-    if(filter.isProfane(reducedString)){
-        return null
-    }
-    return markdown
+const filter = new Filter({ placeHolder: "x" });
+const profanityWarning = marked("**Message blocked**: profanity not allowed!");
+
+function sanitizeAndRenderMessage(message, encodeMessage) {
+    if (encodeMessage)
+        message = encode(message);
+
+    const fiterMessage = filter.clean(message);
+    const markdown = marked(fiterMessage);
+    const reducedString = markdown.replace( /(<([^>]+)>)/ig, "");
+
+    if (filter.isProfane(reducedString))
+        return profanityWarning;
+
+    return markdown;
 }
 
-function formatMessages(id, username, text, userID, profilePhoto='') {
-    if(text.includes('replied-msg-container')){
+function formatMessage(id, username, text, userID, profilePhoto="") {
     return {
         id,
         username,
-        text: sanitize(text) || marked("Profanity not allowed"),
+        text: sanitizeAndRenderMessage(text, !text.includes("replied-msg-container")),
         userID,
         time: moment().valueOf(),
         profilePhoto,
     };
 }
-return {
-    id,
-    username,
-    text: sanitize(encode(text)) || marked("Profanity not allowed"),
-    userID,
-    time: moment().valueOf(),
-    profilePhoto,
-};
 
-}
-module.exports = formatMessages;
+module.exports = {
+    formatMessage,
+    sanitizeAndRenderMessage
+};
