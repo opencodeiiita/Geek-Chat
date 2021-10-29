@@ -264,7 +264,12 @@ a {
     padding-left: 0.6em;
     opacity: 1;
 }
-
+.chat-messages .author .text img {
+    width: 100px;
+}
+.chat-messages .message .text img {
+    width: 100px;
+}
 .message.bot .meta {
     font-size: 15px;
     font-weight: bold;
@@ -339,7 +344,9 @@ a {
     margin-top: 2.5px;
     outline: none;
 }
-
+#image-input {
+    display: none;
+}
 .message_send_btn {
     background: rgba(0, 255, 149, 0.349);
 }
@@ -418,7 +425,7 @@ a {
         background: rgba(0, 0, 0, 0.849);
         transition: $transitionchange;
     }
-    .message_send_btn {
+    .message_send_btn, .image-add-btn {
         background: rgb(119, 0, 255);
     }
     .btn-danger, .btn-danger2 {
