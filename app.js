@@ -70,14 +70,14 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //routes
 app.post('/image', (req, res) => {
-  const siteURL = 'https://opencode-geekchat-demo.herokuapp.com';
   if (!req.files) {
     return res.json({success:false})
   }
   const image = req.files.image;
-  const name = (new Date().getTime()) + '.' + image.name.split('.')[1]
+  const len = image.name.split('.').length-1;
+  const name = (new Date().getTime()) + '.' + image.name.split('.')[len]
   image.mv(__dirname + "/public/uploads/" + name)
-  return res.json({success:true, link: `${siteURL}/uploads/`+name});
+  return res.json({success:true, link: `/uploads/`+name});
 })
 app.get("/", (req, res) => {
   // rendering main.html

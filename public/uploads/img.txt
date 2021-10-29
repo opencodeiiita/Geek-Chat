@@ -1,1 +1,0 @@
-on dyno restart the uploads will be gone
