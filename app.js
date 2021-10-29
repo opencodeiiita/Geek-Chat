@@ -5,6 +5,7 @@ const socketio = require("socket.io");
 const cors = require("cors"); //make requests from one website to another website in the browser
 const moment = require("moment");
 const multer  = require('multer');
+const fileUpload = require('express-fileupload')
 const fs = require('fs')
 let uniqueSuffix;
 // const totalFiles = fs.readdirSync('./public/avtars').length;
@@ -63,10 +64,21 @@ app.use(
   })
 );
 
+app.use(fileUpload())
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 
 //routes
+app.post('/image', (req, res) => {
+  const siteURL = 'https://opencode-geekchat-demo.herokuapp.com';
+  if (!req.files) {
+    return res.json({success:false})
+  }
+  const image = req.files.image;
+  const name = (new Date().getTime()) + '.' + image.name.split('.')[1]
+  image.mv(__dirname + "/public/uploads/" + name)
+  return res.json({success:true, link: `${siteURL}/uploads/`+name});
+})
 app.get("/", (req, res) => {
   // rendering main.html
   res.sendFile(__dirname + "/public/main.html");

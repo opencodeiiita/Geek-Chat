@@ -98,6 +98,18 @@
                         autocomplete="off"
                         oninput="emitTyping()"
                     />
+                    <label
+                        for="image-input"
+                        class="mdc-fab image-add-btn"
+                        aria-label="add"
+                        style="margin-left: 1em"
+                        color="#ccc"
+                        type="button"
+                    >
+                        <div class="mdc-fab__ripple"></div>
+                        <span class="mdc-fab__icon material-icons">add</span>
+                    </label>
+                    <input type="file" accept="jpeg/png" id='image-input' onchange="imageUpload()"/>
                     <button
                         class="mdc-fab message_send_btn"
                         aria-label="send"

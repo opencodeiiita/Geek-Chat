@@ -550,3 +550,18 @@ const toggleSideBar = () => {
     isSideBarOpen = true;
   }
 };
+
+//image upload
+const imageUpload = async () => {
+  const file = document.getElementById('image-input').files[0];
+  const formData = new FormData()
+  formData.append('image', file)
+  console.log(formData)
+  const res = await fetch('/image', {
+    method: 'post', 
+    body: formData
+  })
+  const imgURL = await res.json();
+  document.getElementById('msg').value = `![img](${imgURL.link})`
+  document.getElementById('image-input').value = '';
+}
