@@ -6,10 +6,16 @@ const userMap = new Map();
 const CURRENT_USER = sessionStorage.getItem("current_user");
 const colors = ["F4C430","E02401","F037A5","A9333A","800080","FFA400","D8345F"]
 var room;
-
+var cntr=1, rCntr=1;
 function randColor() {
   const c = Math.floor(Math.random() * 7);
   return colors[c];
+}
+//function to display truncated text
+function readMore(num) {
+  document.getElementById(`${num}xtra`).className = '';
+  document.getElementById(`${num}link`).classList.add("extra");
+  scrollToBottom();
 }
 
 socket.on("roomJoined", (connectionObj) => {
@@ -76,6 +82,8 @@ function outputMessage(msg) {
     if (div.classList.contains("author")){ 
       color= "000000";
     }
+    var temp = document.createElement("div");
+    temp.innerHTML = values[0].text;
     div.innerHTML += `
     <button class="btn-danger btn-danger-reply" onclick="replyMsg('${
       values[0].id
@@ -84,11 +92,44 @@ function outputMessage(msg) {
     </span></button>
     <p class="meta" style="color: #${color};">${values[0].username} <span>${moment(
       values[0].time
-    ).format("h:mm a")}</span></p>
-        <div class="text">
+    ).format("h:mm a")}</span></p>`
+    //check if its a replied message
+    if(temp.children.length < 2 ) {
+      //if more than 50 characters , we truncate the message
+      if (values[0].text.length <= 57) {
+        div.innerHTML += `<div class="text">
         ${values[0].text}
-        </div>
-        ${
+        </div>`;
+      } else {
+        var lgMsg = values[0].text;
+        var longMsg = lgMsg.substring(3,lgMsg.length-5);
+        var seenMsg = longMsg.substring(0,49);
+        var extraMsg = longMsg.substring(49,);
+        div.innerHTML += `<div class="text"><p><span class="seen">
+        ${seenMsg}</span><span class="extra" id="${cntr}xtra">${extraMsg}</span><br>
+        <span id="${cntr}link" style="color: blue; cursor :pointer;" onclick="readMore(${cntr});">Read more</span></p>
+        </div>`
+        ++cntr;
+
+      }
+    } else {
+      var msgCntr = temp.children[0].outerHTML;
+      if (temp.children[1].innerHTML.length <= 50) {
+        div.innerHTML += `<div class="text">
+        ${values[0].text}
+        </div>`;
+      } else {
+        var longMsg = temp.children[1].innerHTML;
+        var seenMsg = longMsg.substring(0,49);
+        var extraMsg = longMsg.substring(49,);
+        div.innerHTML += `<div class="text">${msgCntr}<p class="replied-msg"><span class="seen">
+        ${seenMsg}</span><span class="extra" id="${cntr}xtra">${extraMsg}</span><br>
+        <span id="${cntr}link" style="color: blue; cursor :pointer;" onclick="readMore(${cntr});">Read more</span></p>
+        </div>`
+        ++cntr;
+      }
+    }    
+    div.innerHTML += `${
           values[0].userID === values[1]
             ? `<span class="material-icons three-dots-menu" onclick="menuOpen('${values[0].id}')">
         more_vert
@@ -187,7 +228,6 @@ socket.on("userLeft", ({ id, username }) => {
     user.remove();
   }, 1500);
   userMap.delete(id, username);
-  console.log(userMap);
 });
 
 socket.on("deleteMsgFromChat", (msgId) => {
@@ -310,6 +350,7 @@ const editMsg = (id) => {
   //set editing mode to true
   isEditing = { status: true, id: id };
   let isRepliedMsg = false;
+  let prevMsgText = '';
   //get old text
   if (
     document
@@ -323,10 +364,16 @@ const editMsg = (id) => {
   ) {
     isRepliedMsg = true;
   }
-  const prevMsgText = document
+  const prevMsgPara = document
     .getElementById(id)
     .querySelector(".text")
-    .querySelector(`${isRepliedMsg ? ".replied-msg" : "p"}`).innerText;
+    .querySelector(`${isRepliedMsg ? ".replied-msg" : "p"}`);
+
+  if(prevMsgPara.children.length != 0) {
+    prevMsgText = prevMsgPara.children[0].innerText + prevMsgPara.children[1].innerText;
+  }  else {
+    prevMsgText = prevMsgPara.innerText;
+  }
   //select input and put old text in input
   const inputEle = document.getElementById("msg");
   inputEle.value = prevMsgText;
@@ -387,12 +434,41 @@ socket.on("edit-msg", ({ text, id, time }) => {
   //get text msg div
   const textDiv = msgDiv.querySelector(".text");
   //insert new text
-  if (isRepliedMsg) {
-    textDiv.innerHTML += text;
-    textDiv.children[1].classList.add("replied-msg");
+  if (!isRepliedMsg) {
+    //normal msg directly edited to division
+    if (text.length <= 57) {
+      textDiv.innerHTML = text;
+    } else {
+      var lgMsg = text;
+      var longMsg = lgMsg.substring(3,lgMsg.length-5);
+      var seenMsg = longMsg.substring(0,49);
+      var extraMsg = longMsg.substring(49,);
+      textDiv.innerHTML = `<p><span class="seen">
+      ${seenMsg}</span><span class="extra" id="${cntr}xtra">${extraMsg}</span><br>
+      <span id="${cntr}link" style="color: blue; cursor :pointer;" onclick="readMore(${cntr});">Read more</span></p>`
+      ++cntr;
+    }
   } else {
-    textDiv.innerHTML = text;
+    //replied msg
+    //alter the para and add to div
+    var editpara = document.createElement('p');
+    if (text.length <= 57) {
+      editpara.innerHTML = text.substring(3,text.length-5);
+    } else {
+      var lgMsg = text;
+      var longMsg = lgMsg.substring(3,lgMsg.length-5);
+      var seenMsg = longMsg.substring(0,49);
+      var extraMsg = longMsg.substring(49,);
+      // console.log(textDiv.outerHTML);
+      editpara.innerHTML = `<span class="seen">
+      ${seenMsg}</span><span class="extra" id="${cntr}xtra">${extraMsg}</span><br>
+      <span id="${cntr}link" style="color: blue; cursor :pointer;" onclick="readMore(${cntr});">Read more</span></p>`
+      ++cntr; 
+    }
+    editpara.classList.add('replied-msg');
+    textDiv.appendChild(editpara);
   }
+
   //change time
   const timeSpan = msgDiv.querySelector(".meta").querySelector("span");
   timeSpan.innerHTML = moment(time).format("h:mm a");
@@ -409,7 +485,7 @@ socket.on("edit-msg", ({ text, id, time }) => {
 
 /* Replying msg feature */
 var isReplying = { status: false, info: { name: "", text: "" } };
-
+var repliedDiv;
 const replyMsg = (id) => {
   let isRepliedMsg = false;
   if (
@@ -425,14 +501,14 @@ const replyMsg = (id) => {
     isRepliedMsg = true;
   }
   //find author name and text
-  const msgDiv = document.getElementById(id);
-  const authorDetails = msgDiv.querySelector(".meta");
+  repliedDiv = document.getElementById(id);
+  const authorDetails = repliedDiv.querySelector(".meta");
   const authorName = authorDetails.innerText;
   let msgText;
   if (isRepliedMsg) {
-    msgText = msgDiv.querySelector(".text").querySelector(".replied-msg");
+    msgText = repliedDiv.querySelector(".text").querySelector(".replied-msg");
   } else {
-    msgText = msgDiv.querySelector(".text").querySelector("p");
+    msgText = repliedDiv.querySelector(".text").querySelector("p");
   }
   //set replying mode
   isReplying = {
@@ -461,11 +537,34 @@ const emitReplyMsg = (e) => {
   //get msg text
   const repMsg = e.target.elements.msg.value;
   //check msg and emit
+  let isRepliedMsg = false;
+  if (
+    repliedDiv
+      .querySelector(".text")
+      .querySelector(".replied-msg") != undefined ||
+    repliedDiv
+      .querySelector(".text")
+      .querySelector(".replied-msg") != null
+  ) {
+    isRepliedMsg = true;
+  }
+  var rplyText;
+  var rplyPara = repliedDiv
+    .querySelector(".text")
+    .querySelector(`${isRepliedMsg ? ".replied-msg" : "p"}`);
+    if(rplyPara.innerText.length <=50) {
+      // rplyText = '<p>' + rplyPara.innerText + '</p>';
+      rplyText = rplyPara.outerHTML;
+    } else {
+      var temp = rplyPara.querySelector('.seen').innerText;
+      rplyText = '<p>' + temp + '...</p>';
+    }
+
   let userID = socket.id;
   if (repMsg.trim() == "") {
     isReplying = { status: false, info: { name: "", text: "" } };
   } else {
-    const msg = `<div class="replied-msg-container">${isReplying.info.name}${isReplying.info.text}</div><p class='replied-msg'>${repMsg}</p>`;
+    const msg = `<div class="replied-msg-container">${isReplying.info.name}${rplyText}</div><p class='replied-msg'>${repMsg}</p>`;
     socket.emit("chatMessage", { msg, userID });
     isReplying = { status: false, info: { name: "", text: "" } };
   }

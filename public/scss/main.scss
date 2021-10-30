@@ -525,6 +525,9 @@ a {
     background-color: #00000080;
     color: white;
 }
+.extra {
+    display: none;
+}
 .message .btn-danger-reply {
     left: calc(100% + 25px);
     background: none !important;
