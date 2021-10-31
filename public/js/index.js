@@ -37,6 +37,7 @@ socket.on("message", (message) => {
 
 function outputMessage(msg) {
   var values = Object.values(msg);
+  // console.log(values[0].text);
   var color = sessionStorage.getItem(values[0].username);
   const div = document.createElement("div");
   const mssgProfilePhoto = document.createElement("img");
@@ -96,30 +97,31 @@ function outputMessage(msg) {
     //check if its a replied message
     if(temp.children.length < 2 ) {
       //if more than 50 characters , we truncate the message
-      if (values[0].text.length <= 57) {
+      var lgMsg = values[0].text;
+      let pText = document.createElement('p');
+      pText.innerHTML = lgMsg.substring(3,lgMsg.length-5);
+      if (pText.innerText.length <= 50) {
         div.innerHTML += `<div class="text">
-        ${values[0].text}
+        ${pText.innerText}
         </div>`;
       } else {
-        var lgMsg = values[0].text;
-        var longMsg = lgMsg.substring(3,lgMsg.length-5);
-        var seenMsg = longMsg.substring(0,49);
-        var extraMsg = longMsg.substring(49,);
-        div.innerHTML += `<div class="text"><p><span class="seen">
-        ${seenMsg}</span><span class="extra" id="${cntr}xtra">${extraMsg}</span><br>
-        <span id="${cntr}link" style="color: blue; cursor :pointer;" onclick="readMore(${cntr});">Read more</span></p>
-        </div>`
-        ++cntr;
-
+        var seenMsg = pText.innerText.substring(0,49);
+        var extraMsg = pText.innerText.substring(49,);
+          div.innerHTML += `<div class='text'><p><span class='seen'>
+          ${seenMsg}</span><span class='extra' id='${cntr}xtra'>${extraMsg}</span><br>
+          <span id='${cntr}link' style='color: blue; cursor :pointer;' onclick='readMore(${cntr});'>Read more</span></p>
+          </div>`
+          ++cntr;
+        // }
       }
     } else {
       var msgCntr = temp.children[0].outerHTML;
-      if (temp.children[1].innerHTML.length <= 50) {
+      if (temp.children[1].innerText.length <= 50) {
         div.innerHTML += `<div class="text">
-        ${values[0].text}
+        ${temp.children[1].innerText}
         </div>`;
       } else {
-        var longMsg = temp.children[1].innerHTML;
+        var longMsg = temp.children[1].innerText;
         var seenMsg = longMsg.substring(0,49);
         var extraMsg = longMsg.substring(49,);
         div.innerHTML += `<div class="text">${msgCntr}<p class="replied-msg"><span class="seen">
@@ -412,6 +414,7 @@ const emitEditedText = (e) => {
 
 socket.on("edit-msg", ({ text, id, time }) => {
   let isRepliedMsg = false;
+  // console.log(text);
   if (
     document
       .getElementById(id)
@@ -433,13 +436,15 @@ socket.on("edit-msg", ({ text, id, time }) => {
   const msgDiv = document.getElementById(id);
   //get text msg div
   const textDiv = msgDiv.querySelector(".text");
+  let eText = document.createElement('p');
+  eText.innerHTML = text.substring(3,text.length - 5) 
   //insert new text
   if (!isRepliedMsg) {
     //normal msg directly edited to division
     if (text.length <= 57) {
-      textDiv.innerHTML = text;
+      textDiv.innerHTML = eText.innerText;
     } else {
-      var lgMsg = text;
+      var lgMsg = eText.innerText;
       var longMsg = lgMsg.substring(3,lgMsg.length-5);
       var seenMsg = longMsg.substring(0,49);
       var extraMsg = longMsg.substring(49,);
