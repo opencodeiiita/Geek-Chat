@@ -93,6 +93,7 @@ body {
       .border-gradient {
         --one: #0098c1;
         --two: #00d721;
+        width: 100%;
         padding:5px;
         border-radius: 15px;
       }
@@ -473,6 +474,7 @@ i.fa.fa-check.icon_check.hidden1{
 @media (max-width: 768px) {
   body {
     .main-div {
+      width: 95%;
       padding: 5% 5% 7% 5%;
     }
     .heading {
@@ -485,29 +487,21 @@ i.fa.fa-check.icon_check.hidden1{
         .form-group {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          justify-content: start;
         }
         #username{
           padding: 2.5px;
-          text-align: center;
         }
-        input:focus {
-          width: 85%;
-        }
-
         input {
-          width: 85%;
+          width: 100%;
           margin: 0;
-          padding: 0;
-          text-align: center;
+          padding: 0.5rem 1rem;
         }
         select {
-          width: 85%;
-          text-align: center;
+          padding: auto 1rem;
+          width: 100%;
         }
         select:focus {
-          text-align: center;
           width: 85%;
         }
       }
