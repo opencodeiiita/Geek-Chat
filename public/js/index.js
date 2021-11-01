@@ -13,8 +13,10 @@ function randColor() {
 }
 //function to display truncated text
 function readMore(num) {
+  document.getElementById(`s${num}`).classList.add("extra")
   document.getElementById(`${num}xtra`).className = '';
   document.getElementById(`${num}link`).classList.add("extra");
+
   scrollToBottom();
 }
 
@@ -46,6 +48,7 @@ function outputMessage(msg) {
   mssgProfilePhoto.classList.add("userAvatar1");
   div.setAttribute("id", values[0].id);
   div1.setAttribute("id", `${values[0].id}-topDiv`);
+  let trnc = false;
   if (values[0].userID === values[1]) {
     div.classList.add("author");
     div1.classList.add("profileRight");
@@ -102,13 +105,14 @@ function outputMessage(msg) {
       pText.innerHTML = lgMsg.substring(3,lgMsg.length-5);
       if (pText.innerText.length <= 50) {
         div.innerHTML += `<div class="text">
-        ${pText.innerText}
+        ${values[0].text}
         </div>`;
       } else {
+        trnc = true;
         var seenMsg = pText.innerText.substring(0,49);
-        var extraMsg = pText.innerText.substring(49,);
-          div.innerHTML += `<div class='text'><p><span class='seen'>
-          ${seenMsg}</span><span class='extra' id='${cntr}xtra'>${extraMsg}</span><br>
+        // var extraMsg = pText.innerText.substring(49,);
+          div.innerHTML += `<div class='text'><p><span class='seen' id='s${cntr}'>
+          ${seenMsg}</span><span class='extra' id='${cntr}xtra'>${pText.innerHTML}</span><br>
           <span id='${cntr}link' style='color: blue; cursor :pointer;' onclick='readMore(${cntr});'>Read more</span></p>
           </div>`
           ++cntr;
@@ -117,15 +121,15 @@ function outputMessage(msg) {
     } else {
       var msgCntr = temp.children[0].outerHTML;
       if (temp.children[1].innerText.length <= 50) {
-        div.innerHTML += `<div class="text">
-        ${temp.children[1].innerText}
+        div.innerHTML += `<div class="text">${msgCntr}<p class="replied-msg">
+        ${temp.children[1].innerText}</p>
         </div>`;
       } else {
+        trnc = true;
         var longMsg = temp.children[1].innerText;
         var seenMsg = longMsg.substring(0,49);
-        var extraMsg = longMsg.substring(49,);
-        div.innerHTML += `<div class="text">${msgCntr}<p class="replied-msg"><span class="seen">
-        ${seenMsg}</span><span class="extra" id="${cntr}xtra">${extraMsg}</span><br>
+        div.innerHTML += `<div class="text">${msgCntr}<p class="replied-msg"><span class='seen' id='s${cntr}'>
+        ${seenMsg}</span><span class='extra' id='${cntr}xtra'>${temp.children[1].innerText}</span><br>
         <span id="${cntr}link" style="color: blue; cursor :pointer;" onclick="readMore(${cntr});">Read more</span></p>
         </div>`
         ++cntr;
@@ -138,6 +142,9 @@ function outputMessage(msg) {
         </span>`
             : ``
         }`;
+  }
+  if(trnc) {
+    div.querySelector(".text").querySelector('p').classList.add('trnc');
   }
   let repliedMsgCheck = div
     .querySelector(".text")
@@ -371,9 +378,9 @@ const editMsg = (id) => {
     .querySelector(".text")
     .querySelector(`${isRepliedMsg ? ".replied-msg" : "p"}`);
 
-  if(prevMsgPara.children.length != 0) {
-    prevMsgText = prevMsgPara.children[0].innerText + prevMsgPara.children[1].innerText;
-  }  else {
+  if (prevMsgPara.classList.contains("trnc")) {
+    prevMsgText = prevMsgPara.children[1].innerText;
+  } else {
     prevMsgText = prevMsgPara.innerText;
   }
   //select input and put old text in input
@@ -436,37 +443,39 @@ socket.on("edit-msg", ({ text, id, time }) => {
   const msgDiv = document.getElementById(id);
   //get text msg div
   const textDiv = msgDiv.querySelector(".text");
+  console.log(textDiv.outerHTML);
   let eText = document.createElement('p');
   eText.innerHTML = text.substring(3,text.length - 5) 
   //insert new text
   if (!isRepliedMsg) {
     //normal msg directly edited to division
     if (text.length <= 57) {
-      textDiv.innerHTML = eText.innerText;
+      textDiv.innerHTML = text;
     } else {
-      var lgMsg = eText.innerText;
-      var longMsg = lgMsg.substring(3,lgMsg.length-5);
-      var seenMsg = longMsg.substring(0,49);
-      var extraMsg = longMsg.substring(49,);
-      textDiv.innerHTML = `<p><span class="seen">
-      ${seenMsg}</span><span class="extra" id="${cntr}xtra">${extraMsg}</span><br>
-      <span id="${cntr}link" style="color: blue; cursor :pointer;" onclick="readMore(${cntr});">Read more</span></p>`
+      // var lgMsg = eText.innerText;
+      // var longMsg = lgMsg.substring(0,lgMsg.length-5);
+      var seenMsg = eText.innerText.substring(0,49);
+      // var extraMsg = eText.innerText.substring(49,);
+      textDiv.innerHTML = `<p><span class='seen' id='s${cntr}'>
+      ${seenMsg}</span><span class='extra' id='${cntr}xtra'>${text.substring(3,text.length - 5)}</span><br>
+      <span id='${cntr}link' style='color: blue; cursor :pointer;' onclick='readMore(${cntr});'>Read more</span></p>`
       ++cntr;
     }
   } else {
     //replied msg
     //alter the para and add to div
     var editpara = document.createElement('p');
+    var tempPara = document.createElement('p');
     if (text.length <= 57) {
-      editpara.innerHTML = text.substring(3,text.length-5);
+      editpara.innerHTML = text.substring(3,text.length-5); 
     } else {
-      var lgMsg = text;
-      var longMsg = lgMsg.substring(3,lgMsg.length-5);
-      var seenMsg = longMsg.substring(0,49);
-      var extraMsg = longMsg.substring(49,);
+      tempPara.innerHTML = text.substring(3,text.length-5);
+      // var longMsg = lgMsg.substring(3,lgMsg.length-5);
+      var seenMsg = tempPara.innerText.substring(0,49);
+      // var extraMsg = longMsg.substring(49,);
       // console.log(textDiv.outerHTML);
-      editpara.innerHTML = `<span class="seen">
-      ${seenMsg}</span><span class="extra" id="${cntr}xtra">${extraMsg}</span><br>
+      editpara.innerHTML = `<span class="seen" id='s${cntr}'>
+      ${seenMsg}</span><span class="extra" id="${cntr}xtra">${tempPara.innerHTML}</span><br>
       <span id="${cntr}link" style="color: blue; cursor :pointer;" onclick="readMore(${cntr});">Read more</span></p>`
       ++cntr; 
     }
@@ -558,7 +567,6 @@ const emitReplyMsg = (e) => {
     .querySelector(".text")
     .querySelector(`${isRepliedMsg ? ".replied-msg" : "p"}`);
     if(rplyPara.innerText.length <=50) {
-      // rplyText = '<p>' + rplyPara.innerText + '</p>';
       rplyText = rplyPara.outerHTML;
     } else {
       var temp = rplyPara.querySelector('.seen').innerText;
