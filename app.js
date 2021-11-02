@@ -4,43 +4,19 @@ const express = require("express");
 const socketio = require("socket.io");
 const cors = require("cors"); //make requests from one website to another website in the browser
 const moment = require("moment");
-const multer  = require('multer');
 const fileUpload = require('express-fileupload')
-const fs = require('fs')
-let uniqueSuffix;
-// const totalFiles = fs.readdirSync('./public/avtars').length;
-let cnt = fs.readdirSync('./public/avtars').length + 1;
-
-const storage = multer.diskStorage({
-destination: function (req, file, cb) {
-  cb(null, './public/avtars')
-},
-filename: function (req, file, cb) {
-  cnt = fs.readdirSync('./public/avtars').length + 1;
-  let extn = file.originalname.split('.');
-  uniqueSuffix = cnt + '.'+extn[extn.length - 1];
-  cb(null, uniqueSuffix );
-  
-}
-})
-
-const upload = multer({ storage: storage })
-const fetch = require('node-fetch');
-const { stringify } = require('querystring');
+const indexRoutes= require("./routes/index")
+const imageRoutes= require("./routes/image")
 const app = express();
-app.use(express.json());
 const server = http.createServer(app);
 const io = socketio(server);
 const compileSass = require('compile-sass');
 
-var usrnm;
-var room;
-var  profilePhoto;
+const { sanitizeAndRenderMessage } = require("./utils/message");
+const { formatMessage } = require("./models/message");
 
-const { formatMessage, sanitizeAndRenderMessage } = require("./utils/message");
-const { usersArr, newUser } = require("./utils/users");
+const { usersArr, newUser, currentUserData } = require("./utils/users");
 const { roomMembersCount } = require("./utils/roomMembersCount");
-const { on } = require("events");
 
 // Json
 app.use(express.json());
@@ -49,6 +25,7 @@ app.use(
     extended: true,
   })
 );
+
 app.use(
   "/css/:cssName",
   compileSass.setup({
@@ -69,72 +46,20 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 
 //routes
-app.post('/image', (req, res) => {
-  if (!req.files) {
-    return res.json({success:false})
-  }
-  const image = req.files.image;
-  const len = image.name.split('.').length-1;
-  const name = (new Date().getTime()) + '.' + image.name.split('.')[len]
-  image.mv(__dirname + "/public/uploads/" + name)
-  return res.json({success:true, link: `/uploads/`+name});
-})
-app.get("/", (req, res) => {
-  // rendering main.html
-  res.sendFile(__dirname + "/public/main.html");
-});
-
-app.post('/newAvatar', upload.single('avatar'), function (req, res, next) {
-  // console.log(cnt.);
-	res.send(uniqueSuffix.toString());
-})
-
-app.post("/", async(req, res) => {
-  // RECAPTCHA SERVER SIDE
-  if (!req.body['g-recaptcha-response'])
-    return res.sendFile(__dirname + "/public/index.html");
-  // Secret key
-  const secretKey = '6Lc20uYcAAAAANeXi5yv3q_YTMsN3J8NTHUcpmD5';
-  // Verify URL
-  const query = stringify({
-    secret: secretKey,
-    response: req.body['g-recaptcha-response'],
-    remoteip: req.connection.remoteAddress
-  });
-  const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
-  // Make a request to verifyURL
-  const body = await fetch(verifyURL).then(resp => resp.json());
-  // If not successful
-  if (body.success !== undefined && !body.success)  return res.sendFile(__dirname + "/public/index.html");
-  // If successful
-  // return res.json({ success: true, msg: 'Captcha passed' });
-
-  usrnm = req.body.usrnm;
-  room = req.body.room;
-  profilePhoto=req.body.imageUrl;
-  if (
-    usersArr.find((user) => {
-      if (user.name === usrnm && user.room === room) return true;
-    })
-  ) {
-    return res.sendFile(__dirname + "/public/index.html");
-  }
-  if (/\s/g.test(usrnm)) {
-    return res.sendFile(__dirname + "/public/index.html");
-  }
-
-  res.sendFile(__dirname + "/public/main.html");
-});
-
+app.use("/", indexRoutes);
+app.use("/", imageRoutes);
 
 const roomDetails = io.of("/roomMembers");
 roomDetails.on("connection", (socket) => {
   roomDetails.emit("roomMembersCount", roomMembersCount);
 });
+
 io.on("connection", (socket) => {
   //Validating user
   //Connecting the user to the room
   //Greeting message in the room user has joined
+
+  let { usrnm, room, profilePhoto } = currentUserData;
 
   if (usrnm != undefined && room != undefined) {
     roomMembersCount[room]++;
@@ -142,7 +67,9 @@ io.on("connection", (socket) => {
       room,
       count: roomMembersCount[room],
     });
+
     newUser(usrnm, room, socket.id, profilePhoto);
+
     socket.join(room);
     socket.emit("roomJoined", {
       room,
