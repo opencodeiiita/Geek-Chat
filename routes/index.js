@@ -30,17 +30,18 @@ router.post("/", async(req, res) => {
     // If successful
     // return res.json({ success: true, msg: 'Captcha passed' });
 
-    let { usrnm, room, profilePhoto } = currentUserData;
-
     currentUserData.usrnm = req.body.usrnm;
-    currentUserData.room = req.body.room;
+    currentUserData.room = req.body.newroom;
     currentUserData.profilePhoto = req.body.imageUrl;
+
+    let { usrnm, room, profilePhoto } = currentUserData;
 
     if (
       usersArr.find((user) => {
-        if (user.name === usrnm && user.room === room) return true;
+        if (currentUserData.usrnm === user.name && currentUserData.room === user.room) return true;
       })
     ) {
+      console.log('here');
       return res.sendFile(path.join(__dirname , "../views/index.html"));
     }
     if (/\s/g.test(usrnm)) {
