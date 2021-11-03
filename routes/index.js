@@ -30,11 +30,11 @@ router.post("/", async(req, res) => {
     // If successful
     // return res.json({ success: true, msg: 'Captcha passed' });
 
-    let { usrnm, room, profilePhoto } = currentUserData;
-
     currentUserData.usrnm = req.body.usrnm;
     currentUserData.room = req.body.newroom;
     currentUserData.profilePhoto = req.body.imageUrl;
+
+    let { usrnm, room, profilePhoto } = currentUserData;
 
     if (
       usersArr.find((user) => {
