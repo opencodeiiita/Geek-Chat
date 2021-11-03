@@ -33,7 +33,7 @@ router.post("/", async(req, res) => {
     let { usrnm, room, profilePhoto } = currentUserData;
 
     currentUserData.usrnm = req.body.usrnm;
-    currentUserData.room = req.body.room;
+    currentUserData.room = req.body.newroom;
     currentUserData.profilePhoto = req.body.imageUrl;
 
     if (
