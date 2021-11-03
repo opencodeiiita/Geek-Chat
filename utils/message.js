@@ -1,6 +1,6 @@
 const encode = require("html-entities")["encode"];
 const marked = require("marked");
-const moment = require("moment");
+
 const Filter = require("bad-words");
 
 const filter = new Filter({ placeHolder: "x" });
@@ -20,18 +20,6 @@ function sanitizeAndRenderMessage(message, encodeMessage) {
     return markdown;
 }
 
-function formatMessage(id, username, text, userID, profilePhoto="") {
-    return {
-        id,
-        username,
-        text: sanitizeAndRenderMessage(text, !text.includes("replied-msg-container")),
-        userID,
-        time: moment().valueOf(),
-        profilePhoto,
-    };
-}
-
 module.exports = {
-    formatMessage,
     sanitizeAndRenderMessage
 };
